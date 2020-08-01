@@ -1,0 +1,6 @@
+use_frameworks!
+target 'Twitch_Tests' do
+  pod 'Twitch', :path => '../'
+  
+  
+end
