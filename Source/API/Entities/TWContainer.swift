@@ -9,8 +9,12 @@
 import Foundation
 
 public struct TWContainer<T: Codable>: Codable {
-    var data: T
-    var total: Int?
+    
+    /// Contains whatever content was requested (e.g. [TWUser], TWStreamKey etc.)
+    public var data: T
+    
+    /// Total number of items returned.
+    public var total: Int?
     
     /// A cursor value, to be used in a subsequent request to specify the starting point of the next set of results.
     var pagination: TWCursor?
@@ -27,5 +31,5 @@ public struct TWContainer<T: Codable>: Codable {
 }
 
 public struct TWCursor: Codable {
-    var cursor: String
+    public var cursor: String
 }
