@@ -9,23 +9,22 @@
 import Foundation
 import WebKit
 
-protocol TWAuthDelegate: class {
+public protocol TWAuthDelegate: class {
     func didFetch(idToken: String, accessToken: String)
 }
 
-final class TWAuthViewController: UIViewController {
+public final class TWAuthViewController: UIViewController {
     
-    weak var delegate: TWAuthDelegate?
+    public weak var delegate: TWAuthDelegate?
     
     private var webView: WKWebView = {
         let webView = WKWebView()
         webView.translatesAutoresizingMaskIntoConstraints = false
         return webView
     }()
-    
     var url: URL?
     
-    init(delegate: TWAuthDelegate?) {
+    public init(delegate: TWAuthDelegate? = nil) {
         super.init(nibName: nil, bundle: nil)
         self.delegate = delegate
     }
@@ -41,7 +40,7 @@ final class TWAuthViewController: UIViewController {
         setupChildViews()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let url = url {
             webView.navigationDelegate = self
@@ -65,7 +64,7 @@ final class TWAuthViewController: UIViewController {
 
 extension TWAuthViewController: WKNavigationDelegate {
     
-    func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+    public func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
         if isCorrectRedirectURL(webView.url) {
             evaluateRedirectURL(webView.url)
             dismiss(animated: true, completion: nil)

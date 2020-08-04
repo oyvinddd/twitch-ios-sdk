@@ -24,7 +24,7 @@ public class Twitch: NSObject {
     fileprivate static let searchRepository = TWSearchRepository()
     fileprivate static let tagsRepository = TWTagsRepository()
     
-    class func initialize(clientId: String, config: TWConfig) {
+    public class func initialize(clientId: String, config: TWConfig) {
         self.credentials = TWCredentials(clientId: clientId)
         self.config = config
     }

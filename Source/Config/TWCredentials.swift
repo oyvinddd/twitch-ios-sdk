@@ -21,12 +21,15 @@ public struct TWCredentials {
         self.clientId = clientId
     }
     
-    mutating func set(accessToken: String?, idToken: String?) {
+    public mutating func set(accessToken: String?) {
         self.accessToken = accessToken
+    }
+    
+    public mutating func set(idToken: String?) {
         self.idToken = idToken
     }
     
-    mutating func clear() {
+    public mutating func clear() {
         accessToken = nil
         idToken = nil
     }

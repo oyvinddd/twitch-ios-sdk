@@ -58,6 +58,7 @@
 		8E18F7DA24D932AE006AB38E /* URLSession+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7AA24D932AE006AB38E /* URLSession+Result.swift */; };
 		8E18F7DB24D932AE006AB38E /* URLComponents+Params.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7AB24D932AE006AB38E /* URLComponents+Params.swift */; };
 		8E18F7DC24D932AE006AB38E /* URLSession+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7AC24D932AE006AB38E /* URLSession+Decodable.swift */; };
+		8E7096F124D982B400636675 /* TWViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7096F024D982B400636675 /* TWViewControllers.swift */; };
 		D040DF40873789EF5A83D95ECFD8D9F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		D38FEAB759A8ADC11B803AD31CDBAD58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		DD25C75E8A046EEE32508FFB0B2C432C /* Pods-Twitch_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3231B9D4CEF1FB4420D6501FC29385C4 /* Pods-Twitch_Tests-dummy.m */; };
@@ -138,6 +139,7 @@
 		8E18F7AA24D932AE006AB38E /* URLSession+Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Result.swift"; sourceTree = "<group>"; };
 		8E18F7AB24D932AE006AB38E /* URLComponents+Params.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponents+Params.swift"; sourceTree = "<group>"; };
 		8E18F7AC24D932AE006AB38E /* URLSession+Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Decodable.swift"; sourceTree = "<group>"; };
+		8E7096F024D982B400636675 /* TWViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWViewControllers.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F062C3E580323074D3BEFD412D7CC50 /* Twitch-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Twitch-Info.plist"; sourceTree = "<group>"; };
 		C6208969F0DE14D15CCECF2DA01E24E4 /* Twitch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Twitch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				8E18F77724D932AE006AB38E /* TWAuthViewController.swift */,
+				8E7096F024D982B400636675 /* TWViewControllers.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				8E18F7D324D932AE006AB38E /* TWCheermote.swift in Sources */,
 				8E18F7D224D932AE006AB38E /* TWVideo.swift in Sources */,
 				8E18F7C424D932AE006AB38E /* TWCodeStatus.swift in Sources */,
+				8E7096F124D982B400636675 /* TWViewControllers.swift in Sources */,
 				8E18F7CB24D932AE006AB38E /* TWIngest.swift in Sources */,
 				8E18F7CA24D932AE006AB38E /* TWChannel.swift in Sources */,
 			);
