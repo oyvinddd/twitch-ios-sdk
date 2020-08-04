@@ -8,35 +8,17 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Twitch'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of Twitch.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
+  s.version          = '1.0.0'
+  s.summary          = 'Native Swift wrapper for the official Twitch API'
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  'This SDK wraps all the services available at https://dev.twitch.tv/docs/api.'
                        DESC
 
-  s.homepage         = 'https://github.com/43780301/Twitch'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '43780301' => 'oyvind.hauge@evry.com' }
-  s.source           = { :git => 'https://github.com/43780301/Twitch.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '8.0'
-
-  s.source_files = 'Twitch/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Twitch' => ['Twitch/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.homepage                = 'https://github.com/oyvinddd/twitch-ios-sdk'
+  s.license                 = { :type => 'MIT', :file => 'LICENSE' }
+  s.author                  = { 'Øyvind Hauge' => 'oyvind.s.hauge@gmail.com' }
+  s.source                  = { :git => 'https://github.com/oyvinddd/twitch-ios-sdk', :tag => s.version.to_s }
+  s.ios.deployment_target   = '12.0'
+  s.source_files            = 'Source/**/*'
+  s.swift_version           = '5.0'
 end
