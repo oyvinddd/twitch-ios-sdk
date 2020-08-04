@@ -1,5 +1,5 @@
 Inline-style: 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![Twitch banner](/Assets/twitch-header.svg "Twitch banner")
 
 [![CI Status](https://img.shields.io/travis/43780301/Twitch.svg?style=flat)](https://travis-ci.org/43780301/Twitch)
 [![Version](https://img.shields.io/cocoapods/v/Twitch.svg?style=flat)](https://cocoapods.org/pods/Twitch)
@@ -7,7 +7,7 @@ Inline-style:
 [![Platform](https://img.shields.io/cocoapods/p/Twitch.svg?style=flat)](https://cocoapods.org/pods/Twitch)
 
 ## Information
-The Twitch iOS SDK is a native wrapper around the [official Twitch API](https://dev.twitch.tv/docs/api/).
+The Twitch iOS SDK is a modern, lightweight wrapper around the [official Twitch API](https://dev.twitch.tv/docs/api/). Its main purpose is to make your life easier when building apps that needs to integrate with the various Twitch services.
 
 ## Installation
 Twitch is available through [CocoaPods](https://cocoapods.org). To install
@@ -18,21 +18,21 @@ pod 'Twitch'
 ```
 
 ## Prerequisites
-Before you can start using the SDK you need to ![register your app](https://dev.twitch.tv/docs/authentication) on the Twitch developer site.
+Before you can start using the SDK you need to [register your app](https://dev.twitch.tv/docs/authentication) on the Twitch developer site.
 ## Usage
 
-Once you have registered your app and obtained a client ID you are good to go. To initialize the SDK put the following in your [App/Scene]Dekegate:
+Once you have registered your app and obtained a client ID you are good to go. To initialize the SDK put the following in your [App/Scene]Delegate:
 
 ```swift
 Twitch.initialize(clientId: YOUR_CLIENT_ID, config: TWConfig(redirectUri: YOUR_REDIRECT_URI))
 ```
 
 
-
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+### Available API Calls
+| API Method | Swift Function | API Version |
+| ------------- | ------------- | ------------- |
+| Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  |
 
 ## License
 
