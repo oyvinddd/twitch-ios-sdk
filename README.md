@@ -6,7 +6,9 @@
 [![Platform](https://img.shields.io/cocoapods/p/Twitch.svg?style=flat)](https://cocoapods.org/pods/Twitch)
 
 ## Information
-The Twitch iOS SDK is a modern, lightweight wrapper around the [official Twitch API](https://dev.twitch.tv/docs/api/). Its main purpose is to make your life easier when building apps that needs to integrate with the various Twitch services. Note that, although the SDK does support the older Twitch API (V5/Kraken), it has been deprectaed and will most likely be removed by Twitch in the near future.
+The Twitch iOS SDK is a modern, lightweight wrapper around the [official Twitch API](https://dev.twitch.tv/docs/api/). Its main purpose is to make your life easier when building apps that needs to integrate with the various Twitch services.
+
+*Note!* Although the SDK does support [the older Twitch API](https://dev.twitch.tv/docs/v5) (V5/Kraken), this has been deprecated in favor of the new Helix API and will most likely be completely removed by Twitch in the near future.
 
 ## Installation
 Twitch is available through [CocoaPods](https://cocoapods.org). To install
