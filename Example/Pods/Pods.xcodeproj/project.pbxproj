@@ -10,7 +10,54 @@
 		090FB838D94CF784AA21C37E210E46E1 /* Twitch-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EA2268C8867EF5249A60E75FD527892 /* Twitch-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15536BA62C184B2A16D05B41091DA7E7 /* Twitch-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7801C29C03D63624921A146EEA00F509 /* Twitch-dummy.m */; };
 		3FEB5A6B7765D96E9B3519C9A2E2DAD3 /* Pods-Twitch_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E464BADE291310A2F8AC12E0BC7C8AE /* Pods-Twitch_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C6F3E188BD96D787B0344405AC7B8843 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477536AC3F7292E8D36EC51122CD6BC7 /* ReplaceMe.swift */; };
+		8E18F7AD24D932AE006AB38E /* TWAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F77724D932AE006AB38E /* TWAuthViewController.swift */; };
+		8E18F7AE24D932AE006AB38E /* TWCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F77924D932AE006AB38E /* TWCredentials.swift */; };
+		8E18F7AF24D932AE006AB38E /* TWConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F77A24D932AE006AB38E /* TWConfig.swift */; };
+		8E18F7B024D932AE006AB38E /* Twitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F77B24D932AE006AB38E /* Twitch.swift */; };
+		8E18F7B124D932AE006AB38E /* TWError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F77D24D932AE006AB38E /* TWError.swift */; };
+		8E18F7B224D932AE006AB38E /* TWSubsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F77F24D932AE006AB38E /* TWSubsRepository.swift */; };
+		8E18F7B324D932AE006AB38E /* TWStreamsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78024D932AE006AB38E /* TWStreamsRepository.swift */; };
+		8E18F7B424D932AE006AB38E /* TWTagsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78124D932AE006AB38E /* TWTagsRepository.swift */; };
+		8E18F7B524D932AE006AB38E /* TWSearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78224D932AE006AB38E /* TWSearchRepository.swift */; };
+		8E18F7B624D932AE006AB38E /* TWAnalyticsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78324D932AE006AB38E /* TWAnalyticsRepository.swift */; };
+		8E18F7B724D932AE006AB38E /* TWBitsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78424D932AE006AB38E /* TWBitsRepository.swift */; };
+		8E18F7B824D932AE006AB38E /* TWGamesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78524D932AE006AB38E /* TWGamesRepository.swift */; };
+		8E18F7B924D932AE006AB38E /* TWEntitlementsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78624D932AE006AB38E /* TWEntitlementsRepository.swift */; };
+		8E18F7BA24D932AE006AB38E /* TWVideosRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78724D932AE006AB38E /* TWVideosRepository.swift */; };
+		8E18F7BB24D932AE006AB38E /* TWUsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78824D932AE006AB38E /* TWUsersRepository.swift */; };
+		8E18F7BC24D932AE006AB38E /* TWClipsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78924D932AE006AB38E /* TWClipsRepository.swift */; };
+		8E18F7BD24D932AE006AB38E /* TWModerationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78A24D932AE006AB38E /* TWModerationRepository.swift */; };
+		8E18F7BE24D932AE006AB38E /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78C24D932AE006AB38E /* URLRequestBuilder.swift */; };
+		8E18F7BF24D932AE006AB38E /* TWRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78D24D932AE006AB38E /* TWRequest.swift */; };
+		8E18F7C024D932AE006AB38E /* TWStreamMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F78F24D932AE006AB38E /* TWStreamMarker.swift */; };
+		8E18F7C124D932AE006AB38E /* TWSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79024D932AE006AB38E /* TWSubscription.swift */; };
+		8E18F7C224D932AE006AB38E /* TWStreamKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79124D932AE006AB38E /* TWStreamKey.swift */; };
+		8E18F7C324D932AE006AB38E /* TWClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79224D932AE006AB38E /* TWClip.swift */; };
+		8E18F7C424D932AE006AB38E /* TWCodeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79324D932AE006AB38E /* TWCodeStatus.swift */; };
+		8E18F7C524D932AE006AB38E /* TWExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79424D932AE006AB38E /* TWExtension.swift */; };
+		8E18F7C624D932AE006AB38E /* TWLeaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79524D932AE006AB38E /* TWLeaderboard.swift */; };
+		8E18F7C724D932AE006AB38E /* TWStreamTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79624D932AE006AB38E /* TWStreamTag.swift */; };
+		8E18F7C824D932AE006AB38E /* TWClipInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79724D932AE006AB38E /* TWClipInfo.swift */; };
+		8E18F7C924D932AE006AB38E /* TWMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79824D932AE006AB38E /* TWMessage.swift */; };
+		8E18F7CA24D932AE006AB38E /* TWChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79924D932AE006AB38E /* TWChannel.swift */; };
+		8E18F7CB24D932AE006AB38E /* TWIngest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79A24D932AE006AB38E /* TWIngest.swift */; };
+		8E18F7CC24D932AE006AB38E /* TWContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79B24D932AE006AB38E /* TWContainer.swift */; };
+		8E18F7CD24D932AE006AB38E /* TWModeratorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79C24D932AE006AB38E /* TWModeratorEvent.swift */; };
+		8E18F7CE24D932AE006AB38E /* TWChannelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79D24D932AE006AB38E /* TWChannelInfo.swift */; };
+		8E18F7CF24D932AE006AB38E /* TWModerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79E24D932AE006AB38E /* TWModerator.swift */; };
+		8E18F7D024D932AE006AB38E /* TWGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F79F24D932AE006AB38E /* TWGame.swift */; };
+		8E18F7D124D932AE006AB38E /* TWFollow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7A024D932AE006AB38E /* TWFollow.swift */; };
+		8E18F7D224D932AE006AB38E /* TWVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7A124D932AE006AB38E /* TWVideo.swift */; };
+		8E18F7D324D932AE006AB38E /* TWCheermote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7A224D932AE006AB38E /* TWCheermote.swift */; };
+		8E18F7D424D932AE006AB38E /* TWStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7A324D932AE006AB38E /* TWStream.swift */; };
+		8E18F7D524D932AE006AB38E /* TWGameAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7A424D932AE006AB38E /* TWGameAnalytics.swift */; };
+		8E18F7D624D932AE006AB38E /* TWBannedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7A524D932AE006AB38E /* TWBannedUser.swift */; };
+		8E18F7D724D932AE006AB38E /* TWUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7A624D932AE006AB38E /* TWUser.swift */; };
+		8E18F7D824D932AE006AB38E /* TwitchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7A724D932AE006AB38E /* TwitchAPI.swift */; };
+		8E18F7D924D932AE006AB38E /* Twitch+Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7A924D932AE006AB38E /* Twitch+Authorization.swift */; };
+		8E18F7DA24D932AE006AB38E /* URLSession+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7AA24D932AE006AB38E /* URLSession+Result.swift */; };
+		8E18F7DB24D932AE006AB38E /* URLComponents+Params.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7AB24D932AE006AB38E /* URLComponents+Params.swift */; };
+		8E18F7DC24D932AE006AB38E /* URLSession+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7AC24D932AE006AB38E /* URLSession+Decodable.swift */; };
 		D040DF40873789EF5A83D95ECFD8D9F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		D38FEAB759A8ADC11B803AD31CDBAD58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		DD25C75E8A046EEE32508FFB0B2C432C /* Pods-Twitch_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3231B9D4CEF1FB4420D6501FC29385C4 /* Pods-Twitch_Tests-dummy.m */; };
@@ -38,12 +85,59 @@
 		3231B9D4CEF1FB4420D6501FC29385C4 /* Pods-Twitch_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Twitch_Tests-dummy.m"; sourceTree = "<group>"; };
 		45628079BAC64AC921C8605B68F36B62 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		469FC0786ADB8CAEADEDD1EB297F570B /* Twitch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Twitch.debug.xcconfig; sourceTree = "<group>"; };
-		477536AC3F7292E8D36EC51122CD6BC7 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = Twitch/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
 		4BF027303A7015E4D7FC17711354FE6D /* Pods_Twitch_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitch_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60FA620909B202B0DF8F7059066F3480 /* Pods-Twitch_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Twitch_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6E464BADE291310A2F8AC12E0BC7C8AE /* Pods-Twitch_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Twitch_Tests-umbrella.h"; sourceTree = "<group>"; };
 		6EA2268C8867EF5249A60E75FD527892 /* Twitch-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Twitch-umbrella.h"; sourceTree = "<group>"; };
 		7801C29C03D63624921A146EEA00F509 /* Twitch-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Twitch-dummy.m"; sourceTree = "<group>"; };
+		8E18F77724D932AE006AB38E /* TWAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWAuthViewController.swift; sourceTree = "<group>"; };
+		8E18F77924D932AE006AB38E /* TWCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWCredentials.swift; sourceTree = "<group>"; };
+		8E18F77A24D932AE006AB38E /* TWConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWConfig.swift; sourceTree = "<group>"; };
+		8E18F77B24D932AE006AB38E /* Twitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Twitch.swift; sourceTree = "<group>"; };
+		8E18F77D24D932AE006AB38E /* TWError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWError.swift; sourceTree = "<group>"; };
+		8E18F77F24D932AE006AB38E /* TWSubsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSubsRepository.swift; sourceTree = "<group>"; };
+		8E18F78024D932AE006AB38E /* TWStreamsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWStreamsRepository.swift; sourceTree = "<group>"; };
+		8E18F78124D932AE006AB38E /* TWTagsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWTagsRepository.swift; sourceTree = "<group>"; };
+		8E18F78224D932AE006AB38E /* TWSearchRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSearchRepository.swift; sourceTree = "<group>"; };
+		8E18F78324D932AE006AB38E /* TWAnalyticsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWAnalyticsRepository.swift; sourceTree = "<group>"; };
+		8E18F78424D932AE006AB38E /* TWBitsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBitsRepository.swift; sourceTree = "<group>"; };
+		8E18F78524D932AE006AB38E /* TWGamesRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWGamesRepository.swift; sourceTree = "<group>"; };
+		8E18F78624D932AE006AB38E /* TWEntitlementsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWEntitlementsRepository.swift; sourceTree = "<group>"; };
+		8E18F78724D932AE006AB38E /* TWVideosRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWVideosRepository.swift; sourceTree = "<group>"; };
+		8E18F78824D932AE006AB38E /* TWUsersRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWUsersRepository.swift; sourceTree = "<group>"; };
+		8E18F78924D932AE006AB38E /* TWClipsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWClipsRepository.swift; sourceTree = "<group>"; };
+		8E18F78A24D932AE006AB38E /* TWModerationRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWModerationRepository.swift; sourceTree = "<group>"; };
+		8E18F78C24D932AE006AB38E /* URLRequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
+		8E18F78D24D932AE006AB38E /* TWRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWRequest.swift; sourceTree = "<group>"; };
+		8E18F78F24D932AE006AB38E /* TWStreamMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWStreamMarker.swift; sourceTree = "<group>"; };
+		8E18F79024D932AE006AB38E /* TWSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWSubscription.swift; sourceTree = "<group>"; };
+		8E18F79124D932AE006AB38E /* TWStreamKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWStreamKey.swift; sourceTree = "<group>"; };
+		8E18F79224D932AE006AB38E /* TWClip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWClip.swift; sourceTree = "<group>"; };
+		8E18F79324D932AE006AB38E /* TWCodeStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWCodeStatus.swift; sourceTree = "<group>"; };
+		8E18F79424D932AE006AB38E /* TWExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWExtension.swift; sourceTree = "<group>"; };
+		8E18F79524D932AE006AB38E /* TWLeaderboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWLeaderboard.swift; sourceTree = "<group>"; };
+		8E18F79624D932AE006AB38E /* TWStreamTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWStreamTag.swift; sourceTree = "<group>"; };
+		8E18F79724D932AE006AB38E /* TWClipInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWClipInfo.swift; sourceTree = "<group>"; };
+		8E18F79824D932AE006AB38E /* TWMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWMessage.swift; sourceTree = "<group>"; };
+		8E18F79924D932AE006AB38E /* TWChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWChannel.swift; sourceTree = "<group>"; };
+		8E18F79A24D932AE006AB38E /* TWIngest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWIngest.swift; sourceTree = "<group>"; };
+		8E18F79B24D932AE006AB38E /* TWContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWContainer.swift; sourceTree = "<group>"; };
+		8E18F79C24D932AE006AB38E /* TWModeratorEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWModeratorEvent.swift; sourceTree = "<group>"; };
+		8E18F79D24D932AE006AB38E /* TWChannelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWChannelInfo.swift; sourceTree = "<group>"; };
+		8E18F79E24D932AE006AB38E /* TWModerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWModerator.swift; sourceTree = "<group>"; };
+		8E18F79F24D932AE006AB38E /* TWGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWGame.swift; sourceTree = "<group>"; };
+		8E18F7A024D932AE006AB38E /* TWFollow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWFollow.swift; sourceTree = "<group>"; };
+		8E18F7A124D932AE006AB38E /* TWVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWVideo.swift; sourceTree = "<group>"; };
+		8E18F7A224D932AE006AB38E /* TWCheermote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWCheermote.swift; sourceTree = "<group>"; };
+		8E18F7A324D932AE006AB38E /* TWStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWStream.swift; sourceTree = "<group>"; };
+		8E18F7A424D932AE006AB38E /* TWGameAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWGameAnalytics.swift; sourceTree = "<group>"; };
+		8E18F7A524D932AE006AB38E /* TWBannedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWBannedUser.swift; sourceTree = "<group>"; };
+		8E18F7A624D932AE006AB38E /* TWUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWUser.swift; sourceTree = "<group>"; };
+		8E18F7A724D932AE006AB38E /* TwitchAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitchAPI.swift; sourceTree = "<group>"; };
+		8E18F7A924D932AE006AB38E /* Twitch+Authorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Twitch+Authorization.swift"; sourceTree = "<group>"; };
+		8E18F7AA24D932AE006AB38E /* URLSession+Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Result.swift"; sourceTree = "<group>"; };
+		8E18F7AB24D932AE006AB38E /* URLComponents+Params.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponents+Params.swift"; sourceTree = "<group>"; };
+		8E18F7AC24D932AE006AB38E /* URLSession+Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Decodable.swift"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F062C3E580323074D3BEFD412D7CC50 /* Twitch-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Twitch-Info.plist"; sourceTree = "<group>"; };
 		C6208969F0DE14D15CCECF2DA01E24E4 /* Twitch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Twitch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,10 +209,121 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		8E18F77524D932A4006AB38E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				8E18F77C24D932AE006AB38E /* API */,
+				8E18F77824D932AE006AB38E /* Config */,
+				8E18F7A824D932AE006AB38E /* Extensions */,
+				8E18F77B24D932AE006AB38E /* Twitch.swift */,
+				8E18F77624D932AE006AB38E /* ViewControllers */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		8E18F77624D932AE006AB38E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8E18F77724D932AE006AB38E /* TWAuthViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8E18F77824D932AE006AB38E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				8E18F77924D932AE006AB38E /* TWCredentials.swift */,
+				8E18F77A24D932AE006AB38E /* TWConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		8E18F77C24D932AE006AB38E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8E18F77D24D932AE006AB38E /* TWError.swift */,
+				8E18F77E24D932AE006AB38E /* Repositories */,
+				8E18F78B24D932AE006AB38E /* Request */,
+				8E18F78E24D932AE006AB38E /* Entities */,
+				8E18F7A724D932AE006AB38E /* TwitchAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		8E18F77E24D932AE006AB38E /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				8E18F77F24D932AE006AB38E /* TWSubsRepository.swift */,
+				8E18F78024D932AE006AB38E /* TWStreamsRepository.swift */,
+				8E18F78124D932AE006AB38E /* TWTagsRepository.swift */,
+				8E18F78224D932AE006AB38E /* TWSearchRepository.swift */,
+				8E18F78324D932AE006AB38E /* TWAnalyticsRepository.swift */,
+				8E18F78424D932AE006AB38E /* TWBitsRepository.swift */,
+				8E18F78524D932AE006AB38E /* TWGamesRepository.swift */,
+				8E18F78624D932AE006AB38E /* TWEntitlementsRepository.swift */,
+				8E18F78724D932AE006AB38E /* TWVideosRepository.swift */,
+				8E18F78824D932AE006AB38E /* TWUsersRepository.swift */,
+				8E18F78924D932AE006AB38E /* TWClipsRepository.swift */,
+				8E18F78A24D932AE006AB38E /* TWModerationRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		8E18F78B24D932AE006AB38E /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				8E18F78C24D932AE006AB38E /* URLRequestBuilder.swift */,
+				8E18F78D24D932AE006AB38E /* TWRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		8E18F78E24D932AE006AB38E /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				8E18F78F24D932AE006AB38E /* TWStreamMarker.swift */,
+				8E18F79024D932AE006AB38E /* TWSubscription.swift */,
+				8E18F79124D932AE006AB38E /* TWStreamKey.swift */,
+				8E18F79224D932AE006AB38E /* TWClip.swift */,
+				8E18F79324D932AE006AB38E /* TWCodeStatus.swift */,
+				8E18F79424D932AE006AB38E /* TWExtension.swift */,
+				8E18F79524D932AE006AB38E /* TWLeaderboard.swift */,
+				8E18F79624D932AE006AB38E /* TWStreamTag.swift */,
+				8E18F79724D932AE006AB38E /* TWClipInfo.swift */,
+				8E18F79824D932AE006AB38E /* TWMessage.swift */,
+				8E18F79924D932AE006AB38E /* TWChannel.swift */,
+				8E18F79A24D932AE006AB38E /* TWIngest.swift */,
+				8E18F79B24D932AE006AB38E /* TWContainer.swift */,
+				8E18F79C24D932AE006AB38E /* TWModeratorEvent.swift */,
+				8E18F79D24D932AE006AB38E /* TWChannelInfo.swift */,
+				8E18F79E24D932AE006AB38E /* TWModerator.swift */,
+				8E18F79F24D932AE006AB38E /* TWGame.swift */,
+				8E18F7A024D932AE006AB38E /* TWFollow.swift */,
+				8E18F7A124D932AE006AB38E /* TWVideo.swift */,
+				8E18F7A224D932AE006AB38E /* TWCheermote.swift */,
+				8E18F7A324D932AE006AB38E /* TWStream.swift */,
+				8E18F7A424D932AE006AB38E /* TWGameAnalytics.swift */,
+				8E18F7A524D932AE006AB38E /* TWBannedUser.swift */,
+				8E18F7A624D932AE006AB38E /* TWUser.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		8E18F7A824D932AE006AB38E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8E18F7A924D932AE006AB38E /* Twitch+Authorization.swift */,
+				8E18F7AA24D932AE006AB38E /* URLSession+Result.swift */,
+				8E18F7AB24D932AE006AB38E /* URLComponents+Params.swift */,
+				8E18F7AC24D932AE006AB38E /* URLSession+Decodable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9D8A6A662056799CE281DB2B15A76846 /* Twitch */ = {
 			isa = PBXGroup;
 			children = (
-				477536AC3F7292E8D36EC51122CD6BC7 /* ReplaceMe.swift */,
+				8E18F77524D932A4006AB38E /* Source */,
 				B1031AFDDA0356504D6958B929F484E4 /* Pod */,
 				AD882A6690FADB569798C4721FC1B270 /* Support Files */,
 			);
@@ -245,6 +450,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					359FDD4F5C021998A52E05EFB5E523F7 = {
+						LastSwiftMigration = 1160;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -287,8 +497,55 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6F3E188BD96D787B0344405AC7B8843 /* ReplaceMe.swift in Sources */,
+				8E18F7BD24D932AE006AB38E /* TWModerationRepository.swift in Sources */,
+				8E18F7C124D932AE006AB38E /* TWSubscription.swift in Sources */,
+				8E18F7C324D932AE006AB38E /* TWClip.swift in Sources */,
+				8E18F7DC24D932AE006AB38E /* URLSession+Decodable.swift in Sources */,
+				8E18F7D824D932AE006AB38E /* TwitchAPI.swift in Sources */,
+				8E18F7C824D932AE006AB38E /* TWClipInfo.swift in Sources */,
+				8E18F7C724D932AE006AB38E /* TWStreamTag.swift in Sources */,
+				8E18F7D724D932AE006AB38E /* TWUser.swift in Sources */,
+				8E18F7B424D932AE006AB38E /* TWTagsRepository.swift in Sources */,
+				8E18F7BF24D932AE006AB38E /* TWRequest.swift in Sources */,
+				8E18F7C024D932AE006AB38E /* TWStreamMarker.swift in Sources */,
+				8E18F7BA24D932AE006AB38E /* TWVideosRepository.swift in Sources */,
 				15536BA62C184B2A16D05B41091DA7E7 /* Twitch-dummy.m in Sources */,
+				8E18F7B724D932AE006AB38E /* TWBitsRepository.swift in Sources */,
+				8E18F7DB24D932AE006AB38E /* URLComponents+Params.swift in Sources */,
+				8E18F7CC24D932AE006AB38E /* TWContainer.swift in Sources */,
+				8E18F7C624D932AE006AB38E /* TWLeaderboard.swift in Sources */,
+				8E18F7AE24D932AE006AB38E /* TWCredentials.swift in Sources */,
+				8E18F7B224D932AE006AB38E /* TWSubsRepository.swift in Sources */,
+				8E18F7D524D932AE006AB38E /* TWGameAnalytics.swift in Sources */,
+				8E18F7DA24D932AE006AB38E /* URLSession+Result.swift in Sources */,
+				8E18F7D424D932AE006AB38E /* TWStream.swift in Sources */,
+				8E18F7C224D932AE006AB38E /* TWStreamKey.swift in Sources */,
+				8E18F7B024D932AE006AB38E /* Twitch.swift in Sources */,
+				8E18F7CE24D932AE006AB38E /* TWChannelInfo.swift in Sources */,
+				8E18F7D924D932AE006AB38E /* Twitch+Authorization.swift in Sources */,
+				8E18F7AF24D932AE006AB38E /* TWConfig.swift in Sources */,
+				8E18F7BE24D932AE006AB38E /* URLRequestBuilder.swift in Sources */,
+				8E18F7B624D932AE006AB38E /* TWAnalyticsRepository.swift in Sources */,
+				8E18F7B824D932AE006AB38E /* TWGamesRepository.swift in Sources */,
+				8E18F7B524D932AE006AB38E /* TWSearchRepository.swift in Sources */,
+				8E18F7C524D932AE006AB38E /* TWExtension.swift in Sources */,
+				8E18F7CF24D932AE006AB38E /* TWModerator.swift in Sources */,
+				8E18F7D024D932AE006AB38E /* TWGame.swift in Sources */,
+				8E18F7AD24D932AE006AB38E /* TWAuthViewController.swift in Sources */,
+				8E18F7B324D932AE006AB38E /* TWStreamsRepository.swift in Sources */,
+				8E18F7CD24D932AE006AB38E /* TWModeratorEvent.swift in Sources */,
+				8E18F7D624D932AE006AB38E /* TWBannedUser.swift in Sources */,
+				8E18F7B924D932AE006AB38E /* TWEntitlementsRepository.swift in Sources */,
+				8E18F7BC24D932AE006AB38E /* TWClipsRepository.swift in Sources */,
+				8E18F7D124D932AE006AB38E /* TWFollow.swift in Sources */,
+				8E18F7C924D932AE006AB38E /* TWMessage.swift in Sources */,
+				8E18F7B124D932AE006AB38E /* TWError.swift in Sources */,
+				8E18F7BB24D932AE006AB38E /* TWUsersRepository.swift in Sources */,
+				8E18F7D324D932AE006AB38E /* TWCheermote.swift in Sources */,
+				8E18F7D224D932AE006AB38E /* TWVideo.swift in Sources */,
+				8E18F7C424D932AE006AB38E /* TWCodeStatus.swift in Sources */,
+				8E18F7CB24D932AE006AB38E /* TWIngest.swift in Sources */,
+				8E18F7CA24D932AE006AB38E /* TWChannel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +585,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-Twitch_Tests/Pods-Twitch_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Twitch_Tests/Pods-Twitch_Tests.modulemap";
@@ -361,7 +618,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-Twitch_Tests/Pods-Twitch_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Twitch_Tests/Pods-Twitch_Tests.modulemap";
@@ -427,7 +684,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -489,7 +746,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -506,6 +763,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 069A0EAC41B85AF511C3347964A585A9 /* Twitch.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -518,8 +776,9 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Twitch/Twitch-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Twitch/Twitch-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				MODULEMAP_FILE = "Target Support Files/Twitch/Twitch.modulemap";
 				PRODUCT_MODULE_NAME = Twitch;
 				PRODUCT_NAME = Twitch;
@@ -538,6 +797,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 469FC0786ADB8CAEADEDD1EB297F570B /* Twitch.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -550,14 +810,16 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Twitch/Twitch-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Twitch/Twitch-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				MODULEMAP_FILE = "Target Support Files/Twitch/Twitch.modulemap";
 				PRODUCT_MODULE_NAME = Twitch;
 				PRODUCT_NAME = Twitch;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
