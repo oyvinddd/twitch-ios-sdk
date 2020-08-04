@@ -5,11 +5,11 @@
 [![License](https://img.shields.io/cocoapods/l/Twitch.svg?style=flat)](https://cocoapods.org/pods/Twitch)
 [![Platform](https://img.shields.io/cocoapods/p/Twitch.svg?style=flat)](https://cocoapods.org/pods/Twitch)
 
-## Example
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
+## Information
+The Twitch iOS SDK is a native wrapper around the [official Twitch API](https://dev.twitch.tv/docs/api/).
 
 ## Installation
 
@@ -20,9 +20,12 @@ it, simply add the following line to your Podfile:
 pod 'Twitch'
 ```
 
-## Author
+## Usage
 
-43780301, oyvind.hauge@evry.com
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 
 ## License
 
