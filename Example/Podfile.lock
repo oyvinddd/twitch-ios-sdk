@@ -1,0 +1,16 @@
+PODS:
+  - Twitch (0.1.0)
+
+DEPENDENCIES:
+  - Twitch (from `../`)
+
+EXTERNAL SOURCES:
+  Twitch:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Twitch: 5fa85b223ef2e840c7d522ff065f51f18e5c0c92
+
+PODFILE CHECKSUM: 5bc35b22b18e569ee5f70f230c12ad124dec45fd
+
+COCOAPODS: 1.9.1

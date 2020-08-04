@@ -1,0 +1,22 @@
+{
+  "name": "Twitch",
+  "version": "0.1.0",
+  "summary": "A short description of Twitch.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/43780301/Twitch",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "43780301": "oyvind.hauge@evry.com"
+  },
+  "source": {
+    "git": "https://github.com/43780301/Twitch.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Twitch/Classes/**/*"
+}

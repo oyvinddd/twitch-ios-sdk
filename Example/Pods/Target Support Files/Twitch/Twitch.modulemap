@@ -1,0 +1,6 @@
+framework module Twitch {
+  umbrella header "Twitch-umbrella.h"
+
+  export *
+  module * { export * }
+}
