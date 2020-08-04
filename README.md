@@ -1,4 +1,3 @@
-Inline-style: 
 ![Twitch banner](/Assets/twitch-header.svg "Twitch banner")
 
 [![CI Status](https://img.shields.io/travis/43780301/Twitch.svg?style=flat)](https://travis-ci.org/43780301/Twitch)
@@ -28,11 +27,13 @@ Twitch.initialize(clientId: YOUR_CLIENT_ID, config: TWConfig(redirectUri: YOUR_R
 ```
 
 
+
 ### Available API Calls
+
 | API Method | Swift Function | API Version |
 | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  |
+| Get Cheermotes | Twitch.Bits.getCheermotes | Helix |
+| Get Bits Leaderboard | Twitch.Bits.getBitsLeaderboard | Helix |
 
 ## License
 
