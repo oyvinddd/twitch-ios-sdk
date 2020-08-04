@@ -18,17 +18,23 @@ pod 'Twitch'
 
 ## Prerequisites
 Before you can start using the SDK you need to [register your app](https://dev.twitch.tv/docs/authentication) on the Twitch developer site.
+
 ## Usage
 
+### 1. Initialization
 Once you have registered your app and obtained a client ID you are good to go. To initialize the SDK put the following in your [App/Scene]Delegate:
 
 ```swift
 Twitch.initialize(clientId: YOUR_CLIENT_ID, config: TWConfig(redirectUri: YOUR_REDIRECT_URI))
 ```
 
+### 2. Getting an access token
+TODO:
 
+### 3. Calling the API
+TODO:
 
-### Available API Calls
+## Available API Calls
 
 | API Method | Swift Function | API Version |
 | ------------- | ------------- | ------------- |
