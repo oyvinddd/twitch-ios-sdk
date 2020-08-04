@@ -241,11 +241,11 @@
 		8E18F77C24D932AE006AB38E /* API */ = {
 			isa = PBXGroup;
 			children = (
+				8E18F7A724D932AE006AB38E /* TwitchAPI.swift */,
 				8E18F77D24D932AE006AB38E /* TWError.swift */,
 				8E18F77E24D932AE006AB38E /* Repositories */,
 				8E18F78B24D932AE006AB38E /* Request */,
 				8E18F78E24D932AE006AB38E /* Entities */,
-				8E18F7A724D932AE006AB38E /* TwitchAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";

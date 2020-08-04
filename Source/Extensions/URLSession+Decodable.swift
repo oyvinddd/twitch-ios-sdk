@@ -18,16 +18,16 @@ extension URLSession {
                 return
             }
             guard let urlResponse = response as? HTTPURLResponse, let data = data else {
-                result(.failure(TWAPIError.unknown))
+                result(.failure(TWError.unknown))
                 return
             }
             guard 200 ..< 300 ~= urlResponse.statusCode else {
                 print("Status code was \(urlResponse.statusCode), but expected 2xx")
                 do {
-                    let error: TWAPIError = try self.decode(from: data)
+                    let error: TWError = try self.decode(from: data)
                     result(.failure(error))
                 } catch {
-                    result(.failure(TWAPIError.unknown))
+                    result(.failure(TWError.unknown))
                 }
                 return
             }
@@ -35,7 +35,7 @@ extension URLSession {
                 let container: TWContainer<T> = try self.decode(from: data)
                 result(.success(container))
             } catch {
-                result(.failure(TWAPIError.decodingFailed))
+                result(.failure(TWError.decodingFailed))
             }
         }
     }

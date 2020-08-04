@@ -8,26 +8,31 @@
 
 import Foundation
 
-protocol TWError: Error, Decodable {
-    var message: String { get }
-    var status: Int { get }
-    var error: String { get }
-    var localizedDescription: String { get }
-}
+//protocol TWError: Error, Decodable {
+//    var message: String { get }
+//    var status: Int { get }
+//    var error: String? { get }
+//    var localizedDescription: String { get }
+//}
 
-struct TWAPIError: TWError {
+public struct TWError: Error, Decodable {
     
-    static let unknown = TWAPIError(message: "Unknown error", status: 900, error: "Something went wrong")
-    static let decodingFailed = TWAPIError(message: "Decoding failed", status: 901, error: "Something went wrong")
+    public static let unknown = TWError("Unknown error", status: 900)
+    public static let decodingFailed = TWError("Decoding failed", status: 901)
     
+    enum CodingKeys: String, CodingKey {
+        case message, status, error
+    }
     var message: String
     var status: Int
-    var error: String
+    var error: String?
     public var localizedDescription: String {
         return message
     }
     
-    enum CodingKeys: String, CodingKey {
-        case message, status, error
+    init(_ message: String, status: Int, error: String? = nil) {
+        self.message = message
+        self.status = status
+        self.error = error
     }
 }

@@ -18,8 +18,8 @@ public enum TWNoContentResult {
     case failure(Error)
 }
 
-typealias TWContainerBlock<T: Codable> = ((TWEntityResult<TWContainer<T>>) -> Void)
-typealias TWNoContentBlock = ((TWNoContentResult) -> Void)
+public typealias TWContainerBlock<T: Codable> = (TWEntityResult<TWContainer<T>>) -> Void
+public typealias TWNoContentBlock = (TWNoContentResult) -> Void
 
 // MARK: Users API
 

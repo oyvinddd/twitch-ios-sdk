@@ -16,12 +16,12 @@ extension URLSession {
                 return
             }
             guard let urlResponse = response as? HTTPURLResponse else {
-                result(.failure(TWAPIError.unknown))
+                result(.failure(TWError.unknown))
                 return
             }
             guard 200..<300 ~= urlResponse.statusCode else {
                 print("Status code was \(urlResponse.statusCode), but expected 2xx")
-                result(.failure(TWAPIError.unknown))
+                result(.failure(TWError.unknown))
                 return
             }
             result(.success)

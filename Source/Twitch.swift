@@ -10,8 +10,8 @@ import Foundation
 
 public class Twitch: NSObject {
     
-    static var config: TWConfig!
-    static var credentials: TWCredentials!
+    public static var config: TWConfig!
+    public static var credentials: TWCredentials!
     
     /// Repositories
     fileprivate static let usersRepository = TWUsersRepository()
@@ -19,10 +19,10 @@ public class Twitch: NSObject {
     fileprivate static let clipsRepository = TWClipsRepository()
     fileprivate static let videosRepository = TWVideosRepository()
     fileprivate static let streamsRepository = TWStreamsRepository()
-    fileprivate static let tagsRepository = TWTagsRepository()
     fileprivate static let moderationRepository = TWModerationRepository()
     fileprivate static let entitlementsRepository = TWEntitlementsRepository()
     fileprivate static let searchRepository = TWSearchRepository()
+    fileprivate static let tagsRepository = TWTagsRepository()
     
     class func initialize(clientId: String, config: TWConfig) {
         self.credentials = TWCredentials(clientId: clientId)
@@ -34,7 +34,7 @@ public class Twitch: NSObject {
 
 extension Twitch {
     
-    struct Users {
+    public struct Users {
         public static func getUsers(id: String? = nil, login: String? = nil, result: @escaping TWContainerBlock<[TWUser]>) {
             usersRepository.getUsers(id: id, login: login, result: result)
         }
@@ -57,7 +57,7 @@ extension Twitch {
 
 extension Twitch {
     
-    struct Games {
+    public struct Games {
         public static func getGames(id: String? = nil, title: String? = nil, result: @escaping TWContainerBlock<[TWGame]>) {
             gamesRepository.getGames(id: id, title: title, result: result)
         }
@@ -72,7 +72,7 @@ extension Twitch {
 
 extension Twitch {
     
-    struct Videos {
+    public struct Videos {
         public static func getVideos(id: String, userId: String, gameId: String, result: @escaping TWContainerBlock<[TWVideo]>) {
             videosRepository.getVideos(id: id, userId: userId, gameId: gameId, result: result)
         }
@@ -83,7 +83,7 @@ extension Twitch {
 
 extension Twitch {
     
-    struct Clips {
+    public struct Clips {
         public static func getClips(broadcasterId: String, gameId: String, id: String, result: @escaping TWContainerBlock<[TWClip]>) {
             clipsRepository.getClips(broadcasterId: broadcasterId, gameId: gameId, id: id, result: result)
         }
@@ -98,7 +98,7 @@ extension Twitch {
 
 extension Twitch {
     
-    struct Streams {
+    public struct Streams {
         public static func getStreamKey(broadcasterId: String, result: @escaping TWContainerBlock<TWStreamKey>) {
             streamsRepository.getStreamKey(broadcasterId: broadcasterId, result: result)
         }
@@ -123,7 +123,7 @@ extension Twitch {
 
 extension Twitch {
     
-    struct Moderation {
+    public struct Moderation {
         public static func getModerators(broadcasterId: String, userId: String? = nil, after: String? = nil, result: @escaping TWContainerBlock<[TWModerator]>) {
             moderationRepository.getModerators(broadcasterId: broadcasterId, userId: userId, after: after, result: result)
         }
@@ -142,7 +142,7 @@ extension Twitch {
 
 extension Twitch {
     
-    struct Entitlements {
+    public struct Entitlements {
         public static func getCodeStatus(code: String, userId: Int, result: @escaping TWContainerBlock<[TWCodeStatus]>) {
             entitlementsRepository.getCodeStatus(code: code, userId: userId, result: result)
         }
@@ -153,7 +153,7 @@ extension Twitch {
 
 extension Twitch {
     
-    struct Tags {
+    public struct Tags {
         public static func getAllTags(tagId: String?, after: String?, first: Int?, result: @escaping TWContainerBlock<[TWStreamTag]>) {
             tagsRepository.getAllTags(tagId: tagId, after: after, first: first, result: result)
         }
@@ -164,7 +164,7 @@ extension Twitch {
 
 extension Twitch {
     
-    struct Search {
+    public struct Search {
         public static func searchCategories(query: String, first: Int? = nil, after: String? = nil, result: @escaping TWContainerBlock<[TWGame]>) {
             searchRepository.searchCategories(query: query, first: first, after: after, result: result)
         }
