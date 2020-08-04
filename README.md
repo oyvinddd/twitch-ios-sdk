@@ -34,6 +34,9 @@ Twitch.initialize(clientId: YOUR_CLIENT_ID, config: TWConfig(redirectUri: YOUR_R
 | ------------- | ------------- | ------------- |
 | Get Cheermotes | Twitch.Bits.getCheermotes | Helix |
 | Get Bits Leaderboard | Twitch.Bits.getBitsLeaderboard | Helix |
+| Get Game Analytics | Twitch.Analytics.getGameAnalytics | Helix |
+| Get Extension Transactions | Twitch.Extensions.getTransactions | Helix |
+| Create Clip | Twitch.Cliips.createClip | Helix |
 
 ## License
 
