@@ -63,6 +63,8 @@ struct Endpoints {
     static let cheermotes = "\(bits)/cheermotes"
     /// Clips
     static let clips = "\(helix)/clips"
+    /// Subscriptions
+    static let subscriptions = "\(helix)/subscriptions"
 }
 
 enum HTTPMethod: String {
@@ -394,5 +396,57 @@ struct TWCreateClipRequest: TWRequest {
 //        if let hasDelay = hasDelay {
 //            params["has_delay"] = hasDelay
 //        }
+    }
+}
+
+struct TWDeleteUserFollows: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.userFollows
+    var method: HTTPMethod = .delete
+    var params: [String : String]
+    var body: Encodable?
+    init(fromId: String, toId: String) {
+        params = ["from_id": fromId, "to_id": toId]
+    }
+}
+
+struct TWUpdateUserRequest: TWRequest {
+    
+    var endpoint: TWEndpoint = Endpoints.users
+    var method: HTTPMethod = .put
+    var params: [String : String] = [:]
+    var body: Encodable?
+    
+    init(_ description: String?) {
+        if let desc = description {
+            params["description"] = desc
+        }
+    }
+}
+
+struct TWBroadcasterSubsRequest: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.subscriptions
+    var method: HTTPMethod = .get
+    var params: [String : String]
+    var body: Encodable?
+    
+    init(_ broadcasterId: String, userId: String?) {
+        params = ["broadcaster_id": broadcasterId]
+        if let userId = userId {
+            params["user_id"] = userId
+        }
+    }
+}
+
+struct TWReplaceStreamTagsRequest: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.streamTags
+    var method: HTTPMethod = .put
+    var params: [String : String]
+    var body: Encodable?
+    
+    init(_ broadcasterId: String, tagIds: [String]?) {
+        params = ["broadcaster_id": broadcasterId]
+        if let tagIds = tagIds {
+            body = tagIds
+        }
     }
 }

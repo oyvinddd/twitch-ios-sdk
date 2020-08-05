@@ -31,7 +31,13 @@ final class TWUsersRepository: TWUsersAPI {
         session.dataTask(with: request, result: result).resume()
     }
     
-    func updateUser(description: String, result: @escaping TWContainerBlock<[TWUser]>) {
-        
+    func deleteFollows(fromId: String, toId: String, result: @escaping TWNoContentBlock) {
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWDeleteUserFollows(fromId: fromId, toId: toId))
+        session.dataTask(with: request, result: result).resume()
+    }
+    
+    func updateUser(description: String?, result: @escaping TWContainerBlock<[TWUser]>) {
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWUpdateUserRequest(description))
+        session.dataTask(with: request, decodable: [TWUser].self, result: result).resume()
     }
 }

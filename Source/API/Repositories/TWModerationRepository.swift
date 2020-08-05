@@ -21,12 +21,13 @@ final class TWModerationRepository: TWModerationAPI {
         session.dataTask(with: request, decodable: [TWModeratorEvent].self, result: result).resume()
     }
     
-    func getBannedUsers(broadcasterId: String, userId: String? = nil, after: String? = nil, before: String? = nil, result: @escaping TWContainerBlock<[TWBannedUser]>) {
+    func getBannedUsers(broadcasterId: String, userId: String?, after: String?, before: String?, result: @escaping TWContainerBlock<[TWBannedUser]>) {
         let request = URLRequestBuilder.buildOpenAPIRequest(for: TWBannedUsersRequest(broadcasterId, userId: userId, after: after, before: before))
         session.dataTask(with: request, decodable: [TWBannedUser].self, result: result).resume()
     }
     
     func checkAutomodStatus(broadcasterId: String, messages: [TWMessage], result: @escaping TWContainerBlock<[TWMessageStatus]>) {
-//        let request = URLRequestBuilder.buildSecureAPIRequest(for: <#T##TWRequest#>)
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWCheckAutomodStatusRequest(broadcasterId, messages: messages))
+        session.dataTask(with: request, decodable: [TWMessageStatus].self, result: result).resume()
     }
 }

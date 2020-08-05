@@ -21,6 +21,10 @@ public enum TWNoContentResult {
 public typealias TWContainerBlock<T: Codable> = (TWEntityResult<TWContainer<T>>) -> Void
 public typealias TWNoContentBlock = (TWNoContentResult) -> Void
 
+// #######################
+// ##   NEW/HELIX API   ##
+// #######################
+
 // MARK: Users API
 
 protocol TWUsersAPI {
@@ -28,7 +32,8 @@ protocol TWUsersAPI {
     func getFollows(after: String?, first: Int?, fromId: String?, toId: String?, result: @escaping TWContainerBlock<[TWFollow]>)
     func getExtensions(result: @escaping TWContainerBlock<[TWExtension]>)
     func createFollows(fromId: String, toId: String, allowNotifications: Bool?, result: @escaping TWNoContentBlock)
-    func updateUser(description: String, result: @escaping TWContainerBlock<[TWUser]>)
+    func deleteFollows(fromId: String, toId: String, result: @escaping TWNoContentBlock)
+    func updateUser(description: String?, result: @escaping TWContainerBlock<[TWUser]>)
 }
 
 // MARK: Games API
@@ -45,6 +50,7 @@ protocol TWStreamsAPI {
     func getStreams(after: String?, before: String?, first: Int?, gameId: String?,
                     language: String?, userId: String?, userLogin: String?, result: @escaping TWContainerBlock<[TWStream]>)
     func getStreamTags(broadcasterId: String, result: @escaping TWContainerBlock<[TWStreamTag]>)
+    func replaceStreamTags(broadcasterId: String, tagIds: [String]?, result: @escaping TWNoContentBlock)
     func createStreamMarker(userId: String, description: String?, result: @escaping TWContainerBlock<TWStreamMarker>)
     func getChannelInfo(broadcatserId: String, result: @escaping TWContainerBlock<TWChannelInfo>)
 }
@@ -110,4 +116,16 @@ protocol TWTagsAPI {
 protocol TWSearchAPI {
     func searchCategories(query: String, first: Int?, after: String?, result: @escaping TWContainerBlock<[TWGame]>)
     func searchChannels(query: String, first: Int?, after: String?, liveOnly: Bool?, result: @escaping TWContainerBlock<[TWChannel]>)
+}
+
+// #######################
+// ##   V5/KRAKEN API   ##
+// #######################
+
+protocol TWV5IngestsAPI {
+    func getIngestServerList()
+}
+
+protocol TWV5ChatAPI {
+    func getChatBadgesByChannel()
 }

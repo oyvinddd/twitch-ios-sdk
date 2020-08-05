@@ -23,6 +23,7 @@ public class Twitch: NSObject {
     fileprivate static let entitlementsRepository = TWEntitlementsRepository()
     fileprivate static let searchRepository = TWSearchRepository()
     fileprivate static let tagsRepository = TWTagsRepository()
+    fileprivate static let subsRepository = TWSubsRepository()
     
     public class func initialize(clientId: String, config: TWConfig) {
         self.credentials = TWCredentials(clientId: clientId)
@@ -109,6 +110,14 @@ extension Twitch {
             streamsRepository.getStreams(after: after, before: before, first: first, gameId: gameId, language: language, userId: userId, userLogin: userLogin, result: result)
         }
         
+        public static func getStreamTags(broadcasterId: String, result: @escaping TWContainerBlock<[TWStreamTag]>) {
+            streamsRepository.getStreamTags(broadcasterId: broadcasterId, result: result)
+        }
+        
+        public static func replaceStreamTags(broadcasterId: String, tagIds: [String]? = nil, result: @escaping TWNoContentBlock) {
+            streamsRepository.replaceStreamTags(broadcasterId: broadcasterId, tagIds: tagIds, result: result)
+        }
+        
         public static func createStreamMarker(userId: String, description: String? = nil, result: @escaping TWContainerBlock<TWStreamMarker>) {
             streamsRepository.createStreamMarker(userId: userId, description: description, result: result)
         }
@@ -154,7 +163,7 @@ extension Twitch {
 extension Twitch {
     
     public struct Tags {
-        public static func getAllTags(tagId: String?, after: String?, first: Int?, result: @escaping TWContainerBlock<[TWStreamTag]>) {
+        public static func getAllTags(tagId: String? = nil, after: String? = nil, first: Int? = nil, result: @escaping TWContainerBlock<[TWStreamTag]>) {
             tagsRepository.getAllTags(tagId: tagId, after: after, first: first, result: result)
         }
     }
@@ -167,6 +176,21 @@ extension Twitch {
     public struct Search {
         public static func searchCategories(query: String, first: Int? = nil, after: String? = nil, result: @escaping TWContainerBlock<[TWGame]>) {
             searchRepository.searchCategories(query: query, first: first, after: after, result: result)
+        }
+        
+        public static func searchChannels(query: String, first: Int? = nil, after: String? = nil, liveOnly: Bool? = nil, result: @escaping TWContainerBlock<[TWChannel]>) {
+            searchRepository.searchChannels(query: query, first: first, after: after, liveOnly: liveOnly, result: result)
+        }
+    }
+}
+
+// MARK: Twitch Subscriptions API
+
+extension Twitch {
+    
+    public struct Subscriptions {
+        public static func getBroadcasterSubscriptions(broadcasterId: String, userId: String? = nil, result: @escaping TWContainerBlock<[TWSubscription]>) {
+            subsRepository.getBroadcasterSubscriptions(broadcasterId: broadcasterId, userId: userId, result: result)
         }
     }
 }

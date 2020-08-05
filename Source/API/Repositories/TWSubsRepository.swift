@@ -11,6 +11,8 @@ import Foundation
 final class TWSubsRepository: TWSubsAPI {
     let session: URLSession = URLSession.shared
     
-    func getBroadcasterSubscriptions(broadcasterId: String, userId: String?, result: TWContainerBlock<[TWSubscription]>) {
+    func getBroadcasterSubscriptions(broadcasterId: String, userId: String?, result: @escaping TWContainerBlock<[TWSubscription]>) {
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWBroadcasterSubsRequest(broadcasterId, userId: userId))
+        session.dataTask(with: request, decodable: [TWSubscription].self, result: result).resume()
     }
 }

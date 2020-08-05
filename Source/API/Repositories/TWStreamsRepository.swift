@@ -31,6 +31,11 @@ final class TWStreamsRepository: TWStreamsAPI {
         session.dataTask(with: request, decodable: [TWStreamTag].self, result: result).resume()
     }
     
+    func replaceStreamTags(broadcasterId: String, tagIds: [String]?, result: @escaping TWNoContentBlock) {
+        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWReplaceStreamTagsRequest(broadcasterId, tagIds: tagIds))
+        session.dataTask(with: request, result: result).resume()
+    }
+    
     func createStreamMarker(userId: String, description: String?, result: @escaping TWContainerBlock<TWStreamMarker>) {
         let request = URLRequestBuilder.buildOpenAPIRequest(for: TWCreateStreamMarker(userId, description: description))
         session.dataTask(with: request, decodable: TWStreamMarker.self, result: result).resume()
