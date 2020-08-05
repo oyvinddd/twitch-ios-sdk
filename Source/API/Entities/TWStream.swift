@@ -11,32 +11,32 @@ import Foundation
 public struct TWStream: Codable {
     
     /// Stream ID.
-    var id: String?
+    public var id: String?
     
     /// ID of the user who is streaming.
-    var userId: String?
+    public var userId: String?
     
     /// Display name corresponding to user_id.
-    var userName: String?
+    public var userName: String?
     
     /// ID of the game being played on the stream.
-    var gameId: String?
+    public var gameId: String?
     
     /// Stream type: "live" or "" (in case of error).
-    var type: String
+    public var type: String
     
     /// Stream title.
-    var title: String
+    public var title: String
     
     /// Number of viewers watching the stream at the time of the query.
-    var viewerCount: Int
+    public var viewerCount: Int
     
     /// UTC timestamp.
-    var startedAt: String
+    public var startedAt: String
     
     /// Stream language.
-    var language: String
+    public var language: String
     
     /// Thumbnail URL of the stream. All image URLs have variable width and height. You can replace {width} and {height} with any values to get that size image
-    var thumbnailUrl: String
+    public var thumbnailUrl: String
 }

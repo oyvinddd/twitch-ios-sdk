@@ -11,29 +11,29 @@ import Foundation
 public struct TWChannel: Codable {
     
     /// Channel ID
-    var id: String
+    public var id: String
     
     /// ID of the game being played on the stream
-    var gameId: String
+    public var gameId: String
     
     /// Display name corresponding to user_id
-    var displayName: String
+    public var displayName: String
     
     /// Channel language (Broadcaster Language field from the Channels service)
-    var broadcasterLanguage: String
+    public var broadcasterLanguage: String
     
     /// Channel title
-    var title: String
+    public var title: String
     
     /// Thumbnail URL of the stream. All image URLs have variable width and height. You can replace {width} and {height} with any values to get that size image.
-    var thumbnailUrl: String
+    public var thumbnailUrl: String
     
     /// Live status
-    var isLive: Bool
+    public var isLive: Bool
     
     /// UTC timestamp. (live only)
-    var startedAt: String
+    public var startedAt: String
     
     /// Shows tag IDs that apply to the stream (live only).See https://www.twitch.tv/directory/all/tags for tag types
-    var tagIds: [String]
+    public var tagIds: [String]
 }

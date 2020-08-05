@@ -9,6 +9,10 @@
 import Foundation
 
 public final class TWModerator: Codable {
-    var userId: String?
-    var userName: String?
+    
+    /// User ID of a user who has been banned.
+    var userId: String
+    
+    /// Display name of a user who has been banned.
+    var userName: String
 }
