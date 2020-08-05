@@ -11,8 +11,8 @@ import Foundation
 public struct TWClipInfo: Codable {
     
     /// URL of the edit page for the clip.
-    var id: String
+    public var id: String
     
     /// D of the clip that was created.
-    var editUrl: String
+    public var editUrl: String
 }

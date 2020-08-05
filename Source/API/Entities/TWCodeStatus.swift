@@ -9,7 +9,7 @@
 import Foundation
 
 public struct TWCodeStatus: Codable {
-    enum TWStatus: String, Codable {
+    public enum TWStatus: String, Codable {
         
         /// Request successfully redeemed this code to the authenticated user’s account. This status will only ever be encountered when calling the POST API to redeem a key.
         case successfullyRedeemed = "SUCCESSFULLY_REDEEMED"
@@ -40,7 +40,7 @@ public struct TWCodeStatus: Codable {
     }
     
     /// The code to redeem to the authenticated user’s account.
-    var code: String?
+    public var code: String?
     
-    var status: TWStatus?
+    public var status: TWStatus?
 }

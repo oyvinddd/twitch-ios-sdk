@@ -9,9 +9,14 @@
 import Foundation
 
 public struct TWIngest: Codable {
-    var id: Int?
-    var template: String?
-    var availability: Double?
-    var name: String?
-    var def: Bool?
+    
+    public var id: Int
+    
+    public var template: String
+    
+    public var availability: Double
+    
+    public var name: String
+    
+    public var `default`: Bool
 }

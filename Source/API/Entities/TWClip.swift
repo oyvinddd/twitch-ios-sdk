@@ -11,41 +11,41 @@ import Foundation
 public struct TWClip: Codable {
     
     /// ID of the clip being queried.
-    var id: String
+    public var id: String
     
     /// URL where the clip can be viewed.
-    var url: String
+    public var url: String
     
     /// URL to embed the clip.
-    var embedUrl: String
+    public var embedUrl: String
     
     /// User ID of the stream from which the clip was created.
-    var broadcasterId: String
+    public var broadcasterId: String
     
     /// Display name corresponding to broadcaster_id.
-    var broadcasterName: String
+    public var broadcasterName: String
     
     /// ID of the user who created the clip.
-    var creatorId: String
+    public var creatorId: String
         
     /// ID of the video from which the clip was created.
-    var videoId: String
+    public var videoId: String
     
     /// ID of the game assigned to the stream when the clip was created.
-    var gameId: String
+    public var gameId: String
     
     /// Language of the stream from which the clip was created.
-    var language: String
+    public var language: String
     
     /// Title of the clip.
-    var title: String
+    public var title: String
     
     /// Number of times the clip has been viewed.
-    var viewCount: Int
+    public var viewCount: Int
     
     /// Date when the clip was created.
-    var createdAt: String
+    public var createdAt: String
     
     /// URL of the clip thumbnail.
-    var thumbnailUrl: String
+    public var thumbnailUrl: String
 }

@@ -10,33 +10,37 @@ import Foundation
 
 public struct TWUser: Codable {
     
+    public enum TWUserType: String, Codable {
+        case staff = "straff", admin = "admin", globalMod = "global_mod", user = ""
+    }
+    
     /// User’s ID.
-    var id: String
+    public var id: String
     
     /// User’s login name.
-    var login: String
+    public var login: String
     
     /// User’s display name.
-    var displayName: String
+    public var displayName: String
     
     /// User’s type: "staff", "admin", "global_mod", or "".
-    var type: String
+    public var type: String
     
     /// User’s broadcaster type: "partner", "affiliate", or "".
-    var broadcasterType: String
+    public var broadcasterType: String
     
     /// User’s channel description.
-    var description: String
+    public var description: String
     
     /// URL of the user’s profile image.
-    var profileImageUrl: String
+    public var profileImageUrl: String
     
     /// URL of the user’s offline image.
-    var offlineImageUrl: String
+    public var offlineImageUrl: String
         
     /// Total number of views of the user’s channel.
-    var viewCount: Int64
+    public var viewCount: Int64
     
     /// User’s email address. Returned if the request includes the user:read:email scope.
-    var email: String
+    public var email: String
 }

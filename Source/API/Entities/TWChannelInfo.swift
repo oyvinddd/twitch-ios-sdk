@@ -11,17 +11,17 @@ import Foundation
 public struct TWChannelInfo: Codable {
     
     /// Twitch User ID of this channel owner
-    var broadcasterId: String
+    public var broadcasterId: String
     
     /// Name of the game being played on the channel
-    var gameName: String
+    public var gameName: String
     
     /// Current game ID being played on the channel
-    var gameId: String
+    public var gameId: String
     
     /// Language of the channel
-    var broadcasterLanguage: String
+    public var broadcasterLanguage: String
     
     /// Title of the stream
-    var title: String
+    public var title: String
 }

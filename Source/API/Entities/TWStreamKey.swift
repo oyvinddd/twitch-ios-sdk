@@ -11,5 +11,5 @@ import Foundation
 public struct TWStreamKey: Codable {
     
     /// Stream key for the channel
-    var key: String
+    public var key: String
 }

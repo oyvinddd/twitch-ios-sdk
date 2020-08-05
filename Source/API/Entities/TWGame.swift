@@ -11,11 +11,11 @@ import Foundation
 public struct TWGame: Codable {
     
     /// Game ID.
-    var id: String
+    public var id: String
     
     /// Game name.
-    var name: String
+    public var name: String
     
     /// Template URL for the game’s box art.
-    var boxArtUrl: String
+    public var boxArtUrl: String
 }

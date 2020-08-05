@@ -11,14 +11,14 @@ import Foundation
 public struct TWStreamMarker: Codable {
     
     /// Unique ID of the marker.
-    var id: String
+    public var id: String
     
     /// Description of the marker.
-    var description: String
+    public var description: String
     
     /// Relative offset (in seconds) of the marker, from the beginning of the stream.
-    var positionSeconds: Int
+    public var positionSeconds: Int
     
     /// RFC3339 timestamp of the marker.
-    var createdAt: String
+    public var createdAt: String
 }

@@ -9,8 +9,6 @@
 import Foundation
 
 public struct TWLeaderboard: Codable {
-    
-    
     var userId: String
     var userName: String
     var rank: Int

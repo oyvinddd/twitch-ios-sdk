@@ -11,20 +11,20 @@ import Foundation
 public struct TWGameAnalytics: Codable {
     
     /// ID of the game whose analytics data is being provided.
-    var gameId: String
+    public var gameId: String
     
     /// A cursor value, to be used in a subsequent request to specify the starting point of the next set of results. This is returned only if game_id is not specified in the request.
-    var pagination: String // TODO: wrong
+    public var pagination: String // TODO: wrong
     
     /// Report start date/time.
-    var startedAt: String
+    public var startedAt: String
     
     /// Report end date/time.
-    var endedAt: String
+    public var endedAt: String
     
     /// Type of report
-    var type: String
+    public var type: String
     
     /// URL to the downloadable CSV file containing analytics data. Valid for 5 minutes.
-    var url: String
+    public var url: String
 }

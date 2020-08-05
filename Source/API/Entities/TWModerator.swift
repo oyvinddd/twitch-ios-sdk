@@ -8,11 +8,11 @@
 
 import Foundation
 
-public final class TWModerator: Codable {
+public struct TWModerator: Codable {
     
     /// User ID of a user who has been banned.
-    var userId: String
+    public var userId: String
     
     /// Display name of a user who has been banned.
-    var userName: String
+    public var userName: String
 }

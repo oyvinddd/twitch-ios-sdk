@@ -11,20 +11,20 @@ import Foundation
 public struct TWMessage: Codable {
     
     /// Developer-generated identifier for mapping messages to results.
-    var id: String
+    public var id: String
     
     /// Message text.
-    var text: String
+    public var text: String
     
     /// User ID of the sender.
-    var userId: String
+    public var userId: String
 }
 
 public struct TWMessageStatus: Codable {
     
     /// The msg_id passed in the body of the POST message. Maps each message to its status.
-    var messageId: String
+    public var messageId: String
     
     /// Indicates if this message meets AutoMod requirements.
-    var isPermitted: Bool
+    public var isPermitted: Bool
 }

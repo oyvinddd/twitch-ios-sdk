@@ -11,17 +11,17 @@ import Foundation
 public struct TWStreamTag: Codable {
     
     /// ID of the tag.
-    var tagId: String
+    public var tagId: String
     
     /// true if the tag is auto-generated; otherwise, false . An auto-generated tag is one automatically applied by Twitch
     /// (e.g., a language tag based on the broadcaster’s settings); these cannot be added or removed by the user.
-    var isAuto: Bool
+    public var isAuto: Bool
     
     /// All localized names of the tag.
-    var localizationNames: TWLocalisationNames
+    public var localizationNames: TWLocalisationNames
     
     /// All localized descriptions of the tag.
-    var localizationDescriptions: TWLocalizationDescriptions
+    public var localizationDescriptions: TWLocalizationDescriptions
 }
 
 public struct TWLocalisationNames: Codable {
