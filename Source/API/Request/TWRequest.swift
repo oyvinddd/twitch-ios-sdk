@@ -50,6 +50,7 @@ struct Endpoints {
     static let ingests = "\(kraken)/ingests"
     /// Extensions
     static let extensions = "\(helix)/extensions/list"
+    static let activeExtensions = "\(helix)/extensions"
     static let extensionTransations = "\(extensions)/transactions"
     /// Moderators
     static let moderators = "\(helix)/moderators"
@@ -447,6 +448,38 @@ struct TWReplaceStreamTagsRequest: TWRequest {
         params = ["broadcaster_id": broadcasterId]
         if let tagIds = tagIds {
             body = tagIds
+        }
+    }
+}
+
+struct TWActiveExtensionsRequest: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.activeExtensions
+    var method: HTTPMethod = .get
+    var params: [String : String] = [:]
+    var body: Encodable?
+    
+    init(userId: String?) {
+        if let userId = userId {
+            params["user_id"] = userId
+        }
+    }
+}
+
+struct TWModifyChannelInfoRequest: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.channels
+    var method: HTTPMethod = .patch
+    var params: [String : String]
+    var body: Encodable?
+    init(_ broadcasterId: String, gameId: String?, broadcasterLanguage: String?, title: String?) {
+        params = ["broadcaster_id": broadcasterId]
+        if let gameId = gameId {
+            params["game_id"] = gameId
+        }
+        if let language = broadcasterLanguage {
+            params["broadcaster_language"] = language
+        }
+        if let title = title {
+            params["title"] = title
         }
     }
 }

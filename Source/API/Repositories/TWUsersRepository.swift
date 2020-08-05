@@ -26,6 +26,11 @@ final class TWUsersRepository: TWUsersAPI {
         session.dataTask(with: request, decodable: [TWExtension].self, result: result).resume()
     }
     
+    func getActiveExtensions(userId: String?, result: @escaping TWContainerBlock<[TWExtension]>) {
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWActiveExtensionsRequest(userId: userId))
+        session.dataTask(with: request, decodable: [TWExtension].self, result: result).resume()
+    }
+    
     func createFollows(fromId: String, toId: String, allowNotifications: Bool?, result: @escaping TWNoContentBlock) {
         let request = URLRequestBuilder.buildSecureAPIRequest(for: TWCreateUserFollowsRequest(fromId: fromId, toId: toId, allowNotifications: allowNotifications))
         session.dataTask(with: request, result: result).resume()

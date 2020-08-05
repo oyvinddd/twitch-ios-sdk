@@ -31,6 +31,7 @@ protocol TWUsersAPI {
     func getUsers(id: String?, login: String?, result: @escaping TWContainerBlock<[TWUser]>)
     func getFollows(after: String?, first: Int?, fromId: String?, toId: String?, result: @escaping TWContainerBlock<[TWFollow]>)
     func getExtensions(result: @escaping TWContainerBlock<[TWExtension]>)
+    func getActiveExtensions(userId: String?, result: @escaping TWContainerBlock<[TWExtension]>)
     func createFollows(fromId: String, toId: String, allowNotifications: Bool?, result: @escaping TWNoContentBlock)
     func deleteFollows(fromId: String, toId: String, result: @escaping TWNoContentBlock)
     func updateUser(description: String?, result: @escaping TWContainerBlock<[TWUser]>)
@@ -53,6 +54,7 @@ protocol TWStreamsAPI {
     func replaceStreamTags(broadcasterId: String, tagIds: [String]?, result: @escaping TWNoContentBlock)
     func createStreamMarker(userId: String, description: String?, result: @escaping TWContainerBlock<TWStreamMarker>)
     func getChannelInfo(broadcatserId: String, result: @escaping TWContainerBlock<TWChannelInfo>)
+    func modifyChannelInfo(broadcasterId: String, gameId: String?, broadcasterLanguage: String?, title: String?, result: @escaping TWNoContentBlock)
 }
 
 // MARK: Bits API

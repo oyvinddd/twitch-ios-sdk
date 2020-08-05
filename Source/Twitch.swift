@@ -48,6 +48,10 @@ extension Twitch {
             usersRepository.getExtensions(result: result)
         }
         
+        func getActiveExtensions(userId: String? = nil, result: @escaping TWContainerBlock<[TWExtension]>) {
+            usersRepository.getActiveExtensions(userId: userId, result: result)
+        }
+        
         public static func createUserFollows(fromId: String, toId: String, allowNotifications: Bool? = nil, result: @escaping TWNoContentBlock) {
             usersRepository.createFollows(fromId: fromId, toId: toId, allowNotifications: allowNotifications, result: result)
         }
@@ -124,6 +128,11 @@ extension Twitch {
         
         public static func getChannelInfo(broadcatserId: String, result: @escaping TWContainerBlock<TWChannelInfo>) {
             streamsRepository.getChannelInfo(broadcatserId: broadcatserId, result: result)
+        }
+        
+        public static func modifyChannelInfo(broadcasterId: String, gameId: String?, broadcasterLanguage: String?, title: String?, result: @escaping TWNoContentBlock) {
+            streamsRepository.modifyChannelInfo(broadcasterId: broadcasterId, gameId: gameId,
+                                                broadcasterLanguage: broadcasterLanguage, title: title, result: result)
         }
     }
 }

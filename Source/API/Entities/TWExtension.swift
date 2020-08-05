@@ -10,6 +10,7 @@ import Foundation
 
 public struct TWExtension: Codable {
     
+    /// Type of extension
     public enum TWExtensionType: String, Codable {
         case component, mobile, panel, overlay
     }

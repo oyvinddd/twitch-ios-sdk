@@ -45,4 +45,12 @@ final class TWStreamsRepository: TWStreamsAPI {
         let request = URLRequestBuilder.buildSecureAPIRequest(for: TWChannelInfoRequest(broadcatserId))
         session.dataTask(with: request, decodable: TWChannelInfo.self, result: result).resume()
     }
+    
+    func modifyChannelInfo(broadcasterId: String, gameId: String?, broadcasterLanguage: String?, title: String?, result: @escaping TWNoContentBlock) {
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWModifyChannelInfoRequest(broadcasterId,
+                                                                                              gameId: gameId,
+                                                                                              broadcasterLanguage: broadcasterLanguage,
+                                                                                              title: title))
+        session.dataTask(with: request, result: result).resume()
+    }
 }

@@ -10,6 +10,7 @@ import Foundation
 
 public struct TWUser: Codable {
     
+    /// Type of user
     public enum TWUserType: String, Codable {
         case staff = "straff", admin = "admin", globalMod = "global_mod", user = ""
     }
