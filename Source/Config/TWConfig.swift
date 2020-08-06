@@ -16,6 +16,10 @@ public struct TWConfig {
         self.redirectUri = redirectUri
         self.scopes = scopes
     }
+    
+    func urlEncodedScopes() -> String {
+        return scopes.joined(separator: "+")
+    }
 }
 
 extension TWConfig {

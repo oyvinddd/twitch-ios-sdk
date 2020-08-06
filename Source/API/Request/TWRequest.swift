@@ -16,6 +16,8 @@ struct Endpoints {
     fileprivate static let helix: TWEndpoint = "/helix"
     /// Old V5 API
     fileprivate static let kraken: TWEndpoint = "/kraken"
+    /// Login
+    static let oauth: TWEndpoint = "/oauth2/authorize"
     /// Users
     static let users: TWEndpoint = "\(helix)/users"
     static let userFollows: TWEndpoint = "\(users)/follows"
@@ -483,3 +485,19 @@ struct TWModifyChannelInfoRequest: TWRequest {
         }
     }
 }
+
+struct TWOAuthRequest: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.oauth
+    var method: HTTPMethod = .get
+    var params: [String : String]
+    var body: Encodable?
+    init() {
+        params = [
+            "client_id": Twitch.credentials.clientId,
+            "response_type": "token",
+            "redirect_uri": Twitch.config.redirectUri,
+            "scope": Twitch.config.urlEncodedScopes()
+        ]
+    }
+}
+

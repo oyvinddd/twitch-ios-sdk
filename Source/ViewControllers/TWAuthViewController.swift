@@ -16,7 +16,6 @@ public protocol TWAuthDelegate: class {
 public final class TWAuthViewController: UIViewController {
     
     public weak var delegate: TWAuthDelegate?
-    public var url: URL?
     private var webView: WKWebView = {
         let webView = WKWebView()
         webView.translatesAutoresizingMaskIntoConstraints = false
@@ -26,7 +25,6 @@ public final class TWAuthViewController: UIViewController {
     public init(delegate: TWAuthDelegate? = nil) {
         super.init(nibName: nil, bundle: nil)
         self.delegate = delegate
-        self.url = Twitch.buildAuthURL()
     }
     
     required init?(coder: NSCoder) {
@@ -38,14 +36,9 @@ public final class TWAuthViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupChildViews()
-    }
-    
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if let url = url {
-            webView.navigationDelegate = self
-            webView.load(URLRequest(url: url))
-        }
+        webView.navigationDelegate = self
+        webView.load(URLRequestBuilder
+            .buildAuthRequest(for: TWOAuthRequest()))
     }
     
     private func setupChildViews() {
