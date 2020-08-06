@@ -15,6 +15,11 @@ public struct TWUser: Codable {
         case staff = "straff", admin = "admin", globalMod = "global_mod", user = ""
     }
     
+    /// Type of broadcaster
+    public enum TWBroadcasterType: String, Codable {
+        case partner = "partner", affiliate = "affiliate", regular = ""
+    }
+    
     /// User’s ID.
     public var id: String
     
@@ -25,10 +30,10 @@ public struct TWUser: Codable {
     public var displayName: String
     
     /// User’s type: "staff", "admin", "global_mod", or "".
-    public var type: String
+    public var type: TWUserType
     
     /// User’s broadcaster type: "partner", "affiliate", or "".
-    public var broadcasterType: String
+    public var broadcasterType: TWBroadcasterType
     
     /// User’s channel description.
     public var description: String
@@ -43,5 +48,5 @@ public struct TWUser: Codable {
     public var viewCount: Int64
     
     /// User’s email address. Returned if the request includes the user:read:email scope.
-    public var email: String
+    public var email: String?
 }

@@ -8,13 +8,6 @@
 
 import Foundation
 
-//protocol TWError: Error, Decodable {
-//    var message: String { get }
-//    var status: Int { get }
-//    var error: String? { get }
-//    var localizedDescription: String { get }
-//}
-
 public struct TWError: Error, Decodable {
     
     public static let unknown = TWError("Unknown error", status: 900)
