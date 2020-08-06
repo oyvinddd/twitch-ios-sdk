@@ -12,13 +12,13 @@ public struct TWConfig {
     var redirectUri: String
     var scopes: [TWScope]
     
+    var urlEncodedScopes: String {
+        return scopes.joined(separator: "+")
+    }
+    
     public init(redirectUri: String, scopes: [TWScope] = [TWConfig.Scope.openid]) {
         self.redirectUri = redirectUri
         self.scopes = scopes
-    }
-    
-    func urlEncodedScopes() -> String {
-        return scopes.joined(separator: "+")
     }
 }
 
