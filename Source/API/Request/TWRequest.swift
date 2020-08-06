@@ -126,12 +126,12 @@ struct TWGamesRequest: TWRequest {
     var method: HTTPMethod = .get
     var params: [String: String] = [:]
     var body: Encodable?
-    init(id: String?, title: String?) {
+    init(id: String?, name: String?) {
         if let id = id {
             params["id"] = id
         }
-        if let title = title {
-            params["title"] = title
+        if let name = name {
+            params["name"] = name
         }
     }
 }

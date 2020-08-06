@@ -10,12 +10,16 @@ import Foundation
 
 final class URLRequestBuilder {
         
-    /// Header fields
+    /// Authorization header field
     fileprivate let kHeaderAuthorization = "Authorization"
+    
+    /// Client ID header field
     fileprivate let kHeaderClientId = "Client-ID"
     
-    /// URLs for different Twitch services
+    /// Regular Twitch API base url
     fileprivate let kApiBaseUrl = "https://api.twitch.tv"
+    
+    /// Twitch auth base url
     fileprivate let kAuthBaseUrl = "https://id.twitch.tv"
     
     enum TwitchService {

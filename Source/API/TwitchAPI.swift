@@ -40,7 +40,7 @@ protocol TWUsersAPI {
 // MARK: Games API
 
 protocol TWGamesAPI {
-    func getGames(id: String?, title: String?, result: @escaping TWContainerBlock<[TWGame]>)
+    func getGames(id: String?, name: String?, result: @escaping TWContainerBlock<[TWGame]>)
     func getTopGames(after: String?, before: String?, first: Int?, result: @escaping TWContainerBlock<[TWGame]>)
 }
 

@@ -12,7 +12,7 @@ extension URLSession {
     typealias DecodableResultBlock = (Result<Decodable, Error>) -> Void
 
     func dataTask<T: Decodable>(with request: URLRequest, decodable: T.Type, result: @escaping TWContainerBlock<T>) -> URLSessionDataTask {
-        return dataTask(with: request) { (data, response, error) in
+        return dataTask(with: loggedRequest(request)) { (data, response, error) in
             if let error = error {
                 result(.failure(error))
                 return
@@ -44,5 +44,15 @@ extension URLSession {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return try decoder.decode(T.self, from: data)
+    }
+    
+    fileprivate func loggedRequest(_ request: URLRequest) -> URLRequest {
+        if let url = request.url,
+            let baseUrl = url.baseURL?.absoluteString,
+            let method = request.httpMethod {
+            let queryString = url.query ?? ""
+            print("[👾][\(method)][\(baseUrl)\(url.path)][\(queryString)]")
+        }
+        return request
     }
 }

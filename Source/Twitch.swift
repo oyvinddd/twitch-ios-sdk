@@ -63,8 +63,8 @@ extension Twitch {
 extension Twitch {
     
     public struct Games {
-        public static func getGames(id: String? = nil, title: String? = nil, result: @escaping TWContainerBlock<[TWGame]>) {
-            gamesRepository.getGames(id: id, title: title, result: result)
+        public static func getGames(id: String? = nil, name: String? = nil, result: @escaping TWContainerBlock<[TWGame]>) {
+            gamesRepository.getGames(id: id, name: name, result: result)
         }
         
         public static func getTopGames(after: String? = nil, before: String? = nil, first: Int? = nil, result: @escaping TWContainerBlock<[TWGame]>) {

@@ -16,17 +16,17 @@ public protocol TWAuthDelegate: class {
 public final class TWAuthViewController: UIViewController {
     
     public weak var delegate: TWAuthDelegate?
-    
+    public var url: URL?
     private var webView: WKWebView = {
         let webView = WKWebView()
         webView.translatesAutoresizingMaskIntoConstraints = false
         return webView
     }()
-    var url: URL?
     
     public init(delegate: TWAuthDelegate? = nil) {
         super.init(nibName: nil, bundle: nil)
         self.delegate = delegate
+        self.url = Twitch.buildAuthURL()
     }
     
     required init?(coder: NSCoder) {
