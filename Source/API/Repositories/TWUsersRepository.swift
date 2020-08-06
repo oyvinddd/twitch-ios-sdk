@@ -22,7 +22,7 @@ final class TWUsersRepository: TWUsersAPI {
     }
     
     func getExtensions(result: @escaping TWContainerBlock<[TWExtension]>) {
-        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWExtensionsRequest())
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWExtensionsRequest())
         session.dataTask(with: request, decodable: [TWExtension].self, result: result).resume()
     }
     

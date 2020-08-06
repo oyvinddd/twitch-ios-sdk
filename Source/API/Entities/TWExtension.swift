@@ -12,7 +12,7 @@ public struct TWExtension: Codable {
     
     /// Type of extension
     public enum TWExtensionType: String, Codable {
-        case component, mobile, panel, overlay
+        case component = "component", mobile = "mobile", panel = "panel", overlay = "overlay"
     }
     
     /// ID of the extension.

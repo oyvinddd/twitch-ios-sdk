@@ -19,7 +19,7 @@ public struct TWError: Error, Decodable {
     var message: String
     var status: Int
     var error: String?
-    public var localizedDescription: String {
+    public var errorDescription: String? {
         return message
     }
     

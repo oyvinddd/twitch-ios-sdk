@@ -56,7 +56,6 @@
 		8E18F7D824D932AE006AB38E /* TwitchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7A724D932AE006AB38E /* TwitchAPI.swift */; };
 		8E18F7D924D932AE006AB38E /* Twitch+Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7A924D932AE006AB38E /* Twitch+Authorization.swift */; };
 		8E18F7DA24D932AE006AB38E /* URLSession+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7AA24D932AE006AB38E /* URLSession+Result.swift */; };
-		8E18F7DB24D932AE006AB38E /* URLComponents+Params.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7AB24D932AE006AB38E /* URLComponents+Params.swift */; };
 		8E18F7DC24D932AE006AB38E /* URLSession+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F7AC24D932AE006AB38E /* URLSession+Decodable.swift */; };
 		8E7096F124D982B400636675 /* TWViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7096F024D982B400636675 /* TWViewControllers.swift */; };
 		D040DF40873789EF5A83D95ECFD8D9F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
@@ -137,7 +136,6 @@
 		8E18F7A724D932AE006AB38E /* TwitchAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitchAPI.swift; sourceTree = "<group>"; };
 		8E18F7A924D932AE006AB38E /* Twitch+Authorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Twitch+Authorization.swift"; sourceTree = "<group>"; };
 		8E18F7AA24D932AE006AB38E /* URLSession+Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Result.swift"; sourceTree = "<group>"; };
-		8E18F7AB24D932AE006AB38E /* URLComponents+Params.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponents+Params.swift"; sourceTree = "<group>"; };
 		8E18F7AC24D932AE006AB38E /* URLSession+Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Decodable.swift"; sourceTree = "<group>"; };
 		8E7096F024D982B400636675 /* TWViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWViewControllers.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -317,7 +315,6 @@
 			children = (
 				8E18F7A924D932AE006AB38E /* Twitch+Authorization.swift */,
 				8E18F7AA24D932AE006AB38E /* URLSession+Result.swift */,
-				8E18F7AB24D932AE006AB38E /* URLComponents+Params.swift */,
 				8E18F7AC24D932AE006AB38E /* URLSession+Decodable.swift */,
 			);
 			path = Extensions;
@@ -514,7 +511,6 @@
 				8E18F7BA24D932AE006AB38E /* TWVideosRepository.swift in Sources */,
 				15536BA62C184B2A16D05B41091DA7E7 /* Twitch-dummy.m in Sources */,
 				8E18F7B724D932AE006AB38E /* TWBitsRepository.swift in Sources */,
-				8E18F7DB24D932AE006AB38E /* URLComponents+Params.swift in Sources */,
 				8E18F7CC24D932AE006AB38E /* TWContainer.swift in Sources */,
 				8E18F7C624D932AE006AB38E /* TWLeaderboard.swift in Sources */,
 				8E18F7AE24D932AE006AB38E /* TWCredentials.swift in Sources */,

@@ -21,6 +21,7 @@ struct Endpoints {
     /// Users
     static let users: TWEndpoint = "\(helix)/users"
     static let userFollows: TWEndpoint = "\(users)/follows"
+    static let userExtensions: TWEndpoint = "\(users)/extensions/list"
     /// Games
     static let games: TWEndpoint = "\(helix)/games"
     static let topGames: TWEndpoint = "\(games)/top"
@@ -263,7 +264,7 @@ struct TWAllStreamTagsRequest: TWRequest {
 }
 
 struct TWExtensionsRequest: TWRequest {
-    var endpoint: TWEndpoint = Endpoints.extensions
+    var endpoint: TWEndpoint = Endpoints.userExtensions
     var method: HTTPMethod = .get
     var params: [String: String] = [:]
     var body: Encodable?

@@ -82,10 +82,13 @@ final class URLRequestBuilder {
     func build() -> URLRequest {
         
         var url = baseURL.appendingPathComponent(endpoint)
-        if let params = params {
-            var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
-            components?.setQueryItems(with: params)
-            if let comps = components, let newUrl = comps.url {
+        if let params = params, !params.isEmpty, var comps = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+            var queryItems: [URLQueryItem] = []
+            for item in params {
+                queryItems.append(URLQueryItem(name: item.key, value: item.value))
+            }
+            comps.queryItems = queryItems
+            if let newUrl = comps.url {
                 url = newUrl
             }
         }

@@ -47,15 +47,16 @@ extension URLSession {
     }
     
     fileprivate func loggedRequest(_ request: URLRequest) -> URLRequest {
-        if let url = request.url, let baseUrl = url.baseURL?.absoluteString, let method = request.httpMethod {
-            var headersString = ""
-            if let headers = request.allHTTPHeaderFields {
-                for header in headers {
-                    headersString += "[\(header.key): \(header.value)]"
+            if let url = request.url, let method = request.httpMethod {
+                var headersString = ""
+                if let headers = request.allHTTPHeaderFields {
+                    for header in headers {
+                        headersString += "[\(header.key): \(header.value)]"
+                    }
                 }
+                print("[👾][\(method)][\(url.absoluteString)\(url.path)]\(headersString)")
             }
-            print("[👾][\(method)][\(baseUrl)\(url.path)]\(headersString)")
-        }
+        
         return request
     }
 }
