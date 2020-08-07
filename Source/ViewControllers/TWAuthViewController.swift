@@ -9,8 +9,10 @@
 import Foundation
 import WebKit
 
+// TODO: two separate delegates for OAuth/OIDC
 public protocol TWAuthDelegate: class {
-    func didFetch(idToken: String, accessToken: String)
+    func didFetchOAuthToken(_ accessToken: String)
+    func didFetchOIDCToken(_ accessToken: String, idToken: String)
 }
 
 public final class TWAuthViewController: UIViewController {
@@ -58,23 +60,13 @@ public final class TWAuthViewController: UIViewController {
 extension TWAuthViewController: WKNavigationDelegate {
     
     public func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-        if isCorrectRedirectURL(webView.url) {
-            evaluateRedirectURL(webView.url)
+        if isCorrectRedirectURL(webView.url), let accessToken = extractFragment("access_token", from: webView.url) {
+            delegate?.didFetchOAuthToken(accessToken)
             dismiss(animated: true, completion: nil)
         }
     }
     
-    // TODO: improve this method
-    private func evaluateRedirectURL(_ url: URL?) {
-        if let urlString = url?.absoluteString {
-            let parts = urlString.components(separatedBy: ["=", "&"])
-            let idToken = parts[1]
-            let accessToken = parts[1] // TODO: ...
-            delegate?.didFetch(idToken: idToken, accessToken: accessToken)
-        }
-    }
-    
-    fileprivate func isCorrectRedirectURL(_ url: URL?) -> Bool {
+    private func isCorrectRedirectURL(_ url: URL?) -> Bool {
         let redirectUri = Twitch.config.redirectUri
         guard let urlStr = url?.absoluteString, urlStr.count >= redirectUri.count else {
             return false
@@ -82,5 +74,19 @@ extension TWAuthViewController: WKNavigationDelegate {
         let index = urlStr.index(urlStr.startIndex, offsetBy: redirectUri.count)
         let substring = urlStr.prefix(upTo: index)
         return substring == redirectUri
+    }
+    
+    private func extractFragment(_ param: String, from url: URL?) -> String? {
+        guard let urlString = url?.absoluteString, let comps = URLComponents(string: urlString), let fragment = comps.fragment else {
+            return nil
+        }
+        let dict = fragment.components(separatedBy: "&").map({
+            $0.components(separatedBy: "=")
+        }).reduce(into: [String:String]()) { dict, pair in
+            if pair.count == 2 {
+                dict[pair[0]] = pair[1]
+            }
+        }
+        return dict[param]
     }
 }

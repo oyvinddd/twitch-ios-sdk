@@ -13,9 +13,6 @@ public struct TWCredentials {
     var clientId: String
     var accessToken: String?
     var idToken: String?
-    var hasValidTokens: Bool {
-        return accessToken != nil && idToken != nil
-    }
     
     init(clientId: String) {
         self.clientId = clientId

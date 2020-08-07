@@ -14,16 +14,16 @@ public class Twitch: NSObject {
     public static var credentials: TWCredentials!
     
     /// Repositories
-    fileprivate static let usersRepository = TWUsersRepository()
-    fileprivate static let gamesRepository = TWGamesRepository()
-    fileprivate static let clipsRepository = TWClipsRepository()
-    fileprivate static let videosRepository = TWVideosRepository()
-    fileprivate static let streamsRepository = TWStreamsRepository()
-    fileprivate static let moderationRepository = TWModerationRepository()
-    fileprivate static let entitlementsRepository = TWEntitlementsRepository()
-    fileprivate static let searchRepository = TWSearchRepository()
-    fileprivate static let tagsRepository = TWTagsRepository()
-    fileprivate static let subsRepository = TWSubsRepository()
+    private static let usersRepository = TWUsersRepository()
+    private static let gamesRepository = TWGamesRepository()
+    private static let clipsRepository = TWClipsRepository()
+    private static let videosRepository = TWVideosRepository()
+    private static let streamsRepository = TWStreamsRepository()
+    private static let moderationRepository = TWModerationRepository()
+    private static let entitlementsRepository = TWEntitlementsRepository()
+    private static let searchRepository = TWSearchRepository()
+    private static let tagsRepository = TWTagsRepository()
+    private static let subsRepository = TWSubsRepository()
     
     public class func initialize(clientId: String, config: TWConfig) {
         self.credentials = TWCredentials(clientId: clientId)

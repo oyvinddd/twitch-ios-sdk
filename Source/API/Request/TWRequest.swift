@@ -497,7 +497,10 @@ struct TWOAuthRequest: TWRequest {
             "client_id": Twitch.credentials.clientId,
             "response_type": "token",
             "redirect_uri": Twitch.config.redirectUri,
-            "scope": Twitch.config.urlEncodedScopes
+            "scope": Twitch.config.urlEncodedScopes,
+            // optional params:
+            "force_verify": "false",
+            "state": "QjgX565URhyvAXn9"
         ]
     }
 }
