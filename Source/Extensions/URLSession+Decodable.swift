@@ -9,8 +9,6 @@
 import Foundation
 
 extension URLSession {
-    typealias DecodableResultBlock = (Result<Decodable, Error>) -> Void
-    
     func dataTask<T: Decodable>(with request: URLRequest, decodable: T.Type, result: @escaping TWContainerBlock<T>) -> URLSessionDataTask {
         return dataTask(with: loggedRequest(request)) { (data, response, error) in
             DispatchQueue.main.async {

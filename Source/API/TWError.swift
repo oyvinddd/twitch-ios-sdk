@@ -20,7 +20,7 @@ public struct TWError: Error, Decodable {
     var status: Int
     var error: String?
     public var errorDescription: String? {
-        return message
+        return "\(status) - \(message)"
     }
     
     init(_ message: String, status: Int, error: String? = nil) {
