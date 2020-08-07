@@ -22,7 +22,7 @@ pod 'Twitch'
 ```
 
 ## Prerequisites
-Before you can start using the SDK you need to [register your app](https://dev.twitch.tv/docs/authentication) on the Twitch developer site.
+Before you can start using the SDK you need to [register your app](https://dev.twitch.tv/docs/authentication#registration) on the Twitch developer site.
 
 ## Usage
 
