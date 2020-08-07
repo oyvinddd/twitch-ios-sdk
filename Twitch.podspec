@@ -8,10 +8,10 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Twitch'
-  s.version          = '1.0.0'
+  s.version          = '0.5.0'
   s.summary          = 'Native Swift wrapper for the official Twitch API'
   s.description      = <<-DESC
-  'This SDK wraps all the services available at https://dev.twitch.tv/docs/api.'
+  'This lib wraps all the services available at https://dev.twitch.tv/docs/api.'
                        DESC
 
   s.homepage                = 'https://github.com/oyvinddd/twitch-ios-sdk'

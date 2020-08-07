@@ -1,6 +1,5 @@
 //
 //  TWChannel.swift
-//  Screencast
 //
 //  Created by Øyvind Hauge on 02/08/2020.
 //  Copyright © 2020 Øyvind Hauge. All rights reserved.

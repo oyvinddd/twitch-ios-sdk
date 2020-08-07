@@ -1,6 +1,5 @@
 //
 //  Twitch.swift
-//  Screencast
 //
 //  Created by Øyvind Hauge on 20/07/2020.
 //  Copyright © 2020 Øyvind Hauge. All rights reserved.
@@ -36,7 +35,6 @@ extension Twitch {
     
     public struct Users {
         
-        
         /// Gets information about one or more specified Twitch users. Users are identified by optional user IDs and/or login name.
         /// If neither a user ID nor a login name is specified, the user is looked up by Bearer token. The response has a JSON payload with a data field containing an array of user-information elements.
         /// - Parameters:
@@ -47,18 +45,38 @@ extension Twitch {
             usersRepository.getUsers(id: id, login: login, result: result)
         }
         
+        /// Gets information on follow relationships between two Twitch users. Information returned is sorted in order, most recent follow first. This can return information like “who is qotrok following,” “who is following qotrok,” or “is user X following user Y.” The response has a JSON payload with a data field containing an array of follow relationship elements and a pagination field containing information required to query for more follow information.
+        /// - Parameters:
+        ///   - after: Cursor for forward pagination: tells the server where to start fetching the next set of results, in a multi-page response. The cursor value specified here is from the pagination response field of a prior query.
+        ///   - first: Maximum number of objects to return. Maximum: 100. Default: 20.
+        ///   - fromId: User ID. The request returns information about users who are being followed by the from_id user.
+        ///   - toId: User ID. The request returns information about users who are following the to_id user.
+        ///   - result: Result block
         public static func getFollows(after: String? = nil, first: Int? = nil, fromId: String? = nil, toId: String? = nil, result: @escaping TWContainerBlock<[TWFollow]>) {
             usersRepository.getFollows(after: after, first: first, fromId: fromId, toId: toId, result: result)
         }
         
+        /// Gets a list of all extensions (both active and inactive) for a specified user, identified by a Bearer token. The response has a JSON payload with a data field containing an array of user-information elements.
+        /// - Parameter result: Result block
         public static func getExtensions(result: @escaping TWContainerBlock<[TWExtension]>) {
             usersRepository.getExtensions(result: result)
         }
         
+        
+        /// Gets information about active extensions installed by a specified user, identified by a user ID or Bearer token.
+        /// - Parameters:
+        ///   - userId: ID of the user whose installed extensions will be returned. Limit: 1.
+        ///   - result: Result block
         func getActiveExtensions(userId: String? = nil, result: @escaping TWContainerBlock<[TWExtension]>) {
             usersRepository.getActiveExtensions(userId: userId, result: result)
         }
         
+        /// Adds a specified user to the followers of a specified channel.
+        /// - Parameters:
+        ///   - fromId: User ID of the follower
+        ///   - toId: ID of the channel to be followed by the user
+        ///   - allowNotifications: If true, the user gets email or push notifications (depending on the user’s notification settings) when the channel goes live. Default value is false.
+        ///   - result: Result block
         public static func createUserFollows(fromId: String, toId: String, allowNotifications: Bool? = nil, result: @escaping TWNoContentBlock) {
             usersRepository.createFollows(fromId: fromId, toId: toId, allowNotifications: allowNotifications, result: result)
         }
@@ -70,10 +88,22 @@ extension Twitch {
 extension Twitch {
     
     public struct Games {
+        
+        /// Gets game information by game ID or name. The response has a JSON payload with a data field containing an array of games elements.
+        /// - Parameters:
+        ///   - id: Game ID. At most 100 id values can be specified.
+        ///   - name: Game name. The name must be an exact match. For instance, “Pokemon” will not return a list of Pokemon games; instead, query the specific Pokemon game(s) in which you are interested. At most 100 name values can be specified.
+        ///   - result: Result block
         public static func getGames(id: String? = nil, name: String? = nil, result: @escaping TWContainerBlock<[TWGame]>) {
             gamesRepository.getGames(id: id, name: name, result: result)
         }
         
+        /// Gets games sorted by number of current viewers on Twitch, most popular first. The response has a JSON payload with a data field containing an array of games information elements and a pagination field containing information required to query for more streams.
+        /// - Parameters:
+        ///   - after: Cursor for forward pagination: tells the server where to start fetching the next set of results, in a multi-page response. The cursor value specified here is from the pagination response field of a prior query.
+        ///   - before: Cursor for backward pagination: tells the server where to start fetching the next set of results, in a multi-page response. The cursor value specified here is from the pagination response field of a prior query.
+        ///   - first: Maximum number of objects to return. Maximum: 100. Default: 20.
+        ///   - result: Result block
         public static func getTopGames(after: String? = nil, before: String? = nil, first: Int? = nil, result: @escaping TWContainerBlock<[TWGame]>) {
             gamesRepository.getTopGames(after: after, before: before, first: first, result: result)
         }
@@ -85,6 +115,13 @@ extension Twitch {
 extension Twitch {
     
     public struct Videos {
+        
+        /// Gets video information by video ID (one or more), user ID (one only), or game ID (one only). The response has a JSON payload with a data field containing an array of video elements. For lookup by user or game, pagination is available, along with several filters that can be specified as query parameters.
+        /// - Parameters:
+        ///   - id: ID of the video being queried. Limit: 100. If this is specified, you cannot use any of the optional query parameters below.
+        ///   - userId: ID of the user who owns the video. Limit 1.
+        ///   - gameId: ID of the game the video is of. Limit 1.
+        ///   - result: Result block
         public static func getVideos(id: String, userId: String, gameId: String, result: @escaping TWContainerBlock<[TWVideo]>) {
             videosRepository.getVideos(id: id, userId: userId, gameId: gameId, result: result)
         }
@@ -96,10 +133,22 @@ extension Twitch {
 extension Twitch {
     
     public struct Clips {
+        
+        /// Gets clip information by clip ID (one or more), broadcaster ID (one only), or game ID (one only). The response has a JSON payload with a data field containing an array of clip information elements and a pagination field containing information required to query for more streams.
+        /// - Parameters:
+        ///   - broadcasterId: ID of the broadcaster for whom clips are returned. The number of clips returned is determined by the first query-string parameter (default: 20). Results are ordered by view count.
+        ///   - gameId: ID of the game for which clips are returned. The number of clips returned is determined by the first query-string parameter (default: 20). Results are ordered by view count.
+        ///   - id: ID of the clip being queried. Limit: 100.
+        ///   - result: Result block
         public static func getClips(broadcasterId: String, gameId: String, id: String, result: @escaping TWContainerBlock<[TWClip]>) {
             clipsRepository.getClips(broadcasterId: broadcasterId, gameId: gameId, id: id, result: result)
         }
         
+        /// Creates a clip programmatically. This returns both an ID and an edit URL for the new clip. Clip creation takes time. We recommend that you query Get Clips, with the clip ID that is returned here. If Get Clips returns a valid clip, your clip creation was successful. If, after 15 seconds, you still have not gotten back a valid clip from Get Clips, assume that the clip was not created and retry Create Clip. This endpoint has a global rate limit, across all callers. The limit may change over time, but the response includes informative headers:
+        /// - Parameters:
+        ///   - broadcasterId: ID of the stream from which the clip will be made.
+        ///   - hasDelay: If false, the clip is captured from the live stream when the API is called; otherwise, a delay is added before the clip is captured (to account for the brief delay between the broadcaster’s stream and the viewer’s experience of that stream). Default: false.
+        ///   - result: Result block
         public static func createClip(broadcasterId: String, hasDelay: Bool?, result: @escaping TWContainerBlock<[TWClipInfo]>) {
             clipsRepository.createClip(broadcasterId: broadcasterId, hasDelay: hasDelay, result: result)
         }
@@ -111,33 +160,74 @@ extension Twitch {
 extension Twitch {
     
     public struct Streams {
+        
+        /// Gets the channel stream key for a user.
+        /// - Parameters:
+        ///   - broadcasterId: User ID of the broadcaster
+        ///   - result: Result block
         public static func getStreamKey(broadcasterId: String, result: @escaping TWContainerBlock<TWStreamKey>) {
             streamsRepository.getStreamKey(broadcasterId: broadcasterId, result: result)
         }
         
+        /// Gets information about active streams. Streams are returned sorted by number of current viewers, in descending order. Across multiple pages of results, there may be duplicate or missing streams, as viewers join and leave streams. The response has a JSON payload with a data field containing an array of stream information elements and a pagination field containing information required to query for more streams.
+        /// - Parameters:
+        ///   - after: Cursor for forward pagination: tells the server where to start fetching the next set of results, in a multi-page response. The cursor value specified here is from the pagination response field of a prior query.
+        ///   - before: Cursor for backward pagination: tells the server where to start fetching the next set of results, in a multi-page response. The cursor value specified here is from the pagination response field of a prior query.
+        ///   - first: Maximum number of objects to return. Maximum: 100. Default: 20.
+        ///   - gameId: Returns streams broadcasting a specified game ID. You can specify up to 100 IDs.
+        ///   - language: Stream language. You can specify up to 100 languages.
+        ///   - userId: Returns streams broadcast by one or more specified user IDs. You can specify up to 100 IDs.
+        ///   - userLogin: Returns streams broadcast by one or more specified user login names. You can specify up to 100 names.
+        ///   - result: Result block
         public static func getStreams(after: String? = nil, before: String? = nil,
                                first: Int? = nil, gameId: String? = nil, language: String? = nil,
                                userId: String? = nil, userLogin: String? = nil, result: @escaping TWContainerBlock<[TWStream]>) {
             streamsRepository.getStreams(after: after, before: before, first: first, gameId: gameId, language: language, userId: userId, userLogin: userLogin, result: result)
         }
         
+        /// Gets the list of tags for a specified stream (channel). The response has a JSON payload with a data field containing an array of tag elements.
+        /// - Parameters:
+        ///   - broadcasterId: ID of the stream thats tags are going to be fetched
+        ///   - result: Result block
         public static func getStreamTags(broadcasterId: String, result: @escaping TWContainerBlock<[TWStreamTag]>) {
             streamsRepository.getStreamTags(broadcasterId: broadcasterId, result: result)
         }
         
+        /// Applies specified tags to a specified stream, overwriting any existing tags applied to that stream. If no tags are specified, all tags previously applied to the stream are removed. Automated tags are not affected by this operation. Tags expire 72 hours after they are applied, unless the stream is live within that time period. If the stream is live within the 72-hour window, the 72-hour clock restarts when the stream goes offline. The expiration period is subject to change.
+        /// - Parameters:
+        ///   - broadcasterId: ID of the stream for which tags are to be replaced.
+        ///   - tagIds: IDs of tags to be applied to the stream. Maximum of 100 supported.
+        ///   - result: Result block
         public static func replaceStreamTags(broadcasterId: String, tagIds: [String]? = nil, result: @escaping TWNoContentBlock) {
             streamsRepository.replaceStreamTags(broadcasterId: broadcasterId, tagIds: tagIds, result: result)
         }
         
+        
+        /// Creates a marker in the stream of a user specified by a user ID. A marker is an arbitrary point in a stream that the broadcaster wants to mark; e.g., to easily return to later. The marker is created at the current timestamp in the live broadcast when the request is processed. Markers can be created by the stream owner or editors. The user creating the marker is identified by a Bearer token.
+        /// - Parameters:
+        ///   - userId: ID of the broadcaster in whose live stream the marker is created.
+        ///   - description: Description of or comments on the marker. Max length is 140 characters.
+        ///   - result: Result block
         public static func createStreamMarker(userId: String, description: String? = nil, result: @escaping TWContainerBlock<TWStreamMarker>) {
             streamsRepository.createStreamMarker(userId: userId, description: description, result: result)
         }
         
+        /// Gets channel information for users.
+        /// - Parameters:
+        ///   - broadcatserId: ID of the channel to be updated
+        ///   - result: Result block
         public static func getChannelInfo(broadcatserId: String, result: @escaping TWContainerBlock<TWChannelInfo>) {
             streamsRepository.getChannelInfo(broadcatserId: broadcatserId, result: result)
         }
         
-        public static func modifyChannelInfo(broadcasterId: String, gameId: String?, broadcasterLanguage: String?, title: String?, result: @escaping TWNoContentBlock) {
+        /// Modifies channel information for users.
+        /// - Parameters:
+        ///   - broadcasterId: ID of the channel to be updated
+        ///   - gameId: The current game ID being played on the channel
+        ///   - broadcasterLanguage: The language of the channel
+        ///   - title: The title of the stream
+        ///   - result: Result block
+        public static func modifyChannelInfo(broadcasterId: String, gameId: String? = nil, broadcasterLanguage: String? = nil, title: String? = nil, result: @escaping TWNoContentBlock) {
             streamsRepository.modifyChannelInfo(broadcasterId: broadcasterId, gameId: gameId,
                                                 broadcasterLanguage: broadcasterLanguage, title: title, result: result)
         }
@@ -149,14 +239,33 @@ extension Twitch {
 extension Twitch {
     
     public struct Moderation {
+        
+        /// Returns all moderators in a channel.
+        /// - Parameters:
+        ///   - broadcasterId: Provided broadcaster_id must match the user_id in the auth token. Maximum: 1
+        ///   - userId: Filters the results and only returns a status object for users who are banned in this channel and have a matching user_id.
+        ///   - after: Cursor for forward pagination: tells the server where to start fetching the next set of results in a multi-page response. This applies only to queries without user_id. If a user_id is specified, it supersedes any cursor/offset combinations. The cursor value specified here is from the pagination response field of a prior query.
+        ///   - result: Result block
         public static func getModerators(broadcasterId: String, userId: String? = nil, after: String? = nil, result: @escaping TWContainerBlock<[TWModerator]>) {
             moderationRepository.getModerators(broadcasterId: broadcasterId, userId: userId, after: after, result: result)
         }
         
+        /// Returns a list of moderators or users added and removed as moderators from a channel.
+        /// - Parameters:
+        ///   - broadcasterId: Provided broadcaster_id must match the user_id in the auth token. Maximum: 1
+        ///   - userId: Filters the results and only returns a status object for users who are banned in this channel and have a matching user_id.
+        ///   - result: Result block
         public static func getModeratorEvents(broadcasterId: String, userId: String? = nil, result: @escaping TWContainerBlock<[TWModeratorEvent]>) {
             moderationRepository.getModeratorEvents(broadcasterId: broadcasterId, userId: userId, result: result)
         }
         
+        /// Returns all banned and timed-out users in a channel.
+        /// - Parameters:
+        ///   - broadcasterId: Provided broadcaster_id must match the user_id in the auth token. Maximum: 1
+        ///   - userId: Filters the results and only returns a status object for users who are banned in this channel and have a matching user_id.
+        ///   - after: Cursor for forward pagination: tells the server where to start fetching the next set of results in a multi-page response. This applies only to queries without user_id. If a user_id is specified, it supersedes any cursor/offset combinations. The cursor value specified here is from the pagination response field of a prior query.
+        ///   - before: Cursor for backward pagination: tells the server where to start fetching the next set of results in a multi-page response. This applies only to queries without user_id. If a user_id is specified, it supersedes any cursor/offset. combinations. The cursor value specified here is from the pagination response field of a prior query.
+        ///   - result: Result block
         public static func getBannedUsers(broadcasterId: String, userId: String? = nil, after: String? = nil, before: String? = nil, result: @escaping TWContainerBlock<[TWBannedUser]>) {
             moderationRepository.getBannedUsers(broadcasterId: broadcasterId, userId: userId, after: after, before: before, result: result)
         }
@@ -168,6 +277,12 @@ extension Twitch {
 extension Twitch {
     
     public struct Entitlements {
+        
+        /// Gets the status of one or more provided codes. This API requires that the caller is an authenticated Twitch user. The API is throttled to one request per second per authenticated user.
+        /// - Parameters:
+        ///   - code: The code to get the status of. Repeat this query parameter additional times to get the status of multiple codes. Ex: ?code=code1&code=code2 1-20 code parameters are allowed.
+        ///   - userId: Represents a numeric Twitch user ID. The user account which is going to receive the entitlement associated with the code.
+        ///   - result: Result block
         public static func getCodeStatus(code: String, userId: Int, result: @escaping TWContainerBlock<[TWCodeStatus]>) {
             entitlementsRepository.getCodeStatus(code: code, userId: userId, result: result)
         }
