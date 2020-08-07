@@ -37,7 +37,32 @@ Twitch.initialize(clientId: "CLIENT_ID", config: config)
 ```
 
 ### 2. Getting an access token
-TODO:
+#### 2.1 OAuth Token (implicit flow)
+The simplest way to retrieve an OAuth 2.0 access token is by using the included ```TWAuthViewController```:
+
+```swift
+final class MyViewController: UIViewController {
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // This presents a web view where the user can login to his/her Twitch account
+        // The SDK will get notified of a successful login in the delegate method didFetchOAuthToken
+        present(TWAuthViewController(delegate: self), animated: true, completion: nil)
+    }
+}
+
+extension MyViewController: TWAuthDelegate {
+
+    // After a user has successfully logged in to Twitch, this method is called 
+    func didFetchOAuthToken(_ accessToken: String) {
+        Twitch.credentials.set(accessToken: accessToken)
+    }
+}
+```
+
+#### 2.2 OIDC Token (implicit flow)
+TODO: ...
+
 
 ### 3. Calling the API
 The example below fetches all the top games (by number of current viewers) on Twitch.
@@ -62,7 +87,6 @@ Twitch.Games.getTopGames { result in
 // TWGame(id: "33214", name: "Fortnite", boxArtUrl: "...")
 // ...
 ```
-
 
 ## Available API Calls
 

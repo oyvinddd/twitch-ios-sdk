@@ -21,7 +21,7 @@ extension URLSession {
                     return
                 }
                 guard 200 ..< 300 ~= urlResponse.statusCode else {
-                    print("Status code was \(urlResponse.statusCode), but expected 2xx")
+                    print("Twitch - Status code was \(urlResponse.statusCode), but expected 2xx")
                     do {
                         let error: TWError = try self.decode(from: data)
                         result(.failure(error))
@@ -40,13 +40,13 @@ extension URLSession {
         }
     }
     
-    fileprivate func decode<T: Decodable>(from data: Data) throws -> T {
+    private func decode<T: Decodable>(from data: Data) throws -> T {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return try decoder.decode(T.self, from: data)
     }
     
-    fileprivate func loggedRequest(_ request: URLRequest) -> URLRequest {
+    private func loggedRequest(_ request: URLRequest) -> URLRequest {
         if let url = request.url, let method = request.httpMethod {
             var headersString = ""
             if let headers = request.allHTTPHeaderFields {
@@ -56,7 +56,6 @@ extension URLSession {
             }
             print("[👾][\(method)][\(url.absoluteString)]\(headersString)")
         }
-        
         return request
     }
 }
