@@ -9,7 +9,7 @@
 
 **⚠️ THIS SOFTWARE IS UNOFFICIAL AND IS IN NO WAY ENDORSED BY TWITCH.TV ⚠️**
 
-This SDK is a modern, lightweight wrapper around the [official Twitch API](https://dev.twitch.tv/docs/api/). Its main purpose is to make your life easier when building apps that needs to integrate with the various Twitch services. The code is 100% Swift and deployment target has been set to **iOS 12**.
+This SDK is a modern, lightweight wrapper around the [official Twitch API](https://dev.twitch.tv/docs/api/). Its main purpose is to make your life easier when building apps that needs to integrate with the various Twitch services. The code is 100% Swift and does not rely on any external dependencies. Deployment target has been set to **iOS 12**.
 
 **Note!** Although the SDK does support some of [the old Twitch API](https://dev.twitch.tv/docs/v5) (V5/Kraken) services, these have been deprecated in favor of the new Helix API services and will most likely be completely removed by Twitch in the near future.
 
@@ -62,7 +62,6 @@ extension MyViewController: TWAuthDelegate {
 
 #### 2.2 OIDC Token (implicit flow)
 TODO: ...
-
 
 ### 3. Calling the API
 The example below fetches all the top games (by number of current viewers) on Twitch.
@@ -131,7 +130,6 @@ Twitch.Games.getTopGames { result in
 | Get Videos | Twitch.Videos.getVideos | Helix |
 | Get Webhook Subscription | Twitch.Subscriptions.getWebhookSubscriptions | Helix |
 | Get Hype Train Events | Twitch.HypeTrain.getHypeTrainEvents | Helix |
-
 
 ## License
 Twitch is available under the MIT license. See the LICENSE file for more info.
