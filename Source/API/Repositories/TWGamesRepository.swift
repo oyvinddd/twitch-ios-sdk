@@ -17,7 +17,7 @@ final class TWGamesRepository: TWGamesAPI {
     }
     
     func getTopGames(after: String?, before: String?, first: Int?, result: @escaping TWContainerBlock<[TWGame]>) {
-        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWTopGamesRequest(after: after, before: before, first: first))
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWTopGamesRequest(after: after, before: before, first: first))
         session.dataTask(with: request, decodable: [TWGame].self, result: result).resume()
     }
 }

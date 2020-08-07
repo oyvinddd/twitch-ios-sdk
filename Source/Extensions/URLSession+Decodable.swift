@@ -54,7 +54,7 @@ extension URLSession {
                     headersString += "[\(header.key): \(header.value)]"
                 }
             }
-            print("[👾][\(method)][\(url.absoluteString)\(url.path)]\(headersString)")
+            print("[👾][\(method)][\(url.absoluteString)]\(headersString)")
         }
         
         return request

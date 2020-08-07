@@ -6,6 +6,9 @@
 [![Platform](https://img.shields.io/cocoapods/p/Twitch.svg?style=flat)](https://cocoapods.org/pods/Twitch)
 
 ## Information
+
+**THIS SOFTWARE IS UNOFFICIAL AND IS IN NO WAY ENDORSED BY TWITCH.TV**
+
 This SDK is a modern, lightweight wrapper around the [official Twitch API](https://dev.twitch.tv/docs/api/). Its main purpose is to make your life easier when building apps that needs to integrate with the various Twitch services. The code is 100% Swift and deployment target has been set to **iOS 12**.
 
 **Note!** Although the SDK does support some of [the old Twitch API](https://dev.twitch.tv/docs/v5) (V5/Kraken) services, these have been deprecated in favor of the new Helix API services and will most likely be completely removed by Twitch in the near future.
@@ -37,7 +40,29 @@ Twitch.initialize(clientId: "CLIENT_ID", config: config)
 TODO:
 
 ### 3. Calling the API
-TODO:
+The example below fetches all the top games (by number of current viewers) on Twitch.
+
+```swift
+Twitch.Games.getTopGames { result in
+    // Note! It's safe to call UI updates from this block
+    switch result {
+    case .success(let container):
+        for game in container.data {
+            print(game)
+        }
+        break
+    case .failure(let error):
+        print(error.localizedDescription)
+    }
+}
+
+// This prints the following:
+// TWGame(id: "509658", name: "Just Chatting", boxArtUrl: "https://static-cdn.jtvnw.net/ttv-boxart/Just%20Chatting-{width}x{height}.jpg")
+// TWGame(id: "21779", name: "League of Legends", boxArtUrl: "https://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-{width}x{height}.jpg")
+// TWGame(id: "33214", name: "Fortnite", boxArtUrl: "https://static-cdn.jtvnw.net/ttv-boxart/Fortnite-{width}x{height}.jpg")
+// ...
+```
+
 
 ## Available API Calls
 
