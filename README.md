@@ -7,7 +7,7 @@
 
 ## Information
 
-**THIS SOFTWARE IS UNOFFICIAL AND IS IN NO WAY ENDORSED BY TWITCH.TV**
+**⚠️ THIS SOFTWARE IS UNOFFICIAL AND IS IN NO WAY ENDORSED BY TWITCH.TV ⚠️**
 
 This SDK is a modern, lightweight wrapper around the [official Twitch API](https://dev.twitch.tv/docs/api/). Its main purpose is to make your life easier when building apps that needs to integrate with the various Twitch services. The code is 100% Swift and deployment target has been set to **iOS 12**.
 
@@ -57,9 +57,9 @@ Twitch.Games.getTopGames { result in
 }
 
 // This prints the following:
-// TWGame(id: "509658", name: "Just Chatting", boxArtUrl: "https://static-cdn.jtvnw.net/ttv-boxart/Just%20Chatting-{width}x{height}.jpg")
-// TWGame(id: "21779", name: "League of Legends", boxArtUrl: "https://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-{width}x{height}.jpg")
-// TWGame(id: "33214", name: "Fortnite", boxArtUrl: "https://static-cdn.jtvnw.net/ttv-boxart/Fortnite-{width}x{height}.jpg")
+// TWGame(id: "509658", name: "Just Chatting", boxArtUrl: "...")
+// TWGame(id: "21779", name: "League of Legends", boxArtUrl: "...")
+// TWGame(id: "33214", name: "Fortnite", boxArtUrl: "...")
 // ...
 ```
 
