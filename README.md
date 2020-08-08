@@ -90,46 +90,46 @@ Twitch.Games.getTopGames { result in
 ## Available API Calls
 
 | API Method | Swift Function | Supported? |
-| ------------- | ------------- | ------------- |
+| ------------- | ------------- | :-------------: |
 | Get Cheermotes | Twitch.Bits.getCheermotes | ❌ |
 | Get Bits Leaderboard | Twitch.Bits.getBitsLeaderboard | ❌ |
 | Get Game Analytics | Twitch.Analytics.getGameAnalytics | ❌ |
 | Get Extension Transactions | Twitch.Extensions.getTransactions | ❌ |
-| Create Clip | Twitch.Clips.createClip | Helix |
-| Get Clips | Twitch.Clips.getClips | Helix |
-| Create Entitlement Grants Upload URL | Twitch.Entitlements.TODO | Helix |
-| Get Code Status | Twitch.Entitlements.getCodeStatus | Helix |
-| Redeem Code | Twitch.Entitlements.redeemCode | Helix |
-| Get Top Games | Twitch.Games.getTopGames | Helix |
-| Get Games | Twitch.Games.getGames | Helix |
-| Check Automod Status | Twitch.Moderation.checkAutomodStatus | Helix |
-| Get Banned Users | Twitch.Moderation.getBannedUsers | Helix |
-| Get Banned Events | Twitch.Moderation.getBannedEvents | Helix |
-| Get Moderators | Twitch.Moderation.getModerators | Helix |
-| Get Moderator Events | Twitch.Moderation.getModeratorEvents | Helix |
-| Search Categories | Twitch.Search.searchCategories | Helix |
-| Search Channels | Twitch.Search.searchChannels | Helix |
-| Get Stream Key | Twitch.Streams.getStreamKey | Helix |
-| Get Streams | Twitch.Streams.getStreams | Helix |
-| Create Stream Marker | Twitch.Streams.createStreamMarker | Helix |
-| Get Stream Markers | Twitch.Streams.getStreamMarkers | Helix |
-| Get Channel Information | Twitch.Streams.getChannelInfo | Helix |
-| Modify Channel Information | Twitch.Streams.modifyChannelInfo | Helix |
-| Get Broadcaster Subscriptions | Twitch.Subscriptions.getBroadcasterSubscriptions | Helix |
-| Get All Stream Tags | Twitch.Tags.getAllStreamTags | Helix |
-| Get Stream Tags | Twitch.Tags.getStreamTags | Helix |
-| Replace Stream Tags | Twitch.Tags.replaceStreamTags | Helix |
-| Create User Follows | Twitch.Users.createUserFollows | Helix |
-| Delete User Follows | Twitch.Users.deleteUserFollows | Helix |
-| Get Users | Twitch.Clips.getUsers | Helix |
-| Get Users Follows | Twitch.Users.getUsersFollows | Helix |
-| Update User | Twitch.Clips.updateUser | Helix |
-| Get User Extensions | Twitch.Users.getUserExtensions | Helix |
-| Get User Active Extensions | Twitch.Users.getUserActiveExtensions | Helix |
-| Update User Extensions | Twitch.Users.updateUserExtensions | Helix |
-| Get Videos | Twitch.Videos.getVideos | Helix |
-| Get Webhook Subscription | Twitch.Subscriptions.getWebhookSubscriptions | Helix |
-| Get Hype Train Events | Twitch.HypeTrain.getHypeTrainEvents | Helix |
+| Create Clip | Twitch.Clips.createClip | ❌ |
+| Get Clips | Twitch.Clips.getClips | ❌ |
+| Create Entitlement Grants Upload URL | Twitch.Entitlements.TODO | ❌ |
+| Get Code Status | Twitch.Entitlements.getCodeStatus | ❌ |
+| Redeem Code | Twitch.Entitlements.redeemCode | ❌ |
+| Get Top Games | Twitch.Games.getTopGames | ❌ |
+| Get Games | Twitch.Games.getGames | ❌ |
+| Check Automod Status | Twitch.Moderation.checkAutomodStatus | ❌ |
+| Get Banned Users | Twitch.Moderation.getBannedUsers | ❌ |
+| Get Banned Events | Twitch.Moderation.getBannedEvents | ❌ |
+| Get Moderators | Twitch.Moderation.getModerators | ❌ |
+| Get Moderator Events | Twitch.Moderation.getModeratorEvents | ❌ |
+| Search Categories | Twitch.Search.searchCategories | ❌ |
+| Search Channels | Twitch.Search.searchChannels | ❌ |
+| Get Stream Key | Twitch.Streams.getStreamKey | ❌ |
+| Get Streams | Twitch.Streams.getStreams | ❌ |
+| Create Stream Marker | Twitch.Streams.createStreamMarker | ❌ |
+| Get Stream Markers | Twitch.Streams.getStreamMarkers | ❌ |
+| Get Channel Information | Twitch.Streams.getChannelInfo | ❌ |
+| Modify Channel Information | Twitch.Streams.modifyChannelInfo | ❌ |
+| Get Broadcaster Subscriptions | Twitch.Subscriptions.getBroadcasterSubscriptions | ❌ |
+| Get All Stream Tags | Twitch.Tags.getAllStreamTags | ❌ |
+| Get Stream Tags | Twitch.Tags.getStreamTags | ❌ |
+| Replace Stream Tags | Twitch.Tags.replaceStreamTags | ❌ |
+| Create User Follows | Twitch.Users.createUserFollows | ❌ |
+| Delete User Follows | Twitch.Users.deleteUserFollows | ❌ |
+| Get Users | Twitch.Clips.getUsers | ❌ |
+| Get Users Follows | Twitch.Users.getUsersFollows | ❌ |
+| Update User | Twitch.Clips.updateUser | ❌ |
+| Get User Extensions | Twitch.Users.getUserExtensions | ❌ |
+| Get User Active Extensions | Twitch.Users.getUserActiveExtensions | ❌ |
+| Update User Extensions | Twitch.Users.updateUserExtensions | ❌ |
+| Get Videos | Twitch.Videos.getVideos | ❌ |
+| Get Webhook Subscription | Twitch.Subscriptions.getWebhookSubscriptions | ❌ |
+| Get Hype Train Events | Twitch.HypeTrain.getHypeTrainEvents | ❌ |
 
 ## License
 Twitch is available under the MIT license. See the LICENSE file for more info.
