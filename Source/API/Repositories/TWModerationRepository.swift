@@ -22,7 +22,7 @@ final class TWModerationRepository: TWModerationAPI {
     }
     
     func getBannedUsers(broadcasterId: String, userId: String?, after: String?, before: String?, result: @escaping TWContainerBlock<[TWBannedUser]>) {
-        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWBannedUsersRequest(broadcasterId, userId: userId, after: after, before: before))
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWBannedUsersRequest(broadcasterId, userId: userId, after: after, before: before))
         session.dataTask(with: request, decodable: [TWBannedUser].self, result: result).resume()
     }
     

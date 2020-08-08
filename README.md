@@ -103,7 +103,7 @@ Twitch.Games.getTopGames { result in
 | Get Top Games | Twitch.Games.getTopGames | ✅ |
 | Get Games | Twitch.Games.getGames | ✅ |
 | Check Automod Status | Twitch.Moderation.checkAutomodStatus | ❌ |
-| Get Banned Users | Twitch.Moderation.getBannedUsers | ❌ |
+| Get Banned Users | Twitch.Moderation.getBannedUsers | ✅ |
 | Get Banned Events | Twitch.Moderation.getBannedEvents | ❌ |
 | Get Moderators | Twitch.Moderation.getModerators | ❌ |
 | Get Moderator Events | Twitch.Moderation.getModeratorEvents | ❌ |
