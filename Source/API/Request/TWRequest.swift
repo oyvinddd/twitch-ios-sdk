@@ -56,7 +56,7 @@ struct Endpoints {
     static let activeExtensions = "\(helix)/extensions"
     static let extensionTransations = "\(extensions)/transactions"
     /// Moderators
-    static let moderators = "\(helix)/moderators"
+    static let moderators = "\(helix)/moderation/moderators"
     static let moderatorEvents = "\(moderators)/events"
     /// Entitlements
     static let entitlements = "\(helix)/entitlements"
