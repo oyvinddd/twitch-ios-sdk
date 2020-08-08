@@ -89,12 +89,12 @@ Twitch.Games.getTopGames { result in
 
 ## Available API Calls
 
-| API Method | Swift Function | API Version |
+| API Method | Swift Function | Supported? |
 | ------------- | ------------- | ------------- |
-| Get Cheermotes | Twitch.Bits.getCheermotes | Helix |
-| Get Bits Leaderboard | Twitch.Bits.getBitsLeaderboard | Helix |
-| Get Game Analytics | Twitch.Analytics.getGameAnalytics | Helix |
-| Get Extension Transactions | Twitch.Extensions.getTransactions | Helix |
+| Get Cheermotes | Twitch.Bits.getCheermotes | ❌ |
+| Get Bits Leaderboard | Twitch.Bits.getBitsLeaderboard | ❌ |
+| Get Game Analytics | Twitch.Analytics.getGameAnalytics | ❌ |
+| Get Extension Transactions | Twitch.Extensions.getTransactions | ❌ |
 | Create Clip | Twitch.Clips.createClip | Helix |
 | Get Clips | Twitch.Clips.getClips | Helix |
 | Create Entitlement Grants Upload URL | Twitch.Entitlements.TODO | Helix |
