@@ -50,6 +50,11 @@ extension TWConfig {
         public static let chanReadHypeTrain: TWScope = "channel:read:hype_train"
         /// Get a list of all subscribers to your channel and check if a user is subscribed to your channel
         public static let chanReadSubscriptions: TWScope = "channel:read:subscriptions"
+        public static let analyticsReadGames: TWScope = "analytics:read:games"
+        /// View analytics data for your extensions.
+        public static let analyticsReadExtensions: TWScope = "analytics:read:extensions"
+        /// View moderation info
+        public static let moderationRead: TWScope = "moderation:read"
         /// Read a user’s list of ignored users.
         public static let v5_userBlocksRead: TWScope = "user_blocks_read"
         /// Turn on/off ignoring a user. Ignoring users means you cannot see them type, receive messages from them, etc.
@@ -75,8 +80,5 @@ extension TWConfig {
         /// Read nonpublic channel information, including email address and stream key.
         public static let v5_chanRead: TWScope = "channel_read"
         /// View analytics data for your games.
-        public static let analyticsReadGames: TWScope = "analytics:read:games"
-        /// View analytics data for your extensions.
-        public static let analyticsReadExtensions: TWScope = "analytics:read:extensions"
     }
 }
