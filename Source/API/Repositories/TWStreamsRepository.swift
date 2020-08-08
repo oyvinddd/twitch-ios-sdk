@@ -11,9 +11,9 @@ import Foundation
 final class TWStreamsRepository: TWStreamsAPI {
     let session: URLSession = URLSession.shared
 
-    func getStreamKey(broadcasterId: String, result: @escaping TWContainerBlock<TWStreamKey>) {
+    func getStreamKey(broadcasterId: String, result: @escaping TWContainerBlock<[TWStreamKey]>) {
         let request = URLRequestBuilder.buildSecureAPIRequest(for: TWStreamKeyRequest(broadcasterId))
-        session.dataTask(with: request, decodable: TWStreamKey.self, result: result).resume()
+        session.dataTask(with: request, decodable: [TWStreamKey].self, result: result).resume()
     }
     
     func getStreams(after: String?, before: String?, first: Int?,

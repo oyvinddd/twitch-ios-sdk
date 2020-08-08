@@ -100,17 +100,17 @@ Twitch.Games.getTopGames { result in
 | Create Entitlement Grants Upload URL | Twitch.Entitlements.TODO | ❌ |
 | Get Code Status | Twitch.Entitlements.getCodeStatus | ❌ |
 | Redeem Code | Twitch.Entitlements.redeemCode | ❌ |
-| Get Top Games | Twitch.Games.getTopGames | ❌ |
-| Get Games | Twitch.Games.getGames | ❌ |
+| Get Top Games | Twitch.Games.getTopGames | ✅ |
+| Get Games | Twitch.Games.getGames | ✅ |
 | Check Automod Status | Twitch.Moderation.checkAutomodStatus | ❌ |
 | Get Banned Users | Twitch.Moderation.getBannedUsers | ❌ |
 | Get Banned Events | Twitch.Moderation.getBannedEvents | ❌ |
 | Get Moderators | Twitch.Moderation.getModerators | ❌ |
 | Get Moderator Events | Twitch.Moderation.getModeratorEvents | ❌ |
-| Search Categories | Twitch.Search.searchCategories | ❌ |
-| Search Channels | Twitch.Search.searchChannels | ❌ |
+| Search Categories | Twitch.Search.searchCategories | ✅ |
+| Search Channels | Twitch.Search.searchChannels | ✅ |
 | Get Stream Key | Twitch.Streams.getStreamKey | ❌ |
-| Get Streams | Twitch.Streams.getStreams | ❌ |
+| Get Streams | Twitch.Streams.getStreams | ✅ |
 | Create Stream Marker | Twitch.Streams.createStreamMarker | ❌ |
 | Get Stream Markers | Twitch.Streams.getStreamMarkers | ❌ |
 | Get Channel Information | Twitch.Streams.getChannelInfo | ❌ |
@@ -121,7 +121,7 @@ Twitch.Games.getTopGames { result in
 | Replace Stream Tags | Twitch.Tags.replaceStreamTags | ❌ |
 | Create User Follows | Twitch.Users.createUserFollows | ❌ |
 | Delete User Follows | Twitch.Users.deleteUserFollows | ❌ |
-| Get Users | Twitch.Clips.getUsers | ❌ |
+| Get Users | Twitch.Clips.getUsers | ✅ |
 | Get Users Follows | Twitch.Users.getUsersFollows | ❌ |
 | Update User | Twitch.Clips.updateUser | ❌ |
 | Get User Extensions | Twitch.Users.getUserExtensions | ❌ |

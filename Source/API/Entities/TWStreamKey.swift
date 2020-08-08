@@ -11,4 +11,8 @@ public struct TWStreamKey: Codable {
     
     /// Stream key for the channel
     public var key: String
+    
+    enum CodingKeys: String, CodingKey {
+        case key = "stream_key"
+    }
 }

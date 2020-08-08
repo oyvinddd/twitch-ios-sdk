@@ -10,16 +10,6 @@ import Foundation
 
 public struct TWUser: Codable {
     
-    /// Type of user
-    public enum TWUserType: String, Codable {
-        case staff = "straff", admin = "admin", globalMod = "global_mod", user = ""
-    }
-    
-    /// Type of broadcaster
-    public enum TWBroadcasterType: String, Codable {
-        case partner = "partner", affiliate = "affiliate", regular = ""
-    }
-    
     /// User’s ID.
     public var id: String
     
@@ -49,4 +39,14 @@ public struct TWUser: Codable {
     
     /// User’s email address. Returned if the request includes the user:read:email scope.
     public var email: String?
+}
+
+/// Type of user
+public enum TWUserType: String, Codable {
+    case staff = "straff", admin = "admin", globalMod = "global_mod", user = ""
+}
+
+/// Type of broadcaster
+public enum TWBroadcasterType: String, Codable {
+    case partner = "partner", affiliate = "affiliate", regular = ""
 }

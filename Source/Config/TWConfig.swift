@@ -31,7 +31,7 @@ extension TWConfig {
         /// Manage a user object.
         public static let userEdit: TWScope = "user:edit"
         /// Read authorized user’s stream key.
-        public static let userReadStreamKey: TWScope = "user:read:stream_key"
+        public static let channelReadStreamKey: TWScope = "channel:read:stream_key"
         /// Read authorized user’s email address.
         public static let userReadEmail: TWScope = "user:read:email"
         /// View your broadcasting configuration, including extension configurations.

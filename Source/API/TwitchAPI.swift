@@ -47,7 +47,7 @@ protocol TWGamesAPI {
 // MARK: Streams API
 
 protocol TWStreamsAPI {
-    func getStreamKey(broadcasterId: String, result: @escaping TWContainerBlock<TWStreamKey>)
+    func getStreamKey(broadcasterId: String, result: @escaping TWContainerBlock<[TWStreamKey]>)
     func getStreams(after: String?, before: String?, first: Int?, gameId: String?,
                     language: String?, userId: String?, userLogin: String?, result: @escaping TWContainerBlock<[TWStream]>)
     func getStreamTags(broadcasterId: String, result: @escaping TWContainerBlock<[TWStreamTag]>)

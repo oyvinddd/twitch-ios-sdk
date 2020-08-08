@@ -165,7 +165,7 @@ extension Twitch {
         /// - Parameters:
         ///   - broadcasterId: User ID of the broadcaster
         ///   - result: Result block
-        public static func getStreamKey(broadcasterId: String, result: @escaping TWContainerBlock<TWStreamKey>) {
+        public static func getStreamKey(broadcasterId: String, result: @escaping TWContainerBlock<[TWStreamKey]>) {
             streamsRepository.getStreamKey(broadcasterId: broadcasterId, result: result)
         }
         

@@ -31,5 +31,5 @@ public struct TWContainer<T: Codable>: Codable {
 }
 
 public struct TWCursor: Codable {
-    public var cursor: String
+    public var cursor: String?
 }
