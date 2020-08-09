@@ -12,7 +12,7 @@ final class TWModerationRepository: TWModerationAPI {
     let session: URLSession = URLSession.shared
     
     func getModerators(broadcasterId: String, userId: String?, after: String?, result: @escaping TWContainerBlock<[TWModerator]>) {
-        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWModeratorsRequest(broadcasterId, userId: userId, after: after))
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWModeratorsRequest(broadcasterId, userId: userId, after: after))
         session.dataTask(with: request, decodable: [TWModerator].self, result: result).resume()
     }
     

@@ -216,7 +216,7 @@ extension Twitch {
         /// - Parameters:
         ///   - broadcatserId: ID of the channel to be updated
         ///   - result: Result block
-        public static func getChannelInfo(broadcatserId: String, result: @escaping TWContainerBlock<TWChannelInfo>) {
+        public static func getChannelInfo(broadcatserId: String, result: @escaping TWContainerBlock<[TWChannelInfo]>) {
             streamsRepository.getChannelInfo(broadcatserId: broadcatserId, result: result)
         }
         

@@ -53,7 +53,7 @@ protocol TWStreamsAPI {
     func getStreamTags(broadcasterId: String, result: @escaping TWContainerBlock<[TWStreamTag]>)
     func replaceStreamTags(broadcasterId: String, tagIds: [String]?, result: @escaping TWNoContentBlock)
     func createStreamMarker(userId: String, description: String?, result: @escaping TWContainerBlock<TWStreamMarker>)
-    func getChannelInfo(broadcatserId: String, result: @escaping TWContainerBlock<TWChannelInfo>)
+    func getChannelInfo(broadcatserId: String, result: @escaping TWContainerBlock<[TWChannelInfo]>)
     func modifyChannelInfo(broadcasterId: String, gameId: String?, broadcasterLanguage: String?, title: String?, result: @escaping TWNoContentBlock)
 }
 

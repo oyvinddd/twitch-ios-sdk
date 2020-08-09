@@ -41,9 +41,9 @@ final class TWStreamsRepository: TWStreamsAPI {
         session.dataTask(with: request, decodable: TWStreamMarker.self, result: result).resume()
     }
     
-    func getChannelInfo(broadcatserId: String, result: @escaping TWContainerBlock<TWChannelInfo>) {
+    func getChannelInfo(broadcatserId: String, result: @escaping TWContainerBlock<[TWChannelInfo]>) {
         let request = URLRequestBuilder.buildSecureAPIRequest(for: TWChannelInfoRequest(broadcatserId))
-        session.dataTask(with: request, decodable: TWChannelInfo.self, result: result).resume()
+        session.dataTask(with: request, decodable: [TWChannelInfo].self, result: result).resume()
     }
     
     func modifyChannelInfo(broadcasterId: String, gameId: String?, broadcasterLanguage: String?, title: String?, result: @escaping TWNoContentBlock) {

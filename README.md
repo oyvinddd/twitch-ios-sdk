@@ -113,7 +113,7 @@ Twitch.Games.getTopGames { result in
 | Get Streams | Twitch.Streams.getStreams | ✅ |
 | Create Stream Marker | Twitch.Streams.createStreamMarker | ❌ |
 | Get Stream Markers | Twitch.Streams.getStreamMarkers | ❌ |
-| Get Channel Information | Twitch.Streams.getChannelInfo | ❌ |
+| Get Channel Information | Twitch.Streams.getChannelInfo | ✅ |
 | Modify Channel Information | Twitch.Streams.modifyChannelInfo | ❌ |
 | Get Broadcaster Subscriptions | Twitch.Subscriptions.getBroadcasterSubscriptions | ❌ |
 | Get All Stream Tags | Twitch.Tags.getAllStreamTags | ❌ |
