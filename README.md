@@ -122,7 +122,7 @@ Twitch.Games.getTopGames { result in
 | Create User Follows | Twitch.Users.createUserFollows | ❌ |
 | Delete User Follows | Twitch.Users.deleteUserFollows | ❌ |
 | Get Users | Twitch.Clips.getUsers | ✅ |
-| Get Users Follows | Twitch.Users.getUsersFollows | ❌ |
+| Get Users Follows | Twitch.Users.getFollows | ✅ |
 | Update User | Twitch.Clips.updateUser | ❌ |
 | Get User Extensions | Twitch.Users.getUserExtensions | ❌ |
 | Get User Active Extensions | Twitch.Users.getUserActiveExtensions | ❌ |
