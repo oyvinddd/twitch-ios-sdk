@@ -17,7 +17,7 @@ final class TWUsersRepository: TWUsersAPI {
     }
     
     func getFollows(after: String?, first: Int?, fromId: String?, toId: String?, result: @escaping TWContainerBlock<[TWFollow]>) {
-        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWFollowsRequest(after: after, first: first, fromId: fromId, toId: toId))
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWFollowsRequest(after: after, first: first, fromId: fromId, toId: toId))
         session.dataTask(with: request, decodable: [TWFollow].self, result: result).resume()
     }
     
