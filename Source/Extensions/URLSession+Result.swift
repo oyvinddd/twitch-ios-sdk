@@ -1,6 +1,6 @@
 //
 //  URLSession+Result.swift
-//  Screencast
+//  Twitch
 //
 //  Created by Øyvind Hauge on 29/07/2020.
 //  Copyright © 2020 Øyvind Hauge. All rights reserved.

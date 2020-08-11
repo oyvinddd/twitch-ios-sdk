@@ -1,6 +1,6 @@
 //
 //  TWRequest.swift
-//  Screencast
+//  Twitch
 //
 //  Created by Øyvind Hauge on 30/07/2020.
 //  Copyright © 2020 Øyvind Hauge. All rights reserved.
@@ -65,6 +65,7 @@ struct Endpoints {
     /// Bits
     static let bits = "\(helix)/bits"
     static let cheermotes = "\(bits)/cheermotes"
+    static let leaderboard = "\(helix)/leaderboard"
     /// Clips
     static let clips = "\(helix)/clips"
     /// Subscriptions
@@ -193,14 +194,21 @@ struct TWModeratorEventsRequest: TWRequest {
 struct TWClipsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.clips
     var method: HTTPMethod = .get
-    var params: [String: String]
+    var params: [String: String] = [:]
+    var p: [URLQueryItem] = []
     var body: Encodable?
-    init(broadcasterId: String, gameId: String, id: String) {
-        params = [
-            "broadcaster_id": broadcasterId,
-            "game_id": gameId,
-            "id": id
-        ]
+    init(broadcasterId: String?, gameId: String?, id: [String]?) {
+        if let broadcasterId = broadcasterId {
+            p.append(URLQueryItem(name: "broadcaster_id", value: broadcasterId))
+        }
+        if let gameId = gameId {
+            p.append(URLQueryItem(name: "game_id", value: gameId))
+        }
+        if let id = id {
+            for i in id {
+                p.append(URLQueryItem(name: "id", value: i))
+            }
+        }
     }
 }
 
@@ -517,3 +525,24 @@ struct TWCheermotesRequest: TWRequest {
     }
 }
 
+struct TWLeaderboardRequest: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.leaderboard
+    var method: HTTPMethod = .get
+    var params: [String : String] = [:]
+    var body: Encodable?
+    
+    init(_ count: Int?, _ period: String?, _ startedAt: String?, _ userId: String?) {
+        if let count = count {
+            
+        }
+        if let period = period {
+            
+        }
+        if let startedAt = startedAt {
+            
+        }
+        if let userId = userId {
+            
+        }
+    }
+}

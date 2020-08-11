@@ -1,6 +1,6 @@
 //
 //  TwitchAPI.swift
-//  Screencast
+//  Twitch
 //
 //  Created by Øyvind Hauge on 30/07/2020.
 //  Copyright © 2020 Øyvind Hauge. All rights reserved.
@@ -73,7 +73,7 @@ protocol TWSubsAPI {
 // MARK: Clips API
 
 protocol TWClipsAPI {
-    func getClips(broadcasterId: String, gameId: String, id: String, result: @escaping TWContainerBlock<[TWClip]>)
+    func getClips(broadcasterId: String?, gameId: String?, id: [String]?, result: @escaping TWContainerBlock<[TWClip]>)
     func createClip(broadcasterId: String, hasDelay: Bool?, result: @escaping TWContainerBlock<[TWClipInfo]>)
 }
 

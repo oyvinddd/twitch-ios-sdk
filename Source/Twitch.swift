@@ -141,7 +141,7 @@ extension Twitch {
         ///   - gameId: ID of the game for which clips are returned. The number of clips returned is determined by the first query-string parameter (default: 20). Results are ordered by view count.
         ///   - id: ID of the clip being queried. Limit: 100.
         ///   - result: Result block
-        public static func getClips(broadcasterId: String, gameId: String, id: String, result: @escaping TWContainerBlock<[TWClip]>) {
+        public static func getClips(broadcasterId: String?, gameId: String?, id: [String]?, result: @escaping TWContainerBlock<[TWClip]>) {
             clipsRepository.getClips(broadcasterId: broadcasterId, gameId: gameId, id: id, result: result)
         }
         

@@ -1,6 +1,6 @@
 //
 //  TWAuthViewController.swift
-//  Screencast
+//  Twitch
 //
 //  Created by Øyvind Hauge on 20/07/2020.
 //  Copyright © 2020 Øyvind Hauge. All rights reserved.
