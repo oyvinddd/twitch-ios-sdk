@@ -166,10 +166,10 @@ struct TWModeratorsRequest: TWRequest {
     var method: HTTPMethod = .get
     var params: [String: String] = [:]
     var body: Encodable?
-    init(_ broadcasterId: String, userId: String?, after: String?) {
+    init(_ broadcasterId: String, userId: [String]?, after: String?) {
         params["broadcaster_id"] = broadcasterId
         if let userId = userId {
-            params["user_id"] = userId
+            //params["user_id"] = userId
         }
         if let after = after {
             params["after"] = after
@@ -502,6 +502,18 @@ struct TWOAuthRequest: TWRequest {
             "force_verify": "false",
             "state": "QjgX565URhyvAXn9"
         ]
+    }
+}
+
+struct TWCheermotesRequest: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.cheermotes
+    var method: HTTPMethod = .get
+    var params: [String : String] = [:]
+    var body: Encodable?
+    init(_ broadcasterId: String?) {
+        if let broadcasterId = broadcasterId {
+            params = ["broadcaster_id": broadcasterId]
+        }
     }
 }
 

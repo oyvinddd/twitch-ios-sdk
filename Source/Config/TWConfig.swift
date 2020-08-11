@@ -49,7 +49,7 @@ extension TWConfig {
         /// ...
         public static let chanReadHypeTrain: TWScope = "channel:read:hype_train"
         /// Get a list of all subscribers to your channel and check if a user is subscribed to your channel
-        public static let chanReadSubscriptions: TWScope = "channel:read:subscriptions"
+        public static let channelReadSubscriptions: TWScope = "channel:read:subscriptions"
         public static let analyticsReadGames: TWScope = "analytics:read:games"
         /// View analytics data for your extensions.
         public static let analyticsReadExtensions: TWScope = "analytics:read:extensions"
@@ -66,19 +66,19 @@ extension TWConfig {
         /// Read a user’s subscriptions.
         public static let v5userSubscriptions: TWScope = "user_subscriptions"
         /// Read whether a user is subscribed to your channel.
-        public static let v5_chanCheckSubscription: TWScope = "channel_check_subscription"
+        public static let v5_channelCheckSubscription: TWScope = "channel_check_subscription"
         /// Trigger commercials on channel.
-        public static let v5_chanCommercial: TWScope = "channel_commercial"
+        public static let v5_channelCommercial: TWScope = "channel_commercial"
         /// Write channel metadata (game, status, etc).
-        public static let v5_chanEditor: TWScope = "channel_editor"
+        public static let v5_channelEditor: TWScope = "channel_editor"
         /// Add posts and reactions to a channel feed.
-        public static let v5_chanFeedEdit: TWScope = "channel_feed_edit"
+        public static let v5_channelFeedEdit: TWScope = "channel_feed_edit"
         /// Read all subscribers to your channel.
-        public static let v5_chanSubscriptions: TWScope = "channel_subscriptions"
+        public static let v5_channelSubscriptions: TWScope = "channel_subscriptions"
         /// Reset a channel’s stream key.
-        public static let v5_chanStream: TWScope = "channel_stream"
+        public static let v5_channelStream: TWScope = "channel_stream"
         /// Read nonpublic channel information, including email address and stream key.
-        public static let v5_chanRead: TWScope = "channel_read"
+        public static let v5_channelRead: TWScope = "channel_read"
         /// View analytics data for your games.
     }
 }

@@ -27,7 +27,7 @@ final class TWStreamsRepository: TWStreamsAPI {
     }
     
     func getStreamTags(broadcasterId: String, result: @escaping TWContainerBlock<[TWStreamTag]>) {
-        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWStreamTagsRequest(broadcasterId))
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWStreamTagsRequest(broadcasterId))
         session.dataTask(with: request, decodable: [TWStreamTag].self, result: result).resume()
     }
     

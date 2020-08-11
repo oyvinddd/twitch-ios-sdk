@@ -60,7 +60,7 @@ protocol TWStreamsAPI {
 // MARK: Bits API
 
 protocol TWBitsAPI {
-    func getCheermotes(broadcasterId: String?, result: @escaping TWContainerBlock<[TWCheermote]>)
+    func getCheermotes(broadcasterId: String?, result: @escaping TWContainerBlock<[TWCheermoteContainer]>)
     func getLeaderboard(count: Int?, period: String?, startedAt: String?, userId: String?, result: @escaping TWContainerBlock<[TWLeaderboard]>)
 }
 
@@ -86,9 +86,10 @@ protocol TWVideosAPI {
 // MARK: Moderation API
 
 protocol TWModerationAPI {
-    func getModerators(broadcasterId: String, userId: String?, after: String?, result: @escaping TWContainerBlock<[TWModerator]>)
+    func getModerators(broadcasterId: String, userId: [String]?, after: String?, result: @escaping TWContainerBlock<[TWModerator]>)
     func getModeratorEvents(broadcasterId: String, userId: String?, result: @escaping TWContainerBlock<[TWModeratorEvent]>)
     func getBannedUsers(broadcasterId: String, userId: String?, after: String?, before: String?, result: @escaping TWContainerBlock<[TWBannedUser]>)
+    func getBannedEvents(broadcasterId: String, userId: String?, after: String?, first: String?, result: @escaping TWContainerBlock<[TWModeratorEvent]>)
     func checkAutomodStatus(broadcasterId: String, messages: [TWMessage], result: @escaping TWContainerBlock<[TWMessageStatus]>)
 }
 

@@ -115,9 +115,9 @@ Twitch.Games.getTopGames { result in
 | Get Stream Markers | Twitch.Streams.getStreamMarkers | ❌ |
 | Get Channel Information | Twitch.Streams.getChannelInfo | ✅ |
 | Modify Channel Information | Twitch.Streams.modifyChannelInfo | ❌ |
-| Get Broadcaster Subscriptions | Twitch.Subscriptions.getBroadcasterSubscriptions | ❌ |
-| Get All Stream Tags | Twitch.Tags.getAllStreamTags | ❌ |
-| Get Stream Tags | Twitch.Tags.getStreamTags | ❌ |
+| Get Broadcaster Subscriptions | Twitch.Subscriptions.getBroadcasterSubscriptions | ✅ |
+| Get All Stream Tags | Twitch.Tags.getAllStreamTags | ✅ |
+| Get Stream Tags | Twitch.Tags.getStreamTags | ✅ |
 | Replace Stream Tags | Twitch.Tags.replaceStreamTags | ❌ |
 | Create User Follows | Twitch.Users.createUserFollows | ❌ |
 | Delete User Follows | Twitch.Users.deleteUserFollows | ❌ |

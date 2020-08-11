@@ -22,6 +22,7 @@ public class Twitch: NSObject {
     private static let searchRepository = TWSearchRepository()
     private static let tagsRepository = TWTagsRepository()
     private static let subsRepository = TWSubsRepository()
+    private static let bitsRepository = TWBitsRepository()
     
     public class func initialize(clientId: String, config: TWConfig) {
         self.credentials = TWCredentials(clientId: clientId)
@@ -246,7 +247,7 @@ extension Twitch {
         ///   - userId: Filters the results and only returns a status object for users who are banned in this channel and have a matching user_id.
         ///   - after: Cursor for forward pagination: tells the server where to start fetching the next set of results in a multi-page response. This applies only to queries without user_id. If a user_id is specified, it supersedes any cursor/offset combinations. The cursor value specified here is from the pagination response field of a prior query.
         ///   - result: Result block
-        public static func getModerators(broadcasterId: String, userId: String? = nil, after: String? = nil, result: @escaping TWContainerBlock<[TWModerator]>) {
+        public static func getModerators(broadcasterId: String, userId: [String]? = nil, after: String? = nil, result: @escaping TWContainerBlock<[TWModerator]>) {
             moderationRepository.getModerators(broadcasterId: broadcasterId, userId: userId, after: after, result: result)
         }
         
@@ -351,6 +352,22 @@ extension Twitch {
         ///   - result: Result block
         public static func getBroadcasterSubscriptions(broadcasterId: String, userId: String? = nil, result: @escaping TWContainerBlock<[TWSubscription]>) {
             subsRepository.getBroadcasterSubscriptions(broadcasterId: broadcasterId, userId: userId, result: result)
+        }
+    }
+}
+
+// MARK: Twitch Bits API
+
+extension Twitch {
+    
+    public struct Bits {
+        
+        /// Retrieves the list of available Cheermotes, animated emotes to which viewers can assign Bits, to cheer in chat. Cheermotes returned are available throughout Twitch, in all Bits-enabled channels.
+        /// - Parameters:
+        ///   - broadcasterId: ID for the broadcaster who might own specialized Cheermotes.
+        ///   - result: Result block
+        public static func getCheermotes(broadcasterId: String?, result: @escaping TWContainerBlock<[TWCheermoteContainer]>) {
+            bitsRepository.getCheermotes(broadcasterId: broadcasterId, result: result)
         }
     }
 }

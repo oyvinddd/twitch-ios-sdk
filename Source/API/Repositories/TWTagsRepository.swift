@@ -12,7 +12,7 @@ final class TWTagsRepository: TWTagsAPI {
     let session: URLSession = URLSession.shared
     
     func getAllTags(tagId: String?, after: String?, first: Int?, result: @escaping TWContainerBlock<[TWStreamTag]>) {
-        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWAllStreamTagsRequest(tagId: tagId, after: after, first: first))
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWAllStreamTagsRequest(tagId: tagId, after: after, first: first))
         session.dataTask(with: request, decodable: [TWStreamTag].self, result: result).resume()
     }
 }

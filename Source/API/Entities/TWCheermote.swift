@@ -1,6 +1,5 @@
 //
 //  TWCheermote.swift
-//  Screencast
 //
 //  Created by Øyvind Hauge on 30/07/2020.
 //  Copyright © 2020 Øyvind Hauge. All rights reserved.
@@ -8,14 +7,8 @@
 
 import Foundation
 
-// Shows whether the emote is global_first_party,  global_third_party, channel_custom, display_only, or sponsored.
-
 public struct TWCheermoteContainer: Codable {
-    /// An array of Cheermotes with their metadata.
-    var tiers: [TWCheermote]
-}
-
-public struct TWCheermote: Codable {
+    
     public enum TWEmoteType: String, Codable {
         case globalFirstParty = "global_first_party"
         case globalThirdParty = "global_third_party"
@@ -23,6 +16,27 @@ public struct TWCheermote: Codable {
         case displayOnly = "display_only"
         case sponsored = "sponsored"
     }
+    
+    /// No information given
+    public var prefix: String?
+    
+    /// An array of Cheermotes with their metadata.
+    public var tiers: [TWCheermote]
+    
+    /// Shows whether the emote is global_first_party,  global_third_party, channel_custom, display_only, or sponsored.
+    public var type: TWEmoteType
+    
+    /// Order of the emotes as shown in the bits card, in ascending order.
+    public var order: Int
+    
+    /// The data when this Cheermote was last updated.
+    public var lastUpdated: String
+    
+    /// Indicates whether or not this emote provides a charity contribution match during charity campaigns.
+    public var isCharitable: Bool
+}
+
+public struct TWCheermote: Codable {
     
     /// ID of the emote tier. Possible tiers are: 1,100,500,1000,5000, 10k, or 100k.
     public var id: String
@@ -39,21 +53,6 @@ public struct TWCheermote: Codable {
     /// Indicates whether or not we hide the emote from the bits card.
     public var showInBitsCard: Bool
     
-    /// Shows whether the emote is global_first_party,  global_third_party, channel_custom, display_only, or sponsored.
-    public var type: TWEmoteType
-    
-    /// Order of the emotes as shown in the bits card, in ascending order.
-    public var order: Int
-    
-    /// The data when this Cheermote was last updated.
-    public var lastUpdated: String
-    
-    /// Indicates whether or not this emote provides a charity contribution match during charity campaigns.
-    public var isCharitable: Bool
-}
-
-public struct TWCheermoteImages: Codable {
-    
     /// Structure containing both animated and static image sets, sorted by light and dark.
-    public var images: [String]
+    public var images: [String: [String: [String: String]]]
 }

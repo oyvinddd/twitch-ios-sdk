@@ -17,16 +17,8 @@ public struct TWStreamTag: Codable {
     public var isAuto: Bool
     
     /// All localized names of the tag.
-    public var localizationNames: TWLocalisationNames
+    public var localizationNames: [String: String]
     
     /// All localized descriptions of the tag.
-    public var localizationDescriptions: TWLocalizationDescriptions
-}
-
-public struct TWLocalisationNames: Codable {
-    var names: [String:String]
-}
-
-public struct TWLocalizationDescriptions: Codable {
-    var names: [String:String]
+    public var localizationDescriptions: [String: String]
 }
