@@ -52,10 +52,10 @@ final class MyViewController: UIViewController {
 }
 
 // The following implementation is optional, since the token is stored automatically by the SDK
-extension MyViewController: TWAuthDelegate {
-
-    func didFetchOAuthToken(_ accessToken: String) {
-        Twitch.credentials.set(accessToken: accessToken)
+extension VideoViewController: TWOAuthDelegate {
+    
+    func didFetchToken(_ accessToken: String) {
+        print("Got an OAuth 2.0 token: \(accessToken)")
     }
 }
 ```
