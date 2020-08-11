@@ -51,9 +51,9 @@ final class MyViewController: UIViewController {
     }
 }
 
+// The following implementation is optional, since the token is stored automatically by the SDK
 extension MyViewController: TWAuthDelegate {
 
-    // After a user has successfully logged in to Twitch, this method is called 
     func didFetchOAuthToken(_ accessToken: String) {
         Twitch.credentials.set(accessToken: accessToken)
     }

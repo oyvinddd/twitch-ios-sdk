@@ -9,22 +9,20 @@
 import Foundation
 import WebKit
 
-// TODO: two separate delegates for OAuth/OIDC
-public protocol TWAuthDelegate: class {
-    func didFetchOAuthToken(_ accessToken: String)
-    func didFetchOIDCToken(_ accessToken: String, idToken: String)
+public protocol TWOAuthDelegate: class {
+    func didFetchToken(_ accessToken: String)
 }
 
 public final class TWAuthViewController: UIViewController {
     
-    public weak var delegate: TWAuthDelegate?
+    public weak var delegate: TWOAuthDelegate?
     private var webView: WKWebView = {
         let webView = WKWebView()
         webView.translatesAutoresizingMaskIntoConstraints = false
         return webView
     }()
     
-    public init(delegate: TWAuthDelegate? = nil) {
+    public init(delegate: TWOAuthDelegate? = nil) {
         super.init(nibName: nil, bundle: nil)
         self.delegate = delegate
     }
@@ -60,8 +58,12 @@ public final class TWAuthViewController: UIViewController {
 extension TWAuthViewController: WKNavigationDelegate {
     
     public func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-        if isCorrectRedirectURL(webView.url), let accessToken = extractFragment("access_token", from: webView.url) {
-            delegate?.didFetchOAuthToken(accessToken)
+        handleRedirect(url: webView.url)
+    }
+    
+    private func handleRedirect(url: URL?) {
+        if isCorrectRedirectURL(webView.url), let token = extractFragment("access_token", from: webView.url) {
+            Twitch.credentials.set(accessToken: token)
             dismiss(animated: true, completion: nil)
         }
     }
