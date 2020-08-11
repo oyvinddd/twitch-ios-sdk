@@ -91,7 +91,7 @@ Twitch.Games.getTopGames { result in
 
 | API Method | Swift Function | Supported? |
 | ------------- | ------------- | :-------------: |
-| Get Cheermotes | Twitch.Bits.getCheermotes | ❌ |
+| Get Cheermotes | Twitch.Bits.getCheermotes | ✅ |
 | Get Bits Leaderboard | Twitch.Bits.getBitsLeaderboard | ❌ |
 | Get Game Analytics | Twitch.Analytics.getGameAnalytics | ❌ |
 | Get Extension Transactions | Twitch.Extensions.getTransactions | ❌ |
