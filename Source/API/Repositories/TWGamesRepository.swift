@@ -11,7 +11,7 @@ import Foundation
 final class TWGamesRepository: TWGamesAPI {
     let session: URLSession = URLSession.shared
 
-    func getGames(id: String?, name: String?, result: @escaping TWContainerBlock<[TWGame]>) {
+    func getGames(id: [String]?, name: [String]?, result: @escaping TWContainerBlock<[TWGame]>) {
         let request = URLRequestBuilder.buildSecureAPIRequest(for: TWGamesRequest(id, name))
         session.dataTask(with: request, decodable: [TWGame].self, result: result).resume()
     }

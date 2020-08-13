@@ -81,8 +81,6 @@ final class URLRequestBuilder {
     
     func build() -> URLRequest {
         
-        
-        
         var url = baseURL.appendingPathComponent(endpoint)
         if let params = params, !params.isEmpty, var comps = URLComponents(url: url, resolvingAgainstBaseURL: false) {
             var queryItems: [URLQueryItem] = []

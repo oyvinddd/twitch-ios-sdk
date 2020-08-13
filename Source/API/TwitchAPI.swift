@@ -40,7 +40,7 @@ protocol TWUsersAPI {
 // MARK: Games API
 
 protocol TWGamesAPI {
-    func getGames(id: String?, name: String?, result: @escaping TWContainerBlock<[TWGame]>)
+    func getGames(id: [String]?, name: [String]?, result: @escaping TWContainerBlock<[TWGame]>)
     func getTopGames(after: String?, before: String?, first: Int?, result: @escaping TWContainerBlock<[TWGame]>)
 }
 
@@ -67,7 +67,7 @@ protocol TWBitsAPI {
 // MARK: Subs API
 
 protocol TWSubsAPI {
-    func getBroadcasterSubscriptions(broadcasterId: String, userId: String?, result: @escaping TWContainerBlock<[TWSubscription]>)
+    func getBroadcasterSubscriptions(broadcasterId: String, userId: [String]?, result: @escaping TWContainerBlock<[TWSubscription]>)
 }
 
 // MARK: Clips API
@@ -87,9 +87,9 @@ protocol TWVideosAPI {
 
 protocol TWModerationAPI {
     func getModerators(broadcasterId: String, userId: [String]?, after: String?, result: @escaping TWContainerBlock<[TWModerator]>)
-    func getModeratorEvents(broadcasterId: String, userId: String?, result: @escaping TWContainerBlock<[TWModeratorEvent]>)
-    func getBannedUsers(broadcasterId: String, userId: String?, after: String?, before: String?, result: @escaping TWContainerBlock<[TWBannedUser]>)
-    func getBannedEvents(broadcasterId: String, userId: String?, after: String?, first: String?, result: @escaping TWContainerBlock<[TWModeratorEvent]>)
+    func getModeratorEvents(broadcasterId: String, userId: [String]?, result: @escaping TWContainerBlock<[TWModeratorEvent]>)
+    func getBannedUsers(broadcasterId: String, userId: [String]?, after: String?, before: String?, result: @escaping TWContainerBlock<[TWBannedUser]>)
+    func getBannedEvents(broadcasterId: String, userId: [String]?, after: String?, first: Int?, result: @escaping TWContainerBlock<[TWModeratorEvent]>)
     func checkAutomodStatus(broadcasterId: String, messages: [TWMessage], result: @escaping TWContainerBlock<[TWMessageStatus]>)
 }
 

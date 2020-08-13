@@ -100,7 +100,7 @@ extension Twitch {
         ///   - id: Game ID. At most 100 id values can be specified.
         ///   - name: Game name. The name must be an exact match. For instance, “Pokemon” will not return a list of Pokemon games; instead, query the specific Pokemon game(s) in which you are interested. At most 100 name values can be specified.
         ///   - result: Result block
-        public static func getGames(id: String? = nil, name: String? = nil, result: @escaping TWContainerBlock<[TWGame]>) {
+        public static func getGames(id: [String]? = nil, name: [String]? = nil, result: @escaping TWContainerBlock<[TWGame]>) {
             gamesRepository.getGames(id: id, name: name, result: result)
         }
         
@@ -261,7 +261,7 @@ extension Twitch {
         ///   - broadcasterId: Provided broadcaster_id must match the user_id in the auth token. Maximum: 1
         ///   - userId: Filters the results and only returns a status object for users who are banned in this channel and have a matching user_id.
         ///   - result: Result block
-        public static func getModeratorEvents(broadcasterId: String, userId: String? = nil, result: @escaping TWContainerBlock<[TWModeratorEvent]>) {
+        public static func getModeratorEvents(broadcasterId: String, userId: [String]? = nil, result: @escaping TWContainerBlock<[TWModeratorEvent]>) {
             moderationRepository.getModeratorEvents(broadcasterId: broadcasterId, userId: userId, result: result)
         }
         
@@ -272,8 +272,19 @@ extension Twitch {
         ///   - after: Cursor for forward pagination: tells the server where to start fetching the next set of results in a multi-page response. This applies only to queries without user_id. If a user_id is specified, it supersedes any cursor/offset combinations. The cursor value specified here is from the pagination response field of a prior query.
         ///   - before: Cursor for backward pagination: tells the server where to start fetching the next set of results in a multi-page response. This applies only to queries without user_id. If a user_id is specified, it supersedes any cursor/offset. combinations. The cursor value specified here is from the pagination response field of a prior query.
         ///   - result: Result block
-        public static func getBannedUsers(broadcasterId: String, userId: String? = nil, after: String? = nil, before: String? = nil, result: @escaping TWContainerBlock<[TWBannedUser]>) {
+        public static func getBannedUsers(broadcasterId: String, userId: [String]? = nil, after: String? = nil, before: String? = nil, result: @escaping TWContainerBlock<[TWBannedUser]>) {
             moderationRepository.getBannedUsers(broadcasterId: broadcasterId, userId: userId, after: after, before: before, result: result)
+        }
+        
+        /// Returns all user bans and un-bans in a channel.
+        /// - Parameters:
+        ///   - broadcasterId: Provided broadcaster_id must match the user_id in the auth token. Maximum: 1
+        ///   - userId: Filters the results and only returns a status object for users who are banned in this channel and have a matching user_id.
+        ///   - after: Cursor for forward pagination: tells the server where to start fetching the next set of results in a multi-page response. This applies only to queries without user_id. If a user_id is specified, it supersedes any cursor/offset combinations. The cursor value specified here is from the pagination response field of a prior query.
+        ///   - first: Maximum number of objects to return. Maximum: 100. Default: 20.
+        ///   - result: Result block
+        public static func getBannedEvents(broadcasterId: String, userId: [String]?, after: String?, first: Int?, result: @escaping TWContainerBlock<[TWModeratorEvent]>) {
+            moderationRepository.getBannedEvents(broadcasterId: broadcasterId, userId: userId, after: after, first: first, result: result)
         }
     }
 }
@@ -355,7 +366,7 @@ extension Twitch {
         ///   - broadcasterId: User ID of the broadcaster. Must match the User ID in the Bearer token.
         ///   - userId: Returns broadcaster’s subscribers. Unique identifier of account to get subscription status of. Accepts up to 100 values.
         ///   - result: Result block
-        public static func getBroadcasterSubscriptions(broadcasterId: String, userId: String? = nil, result: @escaping TWContainerBlock<[TWSubscription]>) {
+        public static func getBroadcasterSubscriptions(broadcasterId: String, userId: [String]? = nil, result: @escaping TWContainerBlock<[TWSubscription]>) {
             subsRepository.getBroadcasterSubscriptions(broadcasterId: broadcasterId, userId: userId, result: result)
         }
     }

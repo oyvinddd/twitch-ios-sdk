@@ -22,3 +22,7 @@ public struct TWModeratorEvent: Codable {
     /// Returns the version of the endpoint.
     public var version: String
 }
+
+public struct TWEventData {
+    // TODO:
+}

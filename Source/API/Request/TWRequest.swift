@@ -53,6 +53,15 @@ struct TWFollowsRequest: TWRequest {
     var params: [TWParam] = []
     var body: Encodable?
     init(_ after: String?, _ first: Int?, _ fromId: String?, _ toId: String?) {
+        if let after = after {
+            params.append(TWParam("after", after))
+        }
+        if let first = first {
+            params.append(TWParam("first", String(first)))
+        }
+        if let toId = toId {
+            params.append(TWParam("to_id", toId))
+        }
     }
 }
 
@@ -61,7 +70,13 @@ struct TWGamesRequest: TWRequest {
     var method: HTTPMethod = .get
     var params: [TWParam] = []
     var body: Encodable?
-    init(_ id: String?, _ name: String?) {
+    init(_ id: [String]?, _ name: [String]?) {
+        if let id = id {
+            params.append(contentsOf: id.map { TWParam("id", $0) })
+        }
+        if let name = name {
+            params.append(contentsOf: name.map { TWParam("name", $0) })
+        }
     }
 }
 
@@ -71,6 +86,7 @@ struct TWStreamKeyRequest: TWRequest {
     var params: [TWParam] = []
     var body: Encodable?
     init(_ broadcasterId: String) {
+        params.append(TWParam("broadcaster_id", broadcasterId))
     }
 }
 
@@ -89,6 +105,13 @@ struct TWModeratorsRequest: TWRequest {
     var params: [TWParam] = []
     var body: Encodable?
     init(_ broadcasterId: String, _ userId: [String]?, _ after: String?) {
+        params.append(TWParam("broadcaster_id", broadcasterId))
+        if let userId = userId {
+            params.append(contentsOf: userId.map { TWParam("user_id", $0) })
+        }
+        if let after = after {
+            params.append(TWParam("after", after))
+        }
     }
 }
 
@@ -97,7 +120,11 @@ struct TWModeratorEventsRequest: TWRequest {
     var method: HTTPMethod = .get
     var params: [TWParam] = []
     var body: Encodable?
-    init(_ broadcasterId: String, _ userId: String?) {
+    init(_ broadcasterId: String, _ userId: [String]?) {
+        params.append(TWParam("broadcaster_id", broadcasterId))
+        if let userId = userId {
+            params.append(contentsOf: userId.map { TWParam("user_id", $0) })
+        }
     }
 }
 
@@ -126,6 +153,7 @@ struct TWStreamTagsRequest: TWRequest {
     var params: [TWParam] = []
     var body: Encodable?
     init(_ broadcasterId: String) {
+        params.append(TWParam("broadcaster_id", broadcasterId))
     }
 }
 
@@ -186,7 +214,17 @@ struct TWBannedUsersRequest: TWRequest {
     var method: HTTPMethod = .get
     var params: [TWParam] = []
     var body: Encodable?
-    init(_ broadcasterId: String, _ userId: String?, _ after: String?, _ before: String?) {
+    init(_ broadcasterId: String, _ userId: [String]?, _ after: String?, _ before: String?) {
+        params.append(TWParam("broadcaster_id", broadcasterId))
+        if let userId = userId {
+            params.append(contentsOf: userId.map { TWParam("user_id", $0) })
+        }
+        if let after = after {
+            params.append(TWParam("after", after))
+        }
+        if let before = before {
+            params.append(TWParam("before", before))
+        }
     }
 }
 
@@ -225,6 +263,7 @@ struct TWChannelInfoRequest: TWRequest {
     var params: [TWParam] = []
     var body: Encodable?
     init(_ broadcasterId: String) {
+        params.append(TWParam("broadcaster_id", broadcasterId))
     }
 }
 
@@ -233,7 +272,11 @@ struct TWCreateClipRequest: TWRequest {
     var method: HTTPMethod = .post
     var params: [TWParam] = []
     var body: Encodable?
-    init(_ broadcastId: String, _ hasDelay: Bool?) {
+    init(_ broadcasterId: String, _ hasDelay: Bool?) {
+        params.append(TWParam("broadcaster_id", broadcasterId))
+        if let hasDelay = hasDelay {
+            params.append(TWParam("has_delay", String(hasDelay)))
+        }
     }
 }
 
@@ -243,6 +286,8 @@ struct TWDeleteUserFollows: TWRequest {
     var params: [TWParam] = []
     var body: Encodable?
     init(_ fromId: String, _ toId: String) {
+        params.append(TWParam("from_id", fromId))
+        params.append(TWParam("to_id", toId))
     }
 }
 
@@ -252,6 +297,9 @@ struct TWUpdateUserRequest: TWRequest {
     var params: [TWParam] = []
     var body: Encodable?
     init(_ description: String?) {
+        if let description = description {
+            params.append(TWParam("description", description))
+        }
     }
 }
 
@@ -260,7 +308,11 @@ struct TWBroadcasterSubsRequest: TWRequest {
     var method: HTTPMethod = .get
     var params: [TWParam] = []
     var body: Encodable?
-    init(_ broadcasterId: String, _ userId: String?) {
+    init(_ broadcasterId: String, _ userId: [String]?) {
+        params.append(TWParam("broadcaster_id", broadcasterId))
+        if let userId = userId {
+            params.append(contentsOf: userId.map { TWParam("user_id", $0) })
+        }
     }
 }
 
@@ -270,6 +322,10 @@ struct TWReplaceStreamTagsRequest: TWRequest {
     var params: [TWParam] = []
     var body: Encodable?
     init(_ broadcasterId: String, _ tagIds: [String]?) {
+        params.append(TWParam("broadcaster_id", broadcasterId))
+        if let tagIds = tagIds {
+            body = ["tag_ids": tagIds]
+        }
     }
 }
 
@@ -279,6 +335,9 @@ struct TWActiveExtensionsRequest: TWRequest {
     var params: [TWParam] = []
     var body: Encodable?
     init(_ userId: String?) {
+        if let userId = userId {
+            params.append(TWParam("user_id", userId))
+        }
     }
 }
 
@@ -288,25 +347,31 @@ struct TWModifyChannelInfoRequest: TWRequest {
     var params: [TWParam] = []
     var body: Encodable?
     init(_ broadcasterId: String, _ gameId: String?, _ broadcasterLanguage: String?, _ title: String?) {
+        params.append(TWParam("broadcaster_id", broadcasterId))
+        if let gameId = gameId {
+            params.append(TWParam("game_id", gameId))
+        }
+        if let broadcasterLanguage = broadcasterLanguage {
+            params.append(TWParam("broadcaster_language", broadcasterLanguage))
+        }
+        if let title = title {
+            params.append(TWParam("title", title))
+        }
     }
 }
 
 struct TWOAuthRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.oauth
     var method: HTTPMethod = .get
-    var params: [TWParam] = []
+    var params: [TWParam] = [
+        TWParam("client_id", Twitch.credentials.clientId),
+        TWParam("response_type", "token"),
+        TWParam("redirect_uri", Twitch.config.redirectUri),
+        TWParam("scope", Twitch.config.urlEncodedScopes),
+        TWParam("force_verify", "false"),
+        TWParam("state", "QjgX565URhyvAXn9")
+    ]
     var body: Encodable?
-    init() {
-        params = [
-            "client_id": Twitch.credentials.clientId,
-            "response_type": "token",
-            "redirect_uri": Twitch.config.redirectUri,
-            "scope": Twitch.config.urlEncodedScopes,
-            // optional params:
-            "force_verify": "false",
-            "state": "QjgX565URhyvAXn9"
-        ]
-    }
 }
 
 struct TWCheermotesRequest: TWRequest {
@@ -315,6 +380,9 @@ struct TWCheermotesRequest: TWRequest {
     var params: [TWParam] = []
     var body: Encodable?
     init(_ broadcasterId: String?) {
+        if let broadcasterId = broadcasterId {
+            params.append(TWParam("broadcaster_id", broadcasterId))
+        }
     }
 }
 
@@ -325,6 +393,18 @@ struct TWLeaderboardRequest: TWRequest {
     var body: Encodable?
     
     init(_ count: Int?, _ period: String?, _ startedAt: String?, _ userId: String?) {
+        if let count = count {
+            params.append(TWParam("count", String(count)))
+        }
+        if let period = period {
+            params.append(TWParam("period", period))
+        }
+        if let startedAt = startedAt {
+            params.append(TWParam("started_at", startedAt))
+        }
+        if let userId = userId {
+            params.append(TWParam("user_id", userId))
+        }
     }
 }
 
@@ -334,6 +414,24 @@ struct TWGameAnalyticsRequest: TWRequest {
     var params: [TWParam] = []
     var body: Encodable?
     init(_ after: String?, _ first: Int?, _ startedAt: String?, _ endedAt: String?, _ gameId: String?, _ type: String?) {
+        if let after = after {
+            params.append(TWParam("after", after))
+        }
+        if let first = first {
+            params.append(TWParam("first", String(first)))
+        }
+        if let startedAt = startedAt {
+            params.append(TWParam("started_at", startedAt))
+        }
+        if let endedAt = endedAt {
+            params.append(TWParam("ended_at", endedAt))
+        }
+        if let gameId = gameId {
+            params.append(TWParam("game_id", gameId))
+        }
+        if let type = type {
+            params.append(TWParam("type", type))
+        }
     }
 }
 
@@ -359,8 +457,21 @@ struct TWRedeemCodeRequest: TWRequest {
     }
 }
 
-func aa(_ key: String, value: Any, params: inout [TWParam]) {
-    if type(of: value) == String.self {
-        
+struct TWBannedEventsRequest: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.bannedEvents
+    var method: HTTPMethod = .get
+    var params: [TWParam] = []
+    var body: Encodable?
+    init(_ broadcasterId: String, _ userId: [String]?, _ after: String?, _ first: Int?) {
+        params.append(TWParam("broadcaster_id", broadcasterId))
+        if let userId = userId {
+            params.append(contentsOf: userId.map { TWParam("user_id", $0) })
+        }
+        if let after = after {
+            params.append(TWParam("after", after))
+        }
+        if let first = first {
+            params.append(TWParam("first", String(first)))
+        }
     }
 }
