@@ -8,70 +8,6 @@
 
 import Foundation
 
-// MARK: All API Endpoints (including V5 ones)
-typealias TWEndpoint = String
-
-struct Endpoints {
-    /// New API
-    fileprivate static let helix: TWEndpoint = "/helix"
-    /// Old V5 API
-    fileprivate static let kraken: TWEndpoint = "/kraken"
-    /// Login
-    static let oauth: TWEndpoint = "/oauth2/authorize"
-    /// Users
-    static let users: TWEndpoint = "\(helix)/users"
-    static let userFollows: TWEndpoint = "\(users)/follows"
-    static let userExtensions: TWEndpoint = "\(users)/extensions/list"
-    /// Games
-    static let games: TWEndpoint = "\(helix)/games"
-    static let topGames: TWEndpoint = "\(games)/top"
-    /// Search
-    static let search: TWEndpoint = "\(helix)/search"
-    static let searchCategories: TWEndpoint = "\(search)/categories"
-    static let searchChannels: TWEndpoint = "\(search)/channels"
-    /// Streams
-    static let streams: TWEndpoint = "\(helix)/streams"
-    static let streamTags: TWEndpoint = "\(streams)/tags"
-    static let streamKey: TWEndpoint = "\(streams)/key"
-    static let streamMarker: TWEndpoint = "\(streams)/markers"
-    /// Videos
-    static let videos: TWEndpoint = "\(helix)/videos"
-    /// Tags
-    static let allTags: TWEndpoint = "\(helix)/tags/streams"
-    /// Moderation
-    static let moderation: TWEndpoint = "\(helix)/moderation"
-    static let checkAutomodStatus: TWEndpoint = "\(moderation)/enforcements/status"
-    static let bannedUsers: TWEndpoint = "\(moderation)/banned"
-    static let bannedEvents: TWEndpoint = "\(bannedUsers)/events"
-    /// Channels
-    static let channels = "\(helix)/channels"
-    static let startCommercial = "\(channels)/commercial"
-    /// Analytics
-    static let analytics = "\(helix)/analytics"
-    static let extensionAnalytics = "\(analytics)/extensions"
-    /// Ingests
-    static let ingests = "\(kraken)/ingests"
-    /// Extensions
-    static let extensions = "\(helix)/extensions/list"
-    static let activeExtensions = "\(helix)/extensions"
-    static let extensionTransations = "\(extensions)/transactions"
-    /// Moderators
-    static let moderators = "\(helix)/moderation/moderators"
-    static let moderatorEvents = "\(moderators)/events"
-    /// Entitlements
-    static let entitlements = "\(helix)/entitlements"
-    static let entitlementCodes = "\(entitlements)/codes"
-    static let redeemCode = "\(entitlements)/code"
-    /// Bits
-    static let bits = "\(helix)/bits"
-    static let cheermotes = "\(bits)/cheermotes"
-    static let leaderboard = "\(helix)/leaderboard"
-    /// Clips
-    static let clips = "\(helix)/clips"
-    /// Subscriptions
-    static let subscriptions = "\(helix)/subscriptions"
-}
-
 enum HTTPMethod: String {
     case post = "POST"
     case put = "PUT"
@@ -80,26 +16,33 @@ enum HTTPMethod: String {
     case patch = "PATCH"
 }
 
-typealias TWRequestBody<T: Codable> = TWContainer<T>
+struct TWParam {
+    var name: String
+    var value: String
+    init(_ name: String, _ value: String) {
+        self.name = name
+        self.value = value
+    }
+}
 
 protocol TWRequest {
     var endpoint: TWEndpoint { get }
     var method: HTTPMethod { get }
-    var params: [String: String] { get }
+    var params: [TWParam] { get }
     var body: Encodable? { get }
 }
 
 struct TWUsersRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.users
     var method: HTTPMethod = .get
-    var params: [String: String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(id: String?, login: String?) {
+    init(_ id: [String]?, _ login: [String]?) {
         if let id = id {
-            params["id"] = id
+            params.append(contentsOf: id.map { TWParam("id", $0) })
         }
         if let login = login {
-            params["login"] = login
+            params.append(contentsOf: login.map { TWParam("login", $0) })
         }
     }
 }
@@ -107,108 +50,63 @@ struct TWUsersRequest: TWRequest {
 struct TWFollowsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.userFollows
     var method: HTTPMethod = .get
-    var params: [String: String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(after: String?, first: Int?, fromId: String?, toId: String?) {
-        if let after = after {
-            params["after"] = after
-        }
-        if let firstnum = first {
-            params["first"] = String(firstnum)
-        }
-        if let fromId = fromId {
-            params["from_id"] = fromId
-        }
-        if let toId = toId {
-            params["to_id"] = toId
-        }
+    init(_ after: String?, _ first: Int?, _ fromId: String?, _ toId: String?) {
     }
 }
 
 struct TWGamesRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.games
     var method: HTTPMethod = .get
-    var params: [String: String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(id: String?, name: String?) {
-        if let id = id {
-            params["id"] = id
-        }
-        if let name = name {
-            params["name"] = name
-        }
+    init(_ id: String?, _ name: String?) {
     }
 }
 
 struct TWStreamKeyRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.streamKey
     var method: HTTPMethod = .get
-    var params: [String: String]
+    var params: [TWParam] = []
     var body: Encodable?
     init(_ broadcasterId: String) {
-        params = ["broadcaster_id": broadcasterId]
     }
 }
 
 struct TWVideosRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.videos
     var method: HTTPMethod = .get
-    var params: [String: String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(id: String, userId: String, gameId: String) {
-        params["id"] = id
-        params["user_id"] = userId
-        params["game_id"] = gameId
+    init(_ id: String, _ userId: String, _ gameId: String) {
     }
 }
 
 struct TWModeratorsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.moderators
     var method: HTTPMethod = .get
-    var params: [String: String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(_ broadcasterId: String, userId: [String]?, after: String?) {
-        params["broadcaster_id"] = broadcasterId
-        if let userId = userId {
-            //params["user_id"] = userId
-        }
-        if let after = after {
-            params["after"] = after
-        }
+    init(_ broadcasterId: String, _ userId: [String]?, _ after: String?) {
     }
 }
 
 struct TWModeratorEventsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.moderatorEvents
     var method: HTTPMethod = .get
-    var params: [String: String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(_ broadcasterId: String, userId: String?) {
-        params["broadcaster_id"] = broadcasterId
-        if let userId = userId {
-            params["user_id"] = userId
-        }
+    init(_ broadcasterId: String, _ userId: String?) {
     }
 }
 
 struct TWClipsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.clips
     var method: HTTPMethod = .get
-    var params: [String: String] = [:]
-    var p: [URLQueryItem] = []
+    var params: [TWParam] = []
     var body: Encodable?
-    init(broadcasterId: String?, gameId: String?, id: [String]?) {
-        if let broadcasterId = broadcasterId {
-            p.append(URLQueryItem(name: "broadcaster_id", value: broadcasterId))
-        }
-        if let gameId = gameId {
-            p.append(URLQueryItem(name: "game_id", value: gameId))
-        }
-        if let id = id {
-            for i in id {
-                p.append(URLQueryItem(name: "id", value: i))
-            }
-        }
+    init(_ broadcasterId: String?, _ gameId: String?, _ id: [String]?) {
     }
 }
 
@@ -216,164 +114,97 @@ struct TWStreamsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.streams
     var method: HTTPMethod = .get
     var headers: [String: String]?
-    var params: [String: String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(after: String?, before: String?, first: Int?, gameId: String?, language: String?, userId: String?, userLogin: String?) {
-        if let after = after {
-            params["after"] = after
-        }
-        if let before = before {
-            params["before"] = before
-        }
-        if let firstNum = first {
-            params["first"] = String(firstNum)
-        }
-        if let gameId = gameId {
-            params["game_id"] = gameId
-        }
-        if let language = language {
-            params["language"] = language
-        }
-        if let userId = userId {
-            params["user_id"] = userId
-        }
-        if let userlogin = userLogin {
-            params["user_login"] = userlogin
-        }
+    init(_ after: String?, _ before: String?, _ first: Int?, _ gameId: String?, _ language: String?, _ userId: String?, _ userLogin: String?) {
     }
 }
 
 struct TWStreamTagsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.streamTags
     var method: HTTPMethod = .get
-    var params: [String: String]
+    var params: [TWParam] = []
     var body: Encodable?
     init(_ broadcasterId: String) {
-        params = ["broadcaster_id": broadcasterId]
     }
 }
 
 struct TWAllStreamTagsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.allTags
     var method: HTTPMethod = .get
-    var params: [String: String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(tagId: String?, after: String?, first: Int?) {
-        if let tagId = tagId {
-            params["tag_id"] = tagId
-        }
-        if let after = after {
-            params["after"] = after
-        }
-        if let firstNum = first {
-            params["first"] = String(firstNum)
-        }
+    init(_ tagId: String?, _ after: String?, _ first: Int?) {
     }
 }
 
 struct TWExtensionsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.userExtensions
     var method: HTTPMethod = .get
-    var params: [String: String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
 }
 
 struct TWCodeStatusRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.entitlementCodes
     var method: HTTPMethod = .get
-    var params: [String: String]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(code: String, userId: Int) {
-        params = [
-            "code": code,
-            "user_id": String(userId)
-        ]
+    init(_ code: String, _ userId: Int) {
     }
 }
 
 struct TWSearchCategoriesRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.searchCategories
     var method: HTTPMethod = .get
-    var params: [String: String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(_ query: String, first: Int?, after: String?) {
-        params["query"] = query
-        if let firstNum = first {
-            params["first"] = String(firstNum)
-        }
-        if let after = after {
-            params["after"] = after
-        }
+    init(_ query: String, _ first: Int?, _ after: String?) {
     }
 }
 
 struct TWSearchChannelsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.searchChannels
     var method: HTTPMethod = .get
-    var params: [String : String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(_ query: String, first: Int?, after: String?, liveOnly: Bool?) {
-        params["query"] = query
-        if let firstNum = first {
-            params["first"] = String(firstNum)
-        }
-        if let after = after {
-            params["after"] = after
-        }
-        // TODO: handle liveOnly
+    init(_ query: String, _ first: Int?, _ after: String?, _ liveOnly: Bool?) {
     }
 }
 
 struct TWTopGamesRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.topGames
     var method: HTTPMethod = .get
-    var params: [String: String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(after: String?, before: String?, first: Int?) {
-        if let after = after {
-            params["after"] = after
-        }
-        if let before = before {
-            params["before"] = before
-        }
-        if let firstNum = first {
-            params["first"] = String(firstNum)
-        }
+    init(_ after: String?, _ before: String?, _ first: Int?) {
     }
 }
 
 struct TWBannedUsersRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.bannedUsers
     var method: HTTPMethod = .get
-    var params: [String: String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(_ broadcasterId: String, userId: String?, after: String?, before: String?) {
-        params["broadcaster_id"] = broadcasterId
-        if let after = after {
-            params["after"] = after
-        }
-        if let before = before {
-            params["before"] = before
-        }
+    init(_ broadcasterId: String, _ userId: String?, _ after: String?, _ before: String?) {
     }
 }
 
 struct TWCreateUserFollowsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.userFollows
     var method: HTTPMethod = .post
-    var params: [String : String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(fromId: String, toId: String, allowNotifications: Bool?) {
-        
+    init(_ fromId: String, _ toId: String, _ allowNotifications: Bool?) {
     }
 }
 
 struct TWCheckAutomodStatusRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.games
     var method: HTTPMethod = .post
-    var params: [String: String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(_ broadcasterId: String, messages: [TWMessage]) {
+    init(_ broadcasterId: String, _ messages: [TWMessage]) {
         body = TWContainer(messages)
     }
 }
@@ -381,9 +212,9 @@ struct TWCheckAutomodStatusRequest: TWRequest {
 struct TWCreateStreamMarker: TWRequest {
     var endpoint: TWEndpoint = Endpoints.streamMarker
     var method: HTTPMethod = .post
-    var params: [String : String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(_ userId: String, description: String?) {
+    init(_ userId: String, _ description: String?) {
         body = TWContainer(["user_id": userId, "description": description])
     }
 }
@@ -391,114 +222,79 @@ struct TWCreateStreamMarker: TWRequest {
 struct TWChannelInfoRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.channels
     var method: HTTPMethod = .get
-    var params: [String: String]
+    var params: [TWParam] = []
     var body: Encodable?
     init(_ broadcasterId: String) {
-        params = ["broadcaster_id": broadcasterId]
     }
 }
 
 struct TWCreateClipRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.clips
     var method: HTTPMethod = .post
-    var params: [String : String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(_ broadcastId: String, hasDelay: Bool?) {
-        params["broadcast_id"] = broadcastId
-//        if let hasDelay = hasDelay {
-//            params["has_delay"] = hasDelay
-//        }
+    init(_ broadcastId: String, _ hasDelay: Bool?) {
     }
 }
 
 struct TWDeleteUserFollows: TWRequest {
     var endpoint: TWEndpoint = Endpoints.userFollows
     var method: HTTPMethod = .delete
-    var params: [String : String]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(fromId: String, toId: String) {
-        params = ["from_id": fromId, "to_id": toId]
+    init(_ fromId: String, _ toId: String) {
     }
 }
 
 struct TWUpdateUserRequest: TWRequest {
-    
     var endpoint: TWEndpoint = Endpoints.users
     var method: HTTPMethod = .put
-    var params: [String : String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    
     init(_ description: String?) {
-        if let desc = description {
-            params["description"] = desc
-        }
     }
 }
 
 struct TWBroadcasterSubsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.subscriptions
     var method: HTTPMethod = .get
-    var params: [String : String]
+    var params: [TWParam] = []
     var body: Encodable?
-    
-    init(_ broadcasterId: String, userId: String?) {
-        params = ["broadcaster_id": broadcasterId]
-        if let userId = userId {
-            params["user_id"] = userId
-        }
+    init(_ broadcasterId: String, _ userId: String?) {
     }
 }
 
 struct TWReplaceStreamTagsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.streamTags
     var method: HTTPMethod = .put
-    var params: [String : String]
+    var params: [TWParam] = []
     var body: Encodable?
-    
-    init(_ broadcasterId: String, tagIds: [String]?) {
-        params = ["broadcaster_id": broadcasterId]
-        if let tagIds = tagIds {
-            body = tagIds
-        }
+    init(_ broadcasterId: String, _ tagIds: [String]?) {
     }
 }
 
 struct TWActiveExtensionsRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.activeExtensions
     var method: HTTPMethod = .get
-    var params: [String : String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
-    
-    init(userId: String?) {
-        if let userId = userId {
-            params["user_id"] = userId
-        }
+    init(_ userId: String?) {
     }
 }
 
 struct TWModifyChannelInfoRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.channels
     var method: HTTPMethod = .patch
-    var params: [String : String]
+    var params: [TWParam] = []
     var body: Encodable?
-    init(_ broadcasterId: String, gameId: String?, broadcasterLanguage: String?, title: String?) {
-        params = ["broadcaster_id": broadcasterId]
-        if let gameId = gameId {
-            params["game_id"] = gameId
-        }
-        if let language = broadcasterLanguage {
-            params["broadcaster_language"] = language
-        }
-        if let title = title {
-            params["title"] = title
-        }
+    init(_ broadcasterId: String, _ gameId: String?, _ broadcasterLanguage: String?, _ title: String?) {
     }
 }
 
 struct TWOAuthRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.oauth
     var method: HTTPMethod = .get
-    var params: [String : String]
+    var params: [TWParam] = []
     var body: Encodable?
     init() {
         params = [
@@ -516,33 +312,55 @@ struct TWOAuthRequest: TWRequest {
 struct TWCheermotesRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.cheermotes
     var method: HTTPMethod = .get
-    var params: [String : String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
     init(_ broadcasterId: String?) {
-        if let broadcasterId = broadcasterId {
-            params = ["broadcaster_id": broadcasterId]
-        }
     }
 }
 
 struct TWLeaderboardRequest: TWRequest {
     var endpoint: TWEndpoint = Endpoints.leaderboard
     var method: HTTPMethod = .get
-    var params: [String : String] = [:]
+    var params: [TWParam] = []
     var body: Encodable?
     
     init(_ count: Int?, _ period: String?, _ startedAt: String?, _ userId: String?) {
-        if let count = count {
-            
-        }
-        if let period = period {
-            
-        }
-        if let startedAt = startedAt {
-            
-        }
-        if let userId = userId {
-            
-        }
+    }
+}
+
+struct TWGameAnalyticsRequest: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.gameAnalytics
+    var method: HTTPMethod = .get
+    var params: [TWParam] = []
+    var body: Encodable?
+    init(_ after: String?, _ first: Int?, _ startedAt: String?, _ endedAt: String?, _ gameId: String?, _ type: String?) {
+    }
+}
+
+struct TWStartCommercialRequest: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.startCommercial
+    var method: HTTPMethod = .post
+    var params: [TWParam] = []
+    var body: Encodable?
+    init(_ broadcasterId: String, _ length: Int) {
+        params.append(TWParam("broadcaster_id", broadcasterId))
+        params.append(TWParam("length", String(length)))
+    }
+}
+
+struct TWRedeemCodeRequest: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.redeemCode
+    var method: HTTPMethod = .post
+    var params: [TWParam] = []
+    var body: Encodable?
+    init(_ code: [String], _ userId: String) {
+        params.append(contentsOf: code.map { TWParam("code", $0) })
+        params.append(TWParam("user_id", userId))
+    }
+}
+
+func aa(_ key: String, value: Any, params: inout [TWParam]) {
+    if type(of: value) == String.self {
+        
     }
 }

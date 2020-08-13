@@ -19,10 +19,10 @@ final class TWStreamsRepository: TWStreamsAPI {
     func getStreams(after: String?, before: String?, first: Int?,
                     gameId: String?, language: String?, userId: String?,
                     userLogin: String?, result: @escaping TWContainerBlock<[TWStream]>) {
-        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWStreamsRequest(after: after, before: before,
-                                                                  first: first, gameId: gameId,
-                                                                  language: language, userId: userId,
-                                                                  userLogin: userLogin))
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWStreamsRequest(after, before,
+                                                                  first, gameId,
+                                                                  language, userId,
+                                                                  userLogin))
         session.dataTask(with: request, decodable: [TWStream].self, result: result).resume()
     }
     
@@ -32,12 +32,12 @@ final class TWStreamsRepository: TWStreamsAPI {
     }
     
     func replaceStreamTags(broadcasterId: String, tagIds: [String]?, result: @escaping TWNoContentBlock) {
-        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWReplaceStreamTagsRequest(broadcasterId, tagIds: tagIds))
+        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWReplaceStreamTagsRequest(broadcasterId, tagIds))
         session.dataTask(with: request, result: result).resume()
     }
     
     func createStreamMarker(userId: String, description: String?, result: @escaping TWContainerBlock<TWStreamMarker>) {
-        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWCreateStreamMarker(userId, description: description))
+        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWCreateStreamMarker(userId, description))
         session.dataTask(with: request, decodable: TWStreamMarker.self, result: result).resume()
     }
     
@@ -48,9 +48,9 @@ final class TWStreamsRepository: TWStreamsAPI {
     
     func modifyChannelInfo(broadcasterId: String, gameId: String?, broadcasterLanguage: String?, title: String?, result: @escaping TWNoContentBlock) {
         let request = URLRequestBuilder.buildSecureAPIRequest(for: TWModifyChannelInfoRequest(broadcasterId,
-                                                                                              gameId: gameId,
-                                                                                              broadcasterLanguage: broadcasterLanguage,
-                                                                                              title: title))
+                                                                                              gameId,
+                                                                                              broadcasterLanguage,
+                                                                                              title))
         session.dataTask(with: request, result: result).resume()
     }
 }

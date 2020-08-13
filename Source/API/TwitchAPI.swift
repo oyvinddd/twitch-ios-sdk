@@ -28,7 +28,7 @@ public typealias TWNoContentBlock = (TWNoContentResult) -> Void
 // MARK: Users API
 
 protocol TWUsersAPI {
-    func getUsers(id: String?, login: String?, result: @escaping TWContainerBlock<[TWUser]>)
+    func getUsers(id: [String]?, login: [String]?, result: @escaping TWContainerBlock<[TWUser]>)
     func getFollows(after: String?, first: Int?, fromId: String?, toId: String?, result: @escaping TWContainerBlock<[TWFollow]>)
     func getExtensions(result: @escaping TWContainerBlock<[TWExtension]>)
     func getActiveExtensions(userId: String?, result: @escaping TWContainerBlock<[TWExtension]>)
@@ -98,14 +98,14 @@ protocol TWModerationAPI {
 protocol TWAnalyticsAPI {
     func getGameAnalytics(after: String?, startedAt: String?,
                           endedAt: String?, first: Int?,
-                          gameId: String?, type: String?, result: TWContainerBlock<[TWGameAnalytics]>)
+                          gameId: String?, type: String?, result: @escaping TWContainerBlock<[TWGameAnalytics]>)
 }
 
 // MARK: Entitlements API
 
 protocol TWEntitlementsAPI {
     func getCodeStatus(code: String, userId: Int, result: @escaping TWContainerBlock<[TWCodeStatus]>)
-    func redeemCode(code: String, userId: String?, result: @escaping TWContainerBlock<[TWCodeStatus]>)
+    func redeemCode(code: [String], userId: String, result: @escaping TWContainerBlock<[TWCodeStatus]>)
 }
 
 // MARK: Tags API
@@ -119,6 +119,12 @@ protocol TWTagsAPI {
 protocol TWSearchAPI {
     func searchCategories(query: String, first: Int?, after: String?, result: @escaping TWContainerBlock<[TWGame]>)
     func searchChannels(query: String, first: Int?, after: String?, liveOnly: Bool?, result: @escaping TWContainerBlock<[TWChannel]>)
+}
+
+// MARK: Ads API
+
+protocol TWAdsAPI {
+    func startCommercial(broadcasterId: String, length: Int, result: @escaping TWContainerBlock<[TWCommercial]>)
 }
 
 // #######################

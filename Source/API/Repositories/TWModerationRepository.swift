@@ -12,17 +12,17 @@ final class TWModerationRepository: TWModerationAPI {
     let session: URLSession = URLSession.shared
     
     func getModerators(broadcasterId: String, userId: [String]?, after: String?, result: @escaping TWContainerBlock<[TWModerator]>) {
-        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWModeratorsRequest(broadcasterId, userId: userId, after: after))
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWModeratorsRequest(broadcasterId, userId, after))
         session.dataTask(with: request, decodable: [TWModerator].self, result: result).resume()
     }
     
     func getModeratorEvents(broadcasterId: String, userId: String? = nil, result: @escaping TWContainerBlock<[TWModeratorEvent]>) {
-        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWModeratorEventsRequest(broadcasterId, userId: userId))
+        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWModeratorEventsRequest(broadcasterId, userId))
         session.dataTask(with: request, decodable: [TWModeratorEvent].self, result: result).resume()
     }
     
     func getBannedUsers(broadcasterId: String, userId: String?, after: String?, before: String?, result: @escaping TWContainerBlock<[TWBannedUser]>) {
-        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWBannedUsersRequest(broadcasterId, userId: userId, after: after, before: before))
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWBannedUsersRequest(broadcasterId, userId, after, before))
         session.dataTask(with: request, decodable: [TWBannedUser].self, result: result).resume()
     }
     
@@ -31,7 +31,7 @@ final class TWModerationRepository: TWModerationAPI {
     }
     
     func checkAutomodStatus(broadcasterId: String, messages: [TWMessage], result: @escaping TWContainerBlock<[TWMessageStatus]>) {
-        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWCheckAutomodStatusRequest(broadcasterId, messages: messages))
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWCheckAutomodStatusRequest(broadcasterId, messages))
         session.dataTask(with: request, decodable: [TWMessageStatus].self, result: result).resume()
     }
 }

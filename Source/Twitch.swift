@@ -9,7 +9,10 @@ import Foundation
 
 public class Twitch: NSObject {
     
+    /// Struct containing general configuration
     public static var config: TWConfig!
+    
+    /// Struct containing tokens
     public static var credentials: TWCredentials!
     
     private static let usersRepository = TWUsersRepository()
@@ -23,6 +26,8 @@ public class Twitch: NSObject {
     private static let tagsRepository = TWTagsRepository()
     private static let subsRepository = TWSubsRepository()
     private static let bitsRepository = TWBitsRepository()
+    private static let analyticsRepository = TWAnalyticsRepository()
+    private static let adsRepository = TWAdsRepository()
     
     public class func initialize(clientId: String, config: TWConfig) {
         self.credentials = TWCredentials(clientId: clientId)
@@ -42,7 +47,7 @@ extension Twitch {
         ///   - id: User ID. Multiple user IDs can be specified. Limit: 100.
         ///   - login: User login name. Multiple login names can be specified. Limit: 100.
         ///   - result: Result block
-        public static func getUsers(id: String? = nil, login: String? = nil, result: @escaping TWContainerBlock<[TWUser]>) {
+        public static func getUsers(id: [String]? = nil, login: [String]? = nil, result: @escaping TWContainerBlock<[TWUser]>) {
             usersRepository.getUsers(id: id, login: login, result: result)
         }
         
@@ -368,6 +373,45 @@ extension Twitch {
         ///   - result: Result block
         public static func getCheermotes(broadcasterId: String?, result: @escaping TWContainerBlock<[TWCheermoteContainer]>) {
             bitsRepository.getCheermotes(broadcasterId: broadcasterId, result: result)
+        }
+    }
+}
+
+// MARK: Twitch Analytics API
+
+extension Twitch {
+    
+    public struct Analytics {
+        
+        /// Gets a URL that game developers can use to download analytics reports (CSV files) for their games. The URL is valid for 5 minutes. The response has a JSON payload with a data field containing an array of games information elements and can contain a pagination field containing information required to query for more streams. If you specify a future date, the response will be “Report Not Found For Date Range.” If you leave both started_at and ended_at blank, the API returns the most recent date of data.
+        /// - Parameters:
+        ///   - after: Cursor for forward pagination: tells the server where to start fetching the next set of results, in a multi-page response. This applies only to queries without game_id. If a game_id is specified, it supersedes any cursor/offset combinations. The cursor value specified here is from the pagination response field of a prior query.
+        ///   - startedAt: Starting date/time for returned reports, in RFC3339 format with the hours, minutes, and seconds zeroed out and the UTC timezone: YYYY-MM-DDT00:00:00Z. If this is provided, ended_at also must be specified. If started_at is earlier than the default start date, the default date is used. Default: 365 days (overview_v2) or 90 days (overview_v1) before the report was issued. The file contains one row of data per day.
+        ///   - endedAt:     Ending date/time for returned reports, in RFC3339 format with the hours, minutes, and seconds zeroed out and the UTC timezone: YYYY-MM-DDT00:00:00Z. The report covers the entire ending date; e.g., if 2018-05-01T00:00:00Z is specified, the report covers up to 2018-05-01T23:59:59Z. If this is provided, started_at also must be specified. If ended_at is later than the default end date, the default date is used. Default: 1-2 days before the request was issued (depending on report availability).
+        ///   - first: Maximum number of objects to return. Maximum: 100. Default: 20.
+        ///   - gameId: Game ID. If this is specified, the returned URL points to an analytics report for just the specified game. If this is not specified, the response includes multiple URLs (paginated), pointing to separate analytics reports for each of the authenticated user’s games.
+        ///   - type: Type of analytics report that is returned. If this is specified, the response includes one URL, for the specified report type. If this is not specified, the response includes multiple URLs (paginated), one for each report type available for the authenticated user’s games. Limit: 1. Valid values: "overview_v1", "overview_v2". Default: all report types for the authenticated user’s games.
+        ///   - result: Result block
+        public static func getGameAnalytics(after: String?, startedAt: String?, endedAt: String?, first: Int?,
+                                            gameId: String?, type: String?, result: @escaping TWContainerBlock<[TWGameAnalytics]>) {
+            analyticsRepository.getGameAnalytics(after: after, startedAt: startedAt, endedAt: endedAt, first: first, gameId: gameId, type: type, result: result)
+        }
+    }
+}
+
+// MARK: Twitch Ads API
+
+extension Twitch {
+    
+    public struct Ads {
+        
+        /// Starts a commercial on a specified channel.
+        /// - Parameters:
+        ///   - broadcasterId: ID of the channel requesting a commercial. Minimum: 1 Maximum: 1
+        ///   - length: Desired length of the commercial in seconds. Valid options are 30, 60, 90, 120, 150, 180.
+        ///   - result: Result block
+        public static func startCommercial(broadcasterId: String, length: Int, result: @escaping TWContainerBlock<[TWCommercial]>) {
+            adsRepository.startCommercial(broadcasterId: broadcasterId, length: length, result: result)
         }
     }
 }

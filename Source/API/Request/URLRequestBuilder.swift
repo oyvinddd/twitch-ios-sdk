@@ -34,7 +34,7 @@ final class URLRequestBuilder {
     var endpoint: TWEndpoint
     var method: HTTPMethod = .get
     var headers: [String: String]?
-    var params: [String: String]?
+    var params: [TWParam]?
     var clientId: String?
     var accessToken: String?
     
@@ -62,7 +62,7 @@ final class URLRequestBuilder {
     }
     
     @discardableResult
-    func set(params: [String: String]?) -> Self {
+    func set(params: [TWParam]?) -> Self {
         self.params = params
         return self
     }
@@ -81,11 +81,13 @@ final class URLRequestBuilder {
     
     func build() -> URLRequest {
         
+        
+        
         var url = baseURL.appendingPathComponent(endpoint)
         if let params = params, !params.isEmpty, var comps = URLComponents(url: url, resolvingAgainstBaseURL: false) {
             var queryItems: [URLQueryItem] = []
-            for item in params {
-                queryItems.append(URLQueryItem(name: item.key, value: item.value))
+            for param in params {
+                queryItems.append(URLQueryItem(name: param.name, value: param.value))
             }
             comps.queryItems = queryItems
             if let newUrl = comps.url {
