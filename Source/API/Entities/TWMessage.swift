@@ -17,6 +17,12 @@ public struct TWMessage: Codable {
     
     /// User ID of the sender.
     public var userId: String
+    
+    public init(_ id: String, _ text: String, _ userId: String) {
+        self.id = id
+        self.text = text
+        self.userId = userId
+    }
 }
 
 public struct TWMessageStatus: Codable {

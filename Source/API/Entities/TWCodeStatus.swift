@@ -8,6 +8,7 @@
 import Foundation
 
 public struct TWCodeStatus: Codable {
+    
     public enum TWStatus: String, Codable {
         
         /// Request successfully redeemed this code to the authenticated user’s account. This status will only ever be encountered when calling the POST API to redeem a key.
@@ -35,7 +36,7 @@ public struct TWCodeStatus: Codable {
         case incorrectFormat = "INCORRECT_FORMAT"
         
         /// Indicates some internal and/or unknown failure handling this code.
-        case internalError = "INTERNAL ERROR"
+        case internalError = "INTERNAL_ERROR"
     }
     
     /// The code to redeem to the authenticated user’s account.

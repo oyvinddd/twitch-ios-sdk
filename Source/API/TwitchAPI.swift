@@ -80,7 +80,8 @@ protocol TWClipsAPI {
 // MARK: Videos API
 
 protocol TWVideosAPI {
-    func getVideos(id: String, userId: String, gameId: String, result: @escaping TWContainerBlock<[TWVideo]>)
+    func getVideos(id: [String], userId: String, gameId: String, after: String?, before: String?,
+    first: String?, language: String?, period: String?, sort: String?, type: String?, result: @escaping TWContainerBlock<[TWVideo]>)
 }
 
 // MARK: Moderation API
@@ -104,7 +105,7 @@ protocol TWAnalyticsAPI {
 // MARK: Entitlements API
 
 protocol TWEntitlementsAPI {
-    func getCodeStatus(code: String, userId: Int, result: @escaping TWContainerBlock<[TWCodeStatus]>)
+    func getCodeStatus(code: [String], userId: String, result: @escaping TWContainerBlock<[TWCodeStatus]>)
     func redeemCode(code: [String], userId: String, result: @escaping TWContainerBlock<[TWCodeStatus]>)
 }
 

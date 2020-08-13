@@ -11,8 +11,9 @@ import Foundation
 final class TWVideosRepository: TWVideosAPI {
     let session: URLSession = URLSession.shared
     
-    func getVideos(id: String, userId: String, gameId: String, result: @escaping TWContainerBlock<[TWVideo]>) {
-        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWVideosRequest(id, userId, gameId))
+    func getVideos(id: [String], userId: String, gameId: String, after: String?, before: String?,
+                   first: String?, language: String?, period: String?, sort: String?, type: String?, result: @escaping TWContainerBlock<[TWVideo]>) {
+        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWVideosRequest(id, userId, gameId, after, before, first, language, period, sort, type))
         session.dataTask(with: request, decodable: [TWVideo].self, result: result).resume()
     }
 }

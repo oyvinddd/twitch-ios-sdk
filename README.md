@@ -98,7 +98,7 @@ Twitch.Games.getTopGames { result in
 | Create Clip | Twitch.Clips.createClip | ❌ |
 | Get Clips | Twitch.Clips.getClips | ❌ |
 | Create Entitlement Grants Upload URL | Twitch.Entitlements.TODO | ❌ |
-| Get Code Status | Twitch.Entitlements.getCodeStatus | ❌ |
+| Get Code Status | Twitch.Entitlements.getCodeStatus | ✅ |
 | Redeem Code | Twitch.Entitlements.redeemCode | ❌ |
 | Get Top Games | Twitch.Games.getTopGames | ✅ |
 | Get Games | Twitch.Games.getGames | ✅ |
@@ -127,7 +127,7 @@ Twitch.Games.getTopGames { result in
 | Get User Extensions | Twitch.Users.getUserExtensions | ❌ |
 | Get User Active Extensions | Twitch.Users.getUserActiveExtensions | ❌ |
 | Update User Extensions | Twitch.Users.updateUserExtensions | ❌ |
-| Get Videos | Twitch.Videos.getVideos | ❌ |
+| Get Videos | Twitch.Videos.getVideos | ✅ |
 | Get Webhook Subscription | Twitch.Subscriptions.getWebhookSubscriptions | ❌ |
 | Get Hype Train Events | Twitch.HypeTrain.getHypeTrainEvents | ❌ |
 

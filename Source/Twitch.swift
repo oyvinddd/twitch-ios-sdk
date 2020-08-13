@@ -128,8 +128,9 @@ extension Twitch {
         ///   - userId: ID of the user who owns the video. Limit 1.
         ///   - gameId: ID of the game the video is of. Limit 1.
         ///   - result: Result block
-        public static func getVideos(id: String, userId: String, gameId: String, result: @escaping TWContainerBlock<[TWVideo]>) {
-            videosRepository.getVideos(id: id, userId: userId, gameId: gameId, result: result)
+        public static func getVideos(id: [String], userId: String, gameId: String, after: String?, before: String?,
+        first: String?, language: String?, period: String?, sort: String?, type: String?, result: @escaping TWContainerBlock<[TWVideo]>) {
+            videosRepository.getVideos(id: id, userId: userId, gameId: gameId, after: after, before: before, first: first, language: language, period: period, sort: sort, type: type, result: result)
         }
     }
 }
@@ -286,6 +287,15 @@ extension Twitch {
         public static func getBannedEvents(broadcasterId: String, userId: [String]?, after: String?, first: Int?, result: @escaping TWContainerBlock<[TWModeratorEvent]>) {
             moderationRepository.getBannedEvents(broadcasterId: broadcasterId, userId: userId, after: after, first: first, result: result)
         }
+        
+        /// Determines whether a string message meets the channel’s AutoMod requirements. AutoMod is a moderation tool that blocks inappropriate or harassing chat with powerful moderator control. AutoMod detects misspellings and evasive language automatically. AutoMod uses machine learning and natural language processing algorithms to hold risky messages from chat so they can be reviewed by a channel moderator before appearing to other viewers in the chat. Moderators can approve or deny any message caught by AutoMod. For more information about AutoMod, see: https://help.twitch.tv/s/article/how-to-use-automod?language=en_US
+        /// - Parameters:
+        ///   - broadcasterId: Provided broadcaster_id must match the user_id in the auth token.
+        ///   - messages: The messages to be checked
+        ///   - result: Result block
+        public static func checkAutomodStatus(broadcasterId: String, messages: [TWMessage], result: @escaping TWContainerBlock<[TWMessageStatus]>) {
+            moderationRepository.checkAutomodStatus(broadcasterId: broadcasterId, messages: messages, result: result)
+        }
     }
 }
 
@@ -300,7 +310,7 @@ extension Twitch {
         ///   - code: The code to get the status of. Repeat this query parameter additional times to get the status of multiple codes. Ex: ?code=code1&code=code2 1-20 code parameters are allowed.
         ///   - userId: Represents a numeric Twitch user ID. The user account which is going to receive the entitlement associated with the code.
         ///   - result: Result block
-        public static func getCodeStatus(code: String, userId: Int, result: @escaping TWContainerBlock<[TWCodeStatus]>) {
+        public static func getCodeStatus(code: [String], userId: String, result: @escaping TWContainerBlock<[TWCodeStatus]>) {
             entitlementsRepository.getCodeStatus(code: code, userId: userId, result: result)
         }
     }

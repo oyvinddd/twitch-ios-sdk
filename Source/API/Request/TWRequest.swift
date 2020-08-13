@@ -95,7 +95,32 @@ struct TWVideosRequest: TWRequest {
     var method: HTTPMethod = .get
     var params: [TWParam] = []
     var body: Encodable?
-    init(_ id: String, _ userId: String, _ gameId: String) {
+    init(_ id: [String], _ userId: String, _ gameId: String, _ after: String?, _ before: String?,
+         _ first: String?, _ language: String?, _ period: String?, _ sort: String?, _ type: String?) {
+        params.append(contentsOf: id.map { TWParam("id", $0) })
+        params.append(TWParam("user_id", userId))
+        params.append(TWParam("game_id", gameId))
+        if let after = after {
+            params.append(TWParam("after", after))
+        }
+        if let before = before {
+            params.append(TWParam("before", before))
+        }
+        if let first = first {
+            params.append(TWParam("first", first))
+        }
+        if let language = language {
+            params.append(TWParam("language", language))
+        }
+        if let period = period {
+            params.append(TWParam("period", period))
+        }
+        if let sort = sort {
+            params.append(TWParam("sort", sort))
+        }
+        if let type = type {
+            params.append(TWParam("type", type))
+        }
     }
 }
 
@@ -178,7 +203,9 @@ struct TWCodeStatusRequest: TWRequest {
     var method: HTTPMethod = .get
     var params: [TWParam] = []
     var body: Encodable?
-    init(_ code: String, _ userId: Int) {
+    init(_ code: [String], _ userId: String) {
+        params.append(contentsOf: code.map { TWParam("code", $0) })
+        params.append(TWParam("user_id", userId))
     }
 }
 
@@ -238,11 +265,12 @@ struct TWCreateUserFollowsRequest: TWRequest {
 }
 
 struct TWCheckAutomodStatusRequest: TWRequest {
-    var endpoint: TWEndpoint = Endpoints.games
+    var endpoint: TWEndpoint = Endpoints.checkAutomodStatus
     var method: HTTPMethod = .post
     var params: [TWParam] = []
     var body: Encodable?
     init(_ broadcasterId: String, _ messages: [TWMessage]) {
+        params.append(TWParam("broadcaster_id", broadcasterId))
         body = TWContainer(messages)
     }
 }

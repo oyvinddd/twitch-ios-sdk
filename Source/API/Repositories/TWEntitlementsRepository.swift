@@ -11,7 +11,7 @@ import Foundation
 final class TWEntitlementsRepository: TWEntitlementsAPI {
     let session: URLSession = URLSession.shared
     
-    func getCodeStatus(code: String, userId: Int, result: @escaping TWContainerBlock<[TWCodeStatus]>) {
+    func getCodeStatus(code: [String], userId: String, result: @escaping TWContainerBlock<[TWCodeStatus]>) {
         let request = URLRequestBuilder.buildSecureAPIRequest(for: TWCodeStatusRequest(code, userId))
         session.dataTask(with: request, decodable: [TWCodeStatus].self, result: result).resume()
     }
