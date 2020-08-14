@@ -45,23 +45,22 @@ final class MyViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // This presents a web view where the user can login to his/her Twitch account
-        // The SDK will get notified of a successful login in the delegate method didFetchOAuthToken
+        // This presents a web view where the user can login to his/her Twitch account.
+        // After a successful login, the access token is stored automatically by the SDK
+        // and you can proceed to calling the Twitch API.
         present(TWAuthViewController(delegate: self), animated: true, completion: nil)
     }
 }
 
-// The following implementation is optional, since the token is stored automatically by the SDK
-extension VideoViewController: TWOAuthDelegate {
+// If you want a callback when the access token has been successfully retrieved,
+// you can implement the (optional) TWOAuthDelegate method below.
+extension MyViewController: TWOAuthDelegate {
     
     func didFetchToken(_ accessToken: String) {
         print("Got an OAuth 2.0 token: \(accessToken)")
     }
 }
 ```
-
-#### 2.2 OIDC Token (implicit flow)
-TODO: ...
 
 ### 3. Calling the API
 The example below fetches all the top games (by number of current viewers) on Twitch.
