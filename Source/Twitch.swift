@@ -28,6 +28,7 @@ public class Twitch: NSObject {
     private static let bitsRepository = TWBitsRepository()
     private static let analyticsRepository = TWAnalyticsRepository()
     private static let adsRepository = TWAdsRepository()
+    private static let webhooksRepository = TWWebhooksRepository()
     
     public class func initialize(clientId: String, config: TWConfig) {
         self.credentials = TWCredentials(clientId: clientId)
@@ -433,6 +434,23 @@ extension Twitch {
         ///   - result: Result block
         public static func startCommercial(broadcasterId: String, length: Int, result: @escaping TWContainerBlock<[TWCommercial]>) {
             adsRepository.startCommercial(broadcasterId: broadcasterId, length: length, result: result)
+        }
+    }
+}
+
+// MARK: Twitch Webhooks API
+
+extension Twitch {
+    
+    public struct Webhooks {
+        
+        /// Gets the Webhook subscriptions of a user identified by a Bearer token, in order of expiration. The response has a JSON payload with a data field containing an array of subscription elements and a pagination field containing information required to query for more subscriptions.
+        /// - Parameters:
+        ///   - after: Cursor for forward pagination: tells the server where to start fetching the next set of results, in a multi-page response. The cursor value specified here is from the pagination response field of a prior query.
+        ///   - first: Number of values to be returned per page. Limit: 100. Default: 20.
+        ///   - result: Result block
+        public static func getSubscriptions(after: String?, first: String?, result: @escaping TWContainerBlock<[TWWebhookSub]>) {
+            webhooksRepository.getSubscriptions(after: after, first: first, result: result)
         }
     }
 }

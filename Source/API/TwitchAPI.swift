@@ -128,6 +128,10 @@ protocol TWAdsAPI {
     func startCommercial(broadcasterId: String, length: Int, result: @escaping TWContainerBlock<[TWCommercial]>)
 }
 
+protocol TWWebhooksAPI {
+    func getSubscriptions(after: String?, first: String?, result: @escaping TWContainerBlock<[TWWebhookSub]>)
+}
+
 // #######################
 // ##   V5/KRAKEN API   ##
 // #######################

@@ -503,3 +503,18 @@ struct TWBannedEventsRequest: TWRequest {
         }
     }
 }
+
+struct TWWebhookSubRequest: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.webhookSubs
+    var method: HTTPMethod = .get
+    var params: [TWParam] = []
+    var body: Encodable?
+    init(_ after: String?, _ first: String?) {
+        if let after = after {
+            params.append(TWParam("after", after))
+        }
+        if let first = first {
+            params.append(TWParam("first", String(first)))
+        }
+    }
+}

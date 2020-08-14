@@ -75,4 +75,6 @@ struct Endpoints {
     static let clips = "\(helix)/clips"
     /// Subscriptions
     static let subscriptions = "\(helix)/subscriptions"
+    // Webhookds
+    static let webhookSubs = "\(helix)/webhooks/subscriptions"
 }

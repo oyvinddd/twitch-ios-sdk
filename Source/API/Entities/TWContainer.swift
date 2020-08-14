@@ -13,7 +13,7 @@ public struct TWContainer<T: Codable>: Codable {
     /// Contains whatever content was requested (e.g. [TWUser], TWStreamKey etc.)
     public var data: T
     
-    /// Total number of items returned.
+    /// A hint at the total number of results returned, on all pages. Note this is an approximation: as you page through the list, some subscriptions may expire and others may be added.
     public var total: Int?
     
     /// A cursor value, to be used in a subsequent request to specify the starting point of the next set of results.
