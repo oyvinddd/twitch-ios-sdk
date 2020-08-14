@@ -95,7 +95,7 @@ Twitch.Games.getTopGames { result in
 | Get Bits Leaderboard | Twitch.Bits.getBitsLeaderboard | ✅ |
 | Get Game Analytics | Twitch.Analytics.getGameAnalytics | ✅ |
 | Get Extension Transactions | Twitch.Extensions.getTransactions | ❌ |
-| Create Clip | Twitch.Clips.createClip | ❌ |
+| Create Clip | Twitch.Clips.createClip | ✅ |
 | Get Clips | Twitch.Clips.getClips | ❌ |
 | Create Entitlement Grants Upload URL | Twitch.Entitlements.TODO | ❌ |
 | Get Code Status | Twitch.Entitlements.getCodeStatus | ✅ |
@@ -105,7 +105,7 @@ Twitch.Games.getTopGames { result in
 | Check Automod Status | Twitch.Moderation.checkAutomodStatus | ❌ |
 | Get Banned Users | Twitch.Moderation.getBannedUsers | ✅ |
 | Get Banned Events | Twitch.Moderation.getBannedEvents | ✅ |
-| Get Moderators | Twitch.Moderation.getModerators | ❌ |
+| Get Moderators | Twitch.Moderation.getModerators | ✅ |
 | Get Moderator Events | Twitch.Moderation.getModeratorEvents | ❌ |
 | Search Categories | Twitch.Search.searchCategories | ✅ |
 | Search Channels | Twitch.Search.searchChannels | ✅ |
