@@ -99,7 +99,7 @@ Twitch.Games.getTopGames { result in
 | Get Clips | Twitch.Clips.getClips | ❌ |
 | Create Entitlement Grants Upload URL | Twitch.Entitlements.TODO | ❌ |
 | Get Code Status | Twitch.Entitlements.getCodeStatus | ✅ |
-| Redeem Code | Twitch.Entitlements.redeemCode | ❌ |
+| Redeem Code | Twitch.Entitlements.redeemCode | ✅ |
 | Get Top Games | Twitch.Games.getTopGames | ✅ |
 | Get Games | Twitch.Games.getGames | ✅ |
 | Check Automod Status | Twitch.Moderation.checkAutomodStatus | ❌ |

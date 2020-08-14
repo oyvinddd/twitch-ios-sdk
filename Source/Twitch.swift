@@ -332,6 +332,15 @@ extension Twitch {
         public static func getCodeStatus(code: [String], userId: String, result: @escaping TWContainerBlock<[TWCodeStatus]>) {
             entitlementsRepository.getCodeStatus(code: code, userId: userId, result: result)
         }
+        
+        /// Redeems one or more provided codes to the authenticated Twitch user. This API requires that the caller is an authenticated Twitch user. The API is throttled to one request per second per authenticated user. This API requires that the caller is an authenticated Twitch user. The API is throttled to one request per second per authenticated user.
+        /// - Parameters:
+        ///   - code: The code to redeem to the authenticated user’s account. A fifteen character (plus optional hyphen separators) alphanumeric string.e.g. ABCDE-12345-FGHIJ
+        ///   - userId: Represents a numeric Twitch user ID. The user account which is going to receive the entitlement associated with the code.
+        ///   - result: Result block
+        public static func redeemCode(code: [String], userId: String, result: @escaping TWContainerBlock<[TWCodeStatus]>) {
+            entitlementsRepository.redeemCode(code: code, userId: userId, result: result)
+        }
     }
 }
 
