@@ -69,7 +69,6 @@ extension Twitch {
             usersRepository.getExtensions(result: result)
         }
         
-        
         /// Gets information about active extensions installed by a specified user, identified by a user ID or Bearer token.
         /// - Parameters:
         ///   - userId: ID of the user whose installed extensions will be returned. Limit: 1.
@@ -86,6 +85,14 @@ extension Twitch {
         ///   - result: Result block
         public static func createUserFollows(fromId: String, toId: String, allowNotifications: Bool? = nil, result: @escaping TWNoContentBlock) {
             usersRepository.createFollows(fromId: fromId, toId: toId, allowNotifications: allowNotifications, result: result)
+        }
+        
+        /// Updates the description of a user specified by a Bearer token.
+        /// - Parameters:
+        ///   - description: User’s account description
+        ///   - result: Result block
+        public static func updateUser(description: String?, result: @escaping TWContainerBlock<[TWUser]>) {
+            usersRepository.updateUser(description: description, result: result)
         }
     }
 }
@@ -210,7 +217,6 @@ extension Twitch {
             streamsRepository.replaceStreamTags(broadcasterId: broadcasterId, tagIds: tagIds, result: result)
         }
         
-        
         /// Creates a marker in the stream of a user specified by a user ID. A marker is an arbitrary point in a stream that the broadcaster wants to mark; e.g., to easily return to later. The marker is created at the current timestamp in the live broadcast when the request is processed. Markers can be created by the stream owner or editors. The user creating the marker is identified by a Bearer token.
         /// - Parameters:
         ///   - userId: ID of the broadcaster in whose live stream the marker is created.
@@ -238,6 +244,18 @@ extension Twitch {
         public static func modifyChannelInfo(broadcasterId: String, gameId: String? = nil, broadcasterLanguage: String? = nil, title: String? = nil, result: @escaping TWNoContentBlock) {
             streamsRepository.modifyChannelInfo(broadcasterId: broadcasterId, gameId: gameId,
                                                 broadcasterLanguage: broadcasterLanguage, title: title, result: result)
+        }
+        
+        /// Gets a list of markers for either a specified user’s most recent stream or a specified VOD/video (stream), ordered by recency. A marker is an arbitrary point in a stream that the broadcaster wants to mark; e.g., to easily return to later. The only markers returned are those created by the user identified by the Bearer token. The response has a JSON payload with a data field containing an array of marker information elements and a pagination field containing information required to query for more follow information.
+        /// - Parameters:
+        ///   - userId: ID of the broadcaster from whose stream markers are returned.
+        ///   - videoId: ID of the VOD/video whose stream markers are returned.
+        ///   - after:     Cursor for forward pagination: tells the server where to start fetching the next set of results, in a multi-page response. The cursor value specified here is from the pagination response field of a prior query.
+        ///   - before: Cursor for backward pagination: tells the server where to start fetching the next set of results, in a multi-page response. The cursor value specified here is from the pagination response field of a prior query.
+        ///   - first: Number of values to be returned when getting videos by user or game ID. Limit: 100. Default: 20.
+        ///   - result: Result block
+        public static func getStreamMarkers(userId: String?, videoId: String?, after: String?, before: String?, first: String?, result: @escaping TWContainerBlock<[TWStreamMarkerContainer]>) {
+            streamsRepository.getStreamMarkers(userId: userId, videoId: videoId, after: after, before: before, first: first, result: result)
         }
     }
 }
@@ -395,6 +413,29 @@ extension Twitch {
         ///   - result: Result block
         public static func getCheermotes(broadcasterId: String?, result: @escaping TWContainerBlock<[TWCheermoteContainer]>) {
             bitsRepository.getCheermotes(broadcasterId: broadcasterId, result: result)
+        }
+        
+        /// Get Extension Transactions allows extension back end servers to fetch a list of transactions that have occurred for their extension across all of Twitch.
+        /// - Parameters:
+        ///   - extensionId: ID of the extension to list transactions for. Maximum: 1
+        ///   - id: Transaction IDs to look up. Can include multiple to fetch multiple transactions in a single request.
+        ///   - after: The cursor used to fetch the next page of data. This only applies to queries without ID. If an ID is specified, it supersedes the cursor.
+        ///   - first: Maximum number of objects to return. Maximum: 100 Default: 20
+        ///   - result: Result block
+        public static func getExtensionTransactions(extensionId: String, id: [String]?, after: String?, first: Int?,
+                                                    result: @escaping TWContainerBlock<[TWTransaction]>) {
+            bitsRepository.getExtensionTransactions(extensionId: extensionId, id: id, after: after, first: first, result: result)
+        }
+        
+        /// Gets a ranked list of Bits leaderboard information for an authorized broadcaster.
+        /// - Parameters:
+        ///   - count: Number of results to be returned. Maximum: 100. Default: 10.
+        ///   - period: Time period over which data is aggregated (PST time zone). This parameter interacts with started_at. Valid values are given below. Default: "all".
+        ///   - startedAt: Timestamp for the period over which the returned data is aggregated. Must be in RFC 3339 format. If this is not provided, data is aggregated over the current period; e.g., the current day/week/month/year. This value is ignored if period is "all".
+        ///   - userId: ID of the user whose results are returned; i.e., the person who paid for the Bits. As long as count is greater than 1, the returned data includes additional users, with Bits amounts above and below the user specified by user_id. If user_id is not provided, the endpoint returns the Bits leaderboard data across top users (subject to the value of count).
+        ///   - result: Result block
+        public static func getLeaderboard(count: Int?, period: String?, startedAt: String?, userId: String?, result: @escaping TWContainerBlock<[TWLeaderboard]>) {
+            bitsRepository.getLeaderboard(count: count, period: period, startedAt: startedAt, userId: userId, result: result)
         }
     }
 }

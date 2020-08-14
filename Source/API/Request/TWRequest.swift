@@ -518,3 +518,22 @@ struct TWWebhookSubRequest: TWRequest {
         }
     }
 }
+
+struct TWTransactionsRequest: TWRequest {
+    var endpoint: TWEndpoint = Endpoints.extensionTransations
+    var method: HTTPMethod = .get
+    var params: [TWParam] = []
+    var body: Encodable?
+    init(_ extensionId: String, _ id: [String]?, _ after: String?, _ first: Int?) {
+        params.append(TWParam("extension_id", extensionId))
+        if let id = id {
+            params.append(contentsOf: id.map { TWParam("id", $0) })
+        }
+        if let after = after {
+            params.append(TWParam("after", after))
+        }
+        if let first = first {
+            params.append(TWParam("first", String(first)))
+        }
+    }
+}

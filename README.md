@@ -93,7 +93,7 @@ Twitch.Games.getTopGames { result in
 | ------------- | ------------- | :-------------: |
 | Get Cheermotes | Twitch.Bits.getCheermotes | ✅ |
 | Get Bits Leaderboard | Twitch.Bits.getBitsLeaderboard | ❌ |
-| Get Game Analytics | Twitch.Analytics.getGameAnalytics | ❌ |
+| Get Game Analytics | Twitch.Analytics.getGameAnalytics | ✅ |
 | Get Extension Transactions | Twitch.Extensions.getTransactions | ❌ |
 | Create Clip | Twitch.Clips.createClip | ❌ |
 | Get Clips | Twitch.Clips.getClips | ❌ |
@@ -123,8 +123,8 @@ Twitch.Games.getTopGames { result in
 | Delete User Follows | Twitch.Users.deleteUserFollows | ❌ |
 | Get Users | Twitch.Clips.getUsers | ✅ |
 | Get Users Follows | Twitch.Users.getFollows | ✅ |
-| Update User | Twitch.Clips.updateUser | ❌ |
-| Get User Extensions | Twitch.Users.getUserExtensions | ❌ |
+| Update User | Twitch.Clips.updateUser | ✅ |
+| Get User Extensions | Twitch.Users.getExtensions | ✅ |
 | Get User Active Extensions | Twitch.Users.getUserActiveExtensions | ❌ |
 | Update User Extensions | Twitch.Users.updateUserExtensions | ❌ |
 | Get Videos | Twitch.Videos.getVideos | ✅ |

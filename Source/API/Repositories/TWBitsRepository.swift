@@ -20,4 +20,10 @@ final class TWBitsRepository: TWBitsAPI {
         let request = URLRequestBuilder.buildSecureAPIRequest(for: TWLeaderboardRequest(count, period, startedAt, userId))
         session.dataTask(with: request, decodable: [TWLeaderboard].self, result: result).resume()
     }
+    
+    func getExtensionTransactions(extensionId: String, id: [String]?, after: String?, first: Int?,
+                                  result: @escaping TWContainerBlock<[TWTransaction]>) {
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWTransactionsRequest(extensionId, id, after, first))
+        session.dataTask(with: request, decodable: [TWTransaction].self, result: result).resume()
+    }
 }

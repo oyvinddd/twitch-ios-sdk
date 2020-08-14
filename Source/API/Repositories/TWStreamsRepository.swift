@@ -53,4 +53,8 @@ final class TWStreamsRepository: TWStreamsAPI {
                                                                                               title))
         session.dataTask(with: request, result: result).resume()
     }
+    
+    func getStreamMarkers(userId: String?, videoId: String?, after: String?, before: String?, first: String?, result: @escaping TWContainerBlock<[TWStreamMarkerContainer]>) {
+        // TODO:
+    }
 }

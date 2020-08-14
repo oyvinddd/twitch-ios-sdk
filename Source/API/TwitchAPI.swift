@@ -55,6 +55,7 @@ protocol TWStreamsAPI {
     func createStreamMarker(userId: String, description: String?, result: @escaping TWContainerBlock<TWStreamMarker>)
     func getChannelInfo(broadcatserId: String, result: @escaping TWContainerBlock<[TWChannelInfo]>)
     func modifyChannelInfo(broadcasterId: String, gameId: String?, broadcasterLanguage: String?, title: String?, result: @escaping TWNoContentBlock)
+    func getStreamMarkers(userId: String?, videoId: String?, after: String?, before: String?, first: String?, result: @escaping TWContainerBlock<[TWStreamMarkerContainer]>)
 }
 
 // MARK: Bits API
