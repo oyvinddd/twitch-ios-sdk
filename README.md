@@ -128,7 +128,7 @@ Twitch.Games.getTopGames { result in
 | Get User Active Extensions | Twitch.Users.getUserActiveExtensions | ❌ |
 | Update User Extensions | Twitch.Users.updateUserExtensions | ❌ |
 | Get Videos | Twitch.Videos.getVideos | ✅ |
-| Get Webhook Subscription | Twitch.Subscriptions.getWebhookSubscriptions | ❌ |
+| Get Webhook Subscription | Twitch.Subscriptions.getWebhookSubscriptions | ✅ |
 | Get Hype Train Events | Twitch.HypeTrain.getHypeTrainEvents | ❌ |
 
 ## License
