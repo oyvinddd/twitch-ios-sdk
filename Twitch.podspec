@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.homepage                = 'https://github.com/oyvinddd/twitch-ios-sdk'
   s.license                 = { :type => 'MIT', :file => 'LICENSE' }
   s.author                  = { 'Øyvind Hauge' => 'oyvind.s.hauge@gmail.com' }
-  s.source                  = { :git => 'https://github.com/oyvinddd/twitch-ios-sdk', :tag => s.version.to_s }
+  s.source                  = { :git => 'https://github.com/oyvinddd/twitch-ios-sdk.git', :tag => s.version.to_s }
   s.ios.deployment_target   = '12.0'
   s.source_files            = 'Source/**/*'
   s.swift_version           = '5.0'
