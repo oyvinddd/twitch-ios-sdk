@@ -10,6 +10,10 @@
 		090FB838D94CF784AA21C37E210E46E1 /* Twitch-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EA2268C8867EF5249A60E75FD527892 /* Twitch-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15536BA62C184B2A16D05B41091DA7E7 /* Twitch-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7801C29C03D63624921A146EEA00F509 /* Twitch-dummy.m */; };
 		3FEB5A6B7765D96E9B3519C9A2E2DAD3 /* Pods-Twitch_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E464BADE291310A2F8AC12E0BC7C8AE /* Pods-Twitch_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C071D0224E72322004B6FEE /* TWStreamMarkerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C071D0124E72322004B6FEE /* TWStreamMarkerContainer.swift */; };
+		8C071D0424E72333004B6FEE /* TWTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C071D0324E72333004B6FEE /* TWTransaction.swift */; };
+		8C071D0624E72348004B6FEE /* TWWebhookSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C071D0524E72348004B6FEE /* TWWebhookSub.swift */; };
+		8C071D0824E72362004B6FEE /* TWWebhooksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C071D0724E72361004B6FEE /* TWWebhooksRepository.swift */; };
 		8E18F7AD24D932AE006AB38E /* TWAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F77724D932AE006AB38E /* TWAuthViewController.swift */; };
 		8E18F7AE24D932AE006AB38E /* TWCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F77924D932AE006AB38E /* TWCredentials.swift */; };
 		8E18F7AF24D932AE006AB38E /* TWConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E18F77A24D932AE006AB38E /* TWConfig.swift */; };
@@ -92,6 +96,10 @@
 		6E464BADE291310A2F8AC12E0BC7C8AE /* Pods-Twitch_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Twitch_Tests-umbrella.h"; sourceTree = "<group>"; };
 		6EA2268C8867EF5249A60E75FD527892 /* Twitch-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Twitch-umbrella.h"; sourceTree = "<group>"; };
 		7801C29C03D63624921A146EEA00F509 /* Twitch-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Twitch-dummy.m"; sourceTree = "<group>"; };
+		8C071D0124E72322004B6FEE /* TWStreamMarkerContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWStreamMarkerContainer.swift; sourceTree = "<group>"; };
+		8C071D0324E72333004B6FEE /* TWTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWTransaction.swift; sourceTree = "<group>"; };
+		8C071D0524E72348004B6FEE /* TWWebhookSub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebhookSub.swift; sourceTree = "<group>"; };
+		8C071D0724E72361004B6FEE /* TWWebhooksRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWWebhooksRepository.swift; sourceTree = "<group>"; };
 		8E18F77724D932AE006AB38E /* TWAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWAuthViewController.swift; sourceTree = "<group>"; };
 		8E18F77924D932AE006AB38E /* TWCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWCredentials.swift; sourceTree = "<group>"; };
 		8E18F77A24D932AE006AB38E /* TWConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TWConfig.swift; sourceTree = "<group>"; };
@@ -258,6 +266,7 @@
 		8E18F77E24D932AE006AB38E /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				8C071D0724E72361004B6FEE /* TWWebhooksRepository.swift */,
 				8E18F77F24D932AE006AB38E /* TWSubsRepository.swift */,
 				8E18F78024D932AE006AB38E /* TWStreamsRepository.swift */,
 				8E18F78124D932AE006AB38E /* TWTagsRepository.swift */,
@@ -288,6 +297,9 @@
 		8E18F78E24D932AE006AB38E /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				8C071D0524E72348004B6FEE /* TWWebhookSub.swift */,
+				8C071D0324E72333004B6FEE /* TWTransaction.swift */,
+				8C071D0124E72322004B6FEE /* TWStreamMarkerContainer.swift */,
 				8EAA54AF24E4539F00F32CE6 /* TWCommercial.swift */,
 				8E18F78F24D932AE006AB38E /* TWStreamMarker.swift */,
 				8E18F79024D932AE006AB38E /* TWSubscription.swift */,
@@ -506,6 +518,7 @@
 				8E18F7BD24D932AE006AB38E /* TWModerationRepository.swift in Sources */,
 				8E18F7C124D932AE006AB38E /* TWSubscription.swift in Sources */,
 				8E18F7C324D932AE006AB38E /* TWClip.swift in Sources */,
+				8C071D0624E72348004B6FEE /* TWWebhookSub.swift in Sources */,
 				8E18F7DC24D932AE006AB38E /* URLSession+Decodable.swift in Sources */,
 				8E18F7D824D932AE006AB38E /* TwitchAPI.swift in Sources */,
 				8E18F7C824D932AE006AB38E /* TWClipInfo.swift in Sources */,
@@ -534,13 +547,16 @@
 				8E18F7B824D932AE006AB38E /* TWGamesRepository.swift in Sources */,
 				8E18F7B524D932AE006AB38E /* TWSearchRepository.swift in Sources */,
 				8E18F7C524D932AE006AB38E /* TWExtension.swift in Sources */,
+				8C071D0824E72362004B6FEE /* TWWebhooksRepository.swift in Sources */,
 				8E18F7CF24D932AE006AB38E /* TWModerator.swift in Sources */,
+				8C071D0224E72322004B6FEE /* TWStreamMarkerContainer.swift in Sources */,
 				8E18F7D024D932AE006AB38E /* TWGame.swift in Sources */,
 				8E18F7AD24D932AE006AB38E /* TWAuthViewController.swift in Sources */,
 				8E18F7B324D932AE006AB38E /* TWStreamsRepository.swift in Sources */,
 				8E18F7CD24D932AE006AB38E /* TWModeratorEvent.swift in Sources */,
 				8EAA54B224E4544700F32CE6 /* TWAdsRepository.swift in Sources */,
 				8EAA54B024E453A000F32CE6 /* TWCommercial.swift in Sources */,
+				8C071D0424E72333004B6FEE /* TWTransaction.swift in Sources */,
 				8E18F7D624D932AE006AB38E /* TWBannedUser.swift in Sources */,
 				8E18F7B924D932AE006AB38E /* TWEntitlementsRepository.swift in Sources */,
 				8E18F7BC24D932AE006AB38E /* TWClipsRepository.swift in Sources */,
@@ -596,7 +612,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.6.0;
 				MODULEMAP_FILE = "Target Support Files/Pods-Twitch_Tests/Pods-Twitch_Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -630,7 +646,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.6.0;
 				MODULEMAP_FILE = "Target Support Files/Pods-Twitch_Tests/Pods-Twitch_Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -788,7 +804,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.6.0;
 				MODULEMAP_FILE = "Target Support Files/Twitch/Twitch.modulemap";
 				PRODUCT_MODULE_NAME = Twitch;
 				PRODUCT_NAME = Twitch;
@@ -822,7 +838,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 0.5.0;
+				MARKETING_VERSION = 0.6.0;
 				MODULEMAP_FILE = "Target Support Files/Twitch/Twitch.modulemap";
 				PRODUCT_MODULE_NAME = Twitch;
 				PRODUCT_NAME = Twitch;
