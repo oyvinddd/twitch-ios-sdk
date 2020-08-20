@@ -13,7 +13,7 @@ final class TWVideosRepository: TWVideosAPI {
     
     func getVideos(id: [String], userId: String, gameId: String, after: String?, before: String?,
                    first: String?, language: String?, period: String?, sort: String?, type: String?, result: @escaping TWContainerBlock<[TWVideo]>) {
-        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWVideosRequest(id, userId, gameId, after, before, first, language, period, sort, type))
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWVideosRequest(id, userId, gameId, after, before, first, language, period, sort, type))
         session.dataTask(with: request, decodable: [TWVideo].self, result: result).resume()
     }
 }

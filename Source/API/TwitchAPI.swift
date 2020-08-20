@@ -132,15 +132,3 @@ protocol TWAdsAPI {
 protocol TWWebhooksAPI {
     func getSubscriptions(after: String?, first: String?, result: @escaping TWContainerBlock<[TWWebhookSub]>)
 }
-
-// #######################
-// ##   V5/KRAKEN API   ##
-// #######################
-
-protocol TWV5IngestsAPI {
-    func getIngestServerList()
-}
-
-protocol TWV5ChatAPI {
-    func getChatBadgesByChannel()
-}

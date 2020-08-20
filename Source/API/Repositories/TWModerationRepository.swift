@@ -17,7 +17,7 @@ final class TWModerationRepository: TWModerationAPI {
     }
     
     func getModeratorEvents(broadcasterId: String, userId: [String]?, result: @escaping TWContainerBlock<[TWModeratorEvent]>) {
-        let request = URLRequestBuilder.buildOpenAPIRequest(for: TWModeratorEventsRequest(broadcasterId, userId))
+        let request = URLRequestBuilder.buildSecureAPIRequest(for: TWModeratorEventsRequest(broadcasterId, userId))
         session.dataTask(with: request, decodable: [TWModeratorEvent].self, result: result).resume()
     }
     
