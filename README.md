@@ -103,7 +103,7 @@ Twitch.Games.getTopGames { result in
 | Get Banned Users | Twitch.Moderation.getBannedUsers | ✅ |
 | Get Banned Events | Twitch.Moderation.getBannedEvents | ✅ |
 | Get Moderators | Twitch.Moderation.getModerators | ✅ |
-| Get Moderator Events | Twitch.Moderation.getModeratorEvents | ❌ |
+| Get Moderator Events | Twitch.Moderation.getModeratorEvents | ✅ |
 | Search Categories | Twitch.Search.searchCategories | ✅ |
 | Search Channels | Twitch.Search.searchChannels | ✅ |
 | Get Stream Key | Twitch.Streams.getStreamKey | ✅ |
