@@ -94,7 +94,7 @@ Twitch.Games.getTopGames { result in
 | Get Extension Transactions | Twitch.Extensions.getTransactions | ❌ |
 | Create Clip | Twitch.Clips.createClip | ✅ |
 | Get Clips | Twitch.Clips.getClips | ❌ |
-| Create Entitlement Grants Upload URL | Twitch.Entitlements.TODO | ❌ |
+| Create Entitlement Grants Upload URL | Twitch.Entitlements.createGrantsUploadUrl | ❌ |
 | Get Code Status | Twitch.Entitlements.getCodeStatus | ✅ |
 | Redeem Code | Twitch.Entitlements.redeemCode | ✅ |
 | Get Top Games | Twitch.Games.getTopGames | ✅ |
@@ -108,7 +108,7 @@ Twitch.Games.getTopGames { result in
 | Search Channels | Twitch.Search.searchChannels | ✅ |
 | Get Stream Key | Twitch.Streams.getStreamKey | ✅ |
 | Get Streams | Twitch.Streams.getStreams | ✅ |
-| Create Stream Marker | Twitch.Streams.createStreamMarker | ❌ |
+| Create Stream Marker | Twitch.Streams.createStreamMarker | ✅ |
 | Get Stream Markers | Twitch.Streams.getStreamMarkers | ❌ |
 | Get Channel Information | Twitch.Streams.getChannelInfo | ✅ |
 | Modify Channel Information | Twitch.Streams.modifyChannelInfo | ❌ |

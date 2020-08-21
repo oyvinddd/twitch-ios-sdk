@@ -271,7 +271,7 @@ struct TWCheckAutomodStatusRequest: TWRequest {
     var body: Data?
     init(_ broadcasterId: String, _ messages: [TWMessage]) {
         params.append(TWParam("broadcaster_id", broadcasterId))
-        body = try? JSONEncoder().encode(TWContainer(messages))
+        body = try? JSONSerialization.data(withJSONObject: TWContainer(messages))
     }
 }
 
@@ -281,10 +281,7 @@ struct TWCreateStreamMarker: TWRequest {
     var params: [TWParam] = []
     var body: Data?
     init(_ userId: String, _ description: String?) {
-        body = try? JSONSerialization.data(withJSONObject: ["user_id": userId])
-        //body = try? JSONEncoder().encode(["user_id": userId, "description": "description"])
-//        let str = ["user_id": userId, "description": "description"].description
-//        body = str.data(using: .utf8)
+        body = try? JSONSerialization.data(withJSONObject: ["user_id": userId, description: description])
     }
 }
 
@@ -355,7 +352,7 @@ struct TWReplaceStreamTagsRequest: TWRequest {
     init(_ broadcasterId: String, _ tagIds: [String]?) {
         params.append(TWParam("broadcaster_id", broadcasterId))
         if let tagIds = tagIds {
-            body = try? JSONEncoder().encode(["tag_ids": tagIds])
+            body = try? JSONSerialization.data(withJSONObject: ["tag_ids": tagIds])
         }
     }
 }
