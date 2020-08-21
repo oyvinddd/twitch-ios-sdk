@@ -61,6 +61,16 @@ extension TWAuthViewController: WKNavigationDelegate {
         handleRedirect(url: webView.url)
     }
     
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        if let response = navigationResponse.response as? HTTPURLResponse, 500 ..< 600 ~= response.statusCode {
+            print("Twitch - Status code was \(response.statusCode), but expected 2xx. Twitch might be temporarily down.")
+            dismiss(animated: true, completion: nil)
+        }
+        decisionHandler(.allow)
+    }
+    
+    // MARK: Private helper Methods
+    
     private func handleRedirect(url: URL?) {
         if isCorrectRedirectURL(webView.url), let token = extractFragment("access_token", from: webView.url) {
             Twitch.credentials.set(accessToken: token)

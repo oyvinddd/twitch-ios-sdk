@@ -8,19 +8,19 @@
 
 import Foundation
 
+/// Authorization header field
+fileprivate let kHeaderAuthorization = "Authorization"
+
+/// Client ID header field
+fileprivate let kHeaderClientId = "Client-ID"
+
+/// Regular Twitch API base url
+fileprivate let kApiBaseUrl = "https://api.twitch.tv"
+
+/// Twitch auth base url
+fileprivate let kAuthBaseUrl = "https://id.twitch.tv"
+
 final class URLRequestBuilder {
-        
-    /// Authorization header field
-    fileprivate let kHeaderAuthorization = "Authorization"
-    
-    /// Client ID header field
-    fileprivate let kHeaderClientId = "Client-ID"
-    
-    /// Regular Twitch API base url
-    fileprivate let kApiBaseUrl = "https://api.twitch.tv"
-    
-    /// Twitch auth base url
-    fileprivate let kAuthBaseUrl = "https://id.twitch.tv"
     
     enum TwitchService {
         case api, auth
@@ -34,9 +34,10 @@ final class URLRequestBuilder {
     var endpoint: TWEndpoint
     var method: HTTPMethod = .get
     var headers: [String: String]?
-    var params: [TWParam]?
     var clientId: String?
     var accessToken: String?
+    var params: [TWParam]?
+    var body: Data?
     
     init(service: TwitchService = .api, endpoint: TWEndpoint) {
         self.service = service
@@ -79,8 +80,15 @@ final class URLRequestBuilder {
         return self
     }
     
+    @discardableResult
+    func set(body: Data?) -> Self {
+        self.body = body
+        return self
+    }
+    
     func build() -> URLRequest {
         
+        // create url and add query parameters
         var url = baseURL.appendingPathComponent(endpoint)
         if let params = params, !params.isEmpty, var comps = URLComponents(url: url, resolvingAgainstBaseURL: false) {
             var queryItems: [URLQueryItem] = []
@@ -93,17 +101,30 @@ final class URLRequestBuilder {
             }
         }
         
-        var request = URLRequest(
-            url: url,
-            cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-            timeoutInterval: 100
-        )
+        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
+        // request method
         request.httpMethod = method.rawValue
+        
+        // add headers
+        addHeaders(&request)
         addAuthHeaders(&request)
+        
+        // request body
+        if let jsonData = body {
+            request.httpBody = jsonData
+        }
         return request
     }
     
-    fileprivate func addAuthHeaders(_ request: inout URLRequest) {
+    private func addHeaders(_ request: inout URLRequest) {
+        if let headers = headers {
+            for header in headers {
+                request.addValue(header.value, forHTTPHeaderField: header.key)
+            }
+        }
+    }
+    
+    private func addAuthHeaders(_ request: inout URLRequest) {
         if let cID = clientId {
             request.addValue(cID, forHTTPHeaderField: kHeaderClientId)
         }
@@ -111,24 +132,32 @@ final class URLRequestBuilder {
             request.addValue("Bearer \(token)", forHTTPHeaderField: kHeaderAuthorization)
         }
     }
+    
+    private func defaultHeaders() -> [String: String] {
+        return ["Content-Type": "application/json"]
+    }
 }
 
 extension URLRequestBuilder {
     
     static func buildSecureAPIRequest<T: TWRequest>(for request: T) -> URLRequest {
         return URLRequestBuilder(service: .api, endpoint: request.endpoint)
+            .set(headers: ["Content-Type": "application/json"])
             .set(accessToken: Twitch.credentials.accessToken)
             .set(clientId: Twitch.credentials.clientId)
             .set(method: request.method)
             .set(params: request.params)
+            .set(body: request.body)
             .build()
     }
     
     static func buildOpenAPIRequest<T: TWRequest>(for request: T) -> URLRequest {
         return URLRequestBuilder(service: .api, endpoint: request.endpoint)
+            .set(headers: ["Content-Type": "application/json"])
             .set(clientId: Twitch.credentials.clientId)
             .set(method: request.method)
             .set(params: request.params)
+            .set(body: request.body)
             .build()
     }
     
